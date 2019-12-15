@@ -1,3 +1,3 @@
 export type DataProvider = {
-    [method: string]: () => Promise<any>,
-}
+    [method: string]: (params: any) => Promise<any>;
+};

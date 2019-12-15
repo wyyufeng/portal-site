@@ -25,25 +25,24 @@ const Picture: FunctionComponent<PictureProps> = ({
     webpSupport,
     webpFix = '_.webp',
     fallback = nopic,
+    alt = '图片',
     ...rest
 }) => {
     const imgRef = useRef<HTMLImageElement>(null);
     let webpSrc = src || fallback;
-    if (webpSupport) {
+    if (webpSupport && src) {
         webpSrc = src + webpFix;
     }
-    if (webpSrc) {
-        const [a, setA] = useState();
-    }
+
     const [fb, setFb] = useState(!Boolean(webpSrc));
     const [webpExist, setWebpExist] = useState(webpSupport);
-    const ref = useRef(webpExist);
+    const memoref = useRef(webpExist);
     const finalSrc = webpExist ? webpSrc : fb ? fallback : src;
 
     useEffect(() => {
         function onError() {
-            if (ref.current) {
-                ref.current = false;
+            if (memoref.current) {
+                memoref.current = false;
                 return setWebpExist(false);
             }
             setFb(true);
@@ -58,7 +57,7 @@ const Picture: FunctionComponent<PictureProps> = ({
             imgRef.current.onerror = onError;
         }
     }, [webpSrc]);
-    return <img {...rest} src={finalSrc} ref={imgRef}></img>;
+    return <img alt={alt} {...rest} src={finalSrc} ref={imgRef}></img>;
 };
 
 export default Picture;

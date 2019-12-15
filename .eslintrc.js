@@ -17,6 +17,6 @@ module.exports = {
     ],
     rules: {
         'no-use-before-define': 'off',
-        'prettier/prettier': 'error',
+        'prettier/prettier': 0,
     },
 };

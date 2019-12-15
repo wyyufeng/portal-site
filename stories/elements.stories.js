@@ -12,7 +12,6 @@ export const picture = () => (
             height: 200,
             objectFit: 'cover',
         }}
-        webpSupport
         src="http://static.iaminvoker.com/tig.jpg"
     ></Picture>
 );

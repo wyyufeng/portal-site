@@ -1,7 +1,5 @@
 import React, {
     FunctionComponent,
-    ComponentType,
-    useContext,
     ReactNode,
 } from 'react';
 import { History } from 'history';

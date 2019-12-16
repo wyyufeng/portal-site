@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import CryptoJS from 'crypto-js';
 
-export  function createHttpClient(
+export function createHttpClient(
     baseURL: string,
     appId: string,
     appKey: string
@@ -14,7 +14,7 @@ export  function createHttpClient(
     return httpClient;
 }
 
-export function encryptApiKey(key): string {
+export function encryptApiKey(key: string): string {
     const r = Math.random() + '';
     const randomSix = r.substr(-6, 6);
     const text = randomSix + +new Date();
@@ -26,7 +26,7 @@ export function encryptApiKey(key): string {
 }
 
 function authInterceptor(key: string, id: string) {
-    return req => {
+    return (req: any) => {
         req.headers.token = encryptApiKey(key);
         req.headers.appId = id;
         return req;

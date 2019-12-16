@@ -6,6 +6,7 @@ export interface IRoute {
     description?: string;
     url?: string;
     id: string;
+    path: string
 }
 
 export class RouteMap implements IRoute {
@@ -13,24 +14,18 @@ export class RouteMap implements IRoute {
     public children: Array<IRoute>;
     public name: string;
     public route: string;
-    public description: string | null;
-    public url: string | null;
+    public description: string | undefined;
+    public url: string | undefined;
     public id: string;
-    // constructor(
-    //     parent: IRoute,
-    //     children: Array<IRoute>,
-    //     name: string,
-    //     route: string,
-    //     description: string,
-    //     url: string,
-    //     id: string
-    // ) {
-    //     this.parent = parent;
-    //     this.children = children;
-    //     this.name = name;
-    //     this.route = route;
-    //     this.description = description;
-    //     this.url = url;
-    //     this.id = id;
-    // }
+    get path() {
+        return ''
+    }
+}
+
+export class RootRouteMap {
+    route: "/"
+    isRoot: true;
+    parent: null
+    name: "根路由"
+    path: "/"
 }

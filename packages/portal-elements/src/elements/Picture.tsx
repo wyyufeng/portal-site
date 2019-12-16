@@ -1,4 +1,4 @@
-/** @jsx jsx */
+///  <reference path="object-fit-images.d.ts"/>
 import React, {
     FunctionComponent,
     useRef,
@@ -6,45 +6,58 @@ import React, {
     ImgHTMLAttributes,
     DetailedHTMLProps,
     useState,
-    forwardRef
 } from 'react';
-import { jsx } from '@emotion/core';
 import objectFitImages from 'object-fit-images';
+import nopic from '../assets/default';
+
 export interface PictureProps
     extends DetailedHTMLProps<
-    ImgHTMLAttributes<HTMLImageElement>,
-    HTMLImageElement
+        ImgHTMLAttributes<HTMLImageElement>,
+        HTMLImageElement
     > {
     src: string;
     webpSupport?: boolean;
     webpFix?: string;
-    fallback?: string
+    fallback?: string;
 }
-
-const Picture: FunctionComponent<PictureProps> = forwardRef(({
+const Picture: FunctionComponent<PictureProps> = ({
     src,
     webpSupport,
-    webpFix,
-    fallback,
+    webpFix = '_.webp',
+    fallback = nopic,
+    alt = '图片',
     ...rest
 }) => {
-    const imgRef = useRef(null);
-    let webpSrc = src;
-    if (webpSupport) {
+    const imgRef = useRef<HTMLImageElement>(null);
+    let webpSrc = src || fallback;
+    if (webpSupport && src) {
         webpSrc = src + webpFix;
     }
 
-    const [fb, useFallback] = useState(Boolean(webpSrc));
+    const [fb, setFb] = useState(!Boolean(webpSrc));
+    const [webpExist, setWebpExist] = useState(webpSupport);
+    const memoref = useRef(webpExist);
+    const finalSrc = webpExist ? webpSrc : fb ? fallback : src;
 
     useEffect(() => {
-        imgRef.current.onload = () => {
+        function onError() {
+            if (memoref.current) {
+                memoref.current = false;
+                return setWebpExist(false);
+            }
+            setFb(true);
+        }
+
+        function onLoad() {
             objectFitImages(imgRef.current, { watchMQ: true });
-        };
-        imgRef.current.onerror = () => useFallback(true);
+        }
+
+        if (imgRef.current && webpSrc) {
+            imgRef.current.onload = onLoad;
+            imgRef.current.onerror = onError;
+        }
     }, [webpSrc]);
-    return (
-        <img {...rest} src={fb ? fallback : webpSrc} ref={imgRef}></img>
-    );
-})
+    return <img alt={alt} {...rest} src={finalSrc} ref={imgRef}></img>;
+};
 
 export default Picture;

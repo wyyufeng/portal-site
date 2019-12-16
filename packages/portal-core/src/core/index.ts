@@ -1,4 +1,2 @@
-import CorePortalContext from './CorePortalContext'
-export {
-    CorePortalContext
-}
+import CorePortalContext from './CorePortalContext';
+export { CorePortalContext };

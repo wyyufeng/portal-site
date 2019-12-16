@@ -1,7 +1,7 @@
-import { useContext } from 'react'
-import DataProviderContext from './DataProviderContext'
+import { useContext } from 'react';
+import DataProviderContext from './DataProviderContext';
 const useQueryList = () => {
-    const dataProvider = useContext(DataProviderContext)
-}
+    const dataProvider = useContext(DataProviderContext);
+};
 
-export default useQueryList
+export default useQueryList;

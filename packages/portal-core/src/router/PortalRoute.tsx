@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, RouteProps, matchPath, useLocation } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 export interface PortalRouteProps extends RouteProps {
-    exclude: Array<string>;
+    exclude: Array<string> | string;
 }
 
 const PortalRoute: FunctionComponent<PortalRouteProps> = ({

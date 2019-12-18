@@ -1,4 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -11,3 +14,5 @@ var PortalLink_1 = __importDefault(require("./PortalLink"));
 exports.PortalLink = PortalLink_1.default;
 var RouteMap_1 = require("./RouteMap");
 exports.RouteMap = RouteMap_1.RouteMap;
+exports.RootRouteMap = RouteMap_1.RootRouteMap;
+__export(require("react-router-dom"));

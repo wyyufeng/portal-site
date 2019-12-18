@@ -5,10 +5,8 @@ export interface CorePortalContextProps {
     history: History;
     dataProvider: DataProvider;
     children: ReactNode;
-    routerOptions: {
-        type: 'hash' | 'browser';
-        basename: string | undefined;
-    };
+    routerType: 'hash' | 'browser';
+    basename: string;
 }
 declare const CorePortalContext: FunctionComponent<CorePortalContextProps>;
 export default CorePortalContext;

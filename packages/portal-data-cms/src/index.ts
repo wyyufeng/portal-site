@@ -1,5 +1,5 @@
 import mapDataToRoute from './mapDataToRoute';
-import { RouteMap } from 'portal-core';
+import { RouteMap, RootRouteMap } from 'portal-core';
 export * from './httpClient';
 
 
@@ -17,10 +17,13 @@ export default (httpClient: any, gateway: string = 'sw'): CmsDataProvider => {
                 httpClient
                     .get(endPoint)
                     .then((res: any) => {
+                        const root = new RootRouteMap()
                         const routeMaps = res.data.data.records.map((r: any) => {
-                            return mapDataToRoute(r, null);
+                            console.log(res)
+                            return mapDataToRoute(r, root);
                         });
-                        resolve(routeMaps);
+                        root.children = routeMaps
+                        resolve(root);
                     })
                     .catch((err: Error) => reject(err));
             });

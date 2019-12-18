@@ -22,10 +22,26 @@ export class RouteMap implements IRoute {
     }
 }
 
+
+function toPath(route: IRoute): string {
+    if (route.parent) {
+        return route.route + toPath(route)
+    }
+    return route.route
+}
+
 export class RootRouteMap {
-    route: "/"
-    isRoot: true;
+    isRoot: Boolean;
     parent: null
-    name: "根路由"
-    path: "/"
+    children: Array<IRoute>
+    constructor() {
+        this.isRoot = true
+        this.parent = null;
+    }
+    public flat() {
+
+    }
+    public find() {
+
+    }
 }

@@ -1,4 +1,9 @@
-import { CorePortalContext } from "../../packages/portal-core/lib";
+import {
+  CorePortalContext,
+  Switch,
+  PortalRoute as Route,
+  PortalLink as Link
+} from "../../packages/portal-core/lib";
 import cms, { createHttpClient } from "../../packages/portal-data-cms";
 import React from "react";
 export default {
@@ -6,7 +11,20 @@ export default {
 };
 
 export const test = () => (
-  <CorePortalContext dataProvider={cms(http)}></CorePortalContext>
+  <CorePortalContext dataProvider={cms(http)}>
+    <Route exclude={["/"]} path="*">
+      <h1>hahaha</h1>
+    </Route>
+    <Switch>
+      <Route path="/">
+        <h1>
+          <Link to={"/"} href="http://www.baidu.com">
+            baidu
+          </Link>
+        </h1>
+      </Route>
+    </Switch>
+  </CorePortalContext>
 );
 const http = createHttpClient(
   "http://47.112.101.19:9990/",

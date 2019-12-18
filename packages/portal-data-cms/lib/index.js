@@ -7,6 +7,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mapDataToRoute_1 = __importDefault(require("./mapDataToRoute"));
+var portal_core_1 = require("portal-core");
 __export(require("./httpClient"));
 exports.default = (function (httpClient, gateway) {
     if (gateway === void 0) { gateway = 'sw'; }
@@ -17,10 +18,13 @@ exports.default = (function (httpClient, gateway) {
                 httpClient
                     .get(endPoint)
                     .then(function (res) {
+                    var root = new portal_core_1.RootRouteMap();
                     var routeMaps = res.data.data.records.map(function (r) {
-                        return mapDataToRoute_1.default(r, null);
+                        console.log(res);
+                        return mapDataToRoute_1.default(r, root);
                     });
-                    resolve(routeMaps);
+                    root.children = routeMaps;
+                    resolve(root);
                 })
                     .catch(function (err) { return reject(err); });
             });

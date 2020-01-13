@@ -7,7 +7,7 @@ import { DataProvider } from '../types';
 import DataProviderContext from '../dataProvider/DataProviderContext';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import { coreStore } from '../store';
+import { coreStore, createModels } from '../store';
 import createHistory from '../router/history';
 export interface CorePortalContextProps {
     history: History;
@@ -15,14 +15,18 @@ export interface CorePortalContextProps {
     children: ReactNode;
     routerType: 'hash' | 'browser';
     basename: string;
-
+    models: any[]
 }
 
 const CorePortalContext: FunctionComponent<CorePortalContextProps> = ({
     dataProvider,
     children,
-    routerType = "browser", basename
+    routerType = "browser", basename, models = []
 }) => {
+
+
+    coreStore.useModel(...createModels(models, dataProvider))
+
     return (
         <Provider store={coreStore.store}>
             <DataProviderContext.Provider value={dataProvider}>

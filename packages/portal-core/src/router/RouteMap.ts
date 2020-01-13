@@ -30,7 +30,13 @@ function toPath(route: IRoute): string {
     return route.route
 }
 
-export class RootRouteMap {
+export interface IRootRouteMap {
+    isRoot: Boolean
+    parent: null,
+    children: Array<IRoute>
+}
+
+export class RootRouteMap implements IRootRouteMap {
     isRoot: Boolean;
     parent: null
     children: Array<IRoute>

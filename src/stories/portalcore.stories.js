@@ -31,8 +31,3 @@ const http = createHttpClient(
   "9dda913f813c4138a8234435eebb8505",
   "76DE74CA877C1B564A0C937D69DA672E"
 );
-cms(http)
-  .queryRoutes("cn")
-  .then(res => {
-    console.log(res);
-  });

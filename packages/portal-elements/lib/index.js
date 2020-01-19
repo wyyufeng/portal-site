@@ -5,3 +5,5 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Picture_1 = __importDefault(require("./elements/Picture"));
 exports.Picture = Picture_1.default;
+var Header_1 = __importDefault(require("./layout/Header"));
+exports.Header = Header_1.default;

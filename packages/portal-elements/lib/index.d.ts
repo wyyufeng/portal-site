@@ -1,2 +1,3 @@
-import Picture from './elements/Picture';
-export { Picture };
+import Picture from "./elements/Picture";
+import Header from "./layout/Header";
+export { Picture, Header };

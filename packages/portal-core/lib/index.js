@@ -7,3 +7,5 @@ __export(require("./core"));
 __export(require("./dataProvider"));
 __export(require("./router"));
 __export(require("./store"));
+__export(require("./hooks"));
+__export(require("./model"));

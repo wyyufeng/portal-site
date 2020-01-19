@@ -18,7 +18,12 @@ export declare class RouteMap implements IRoute {
     id: string;
     get path(): string;
 }
-export declare class RootRouteMap {
+export interface IRootRouteMap {
+    isRoot: Boolean;
+    parent: null;
+    children: Array<IRoute>;
+}
+export declare class RootRouteMap implements IRootRouteMap {
     isRoot: Boolean;
     parent: null;
     children: Array<IRoute>;

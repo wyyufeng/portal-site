@@ -1,12 +1,11 @@
-import { FunctionComponent, ReactNode } from 'react';
-import { History } from 'history';
-import { DataProvider } from '../types';
+import { FunctionComponent, ReactNode } from "react";
+import { History } from "history";
+import { DataProvider } from "../types";
 export interface CorePortalContextProps {
     history: History;
     dataProvider: DataProvider;
     children: ReactNode;
-    routerType: 'hash' | 'browser';
-    basename: string;
+    models: any[];
 }
 declare const CorePortalContext: FunctionComponent<CorePortalContextProps>;
 export default CorePortalContext;

@@ -6,17 +6,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.23",
+    "@types/jest": "^24.0.25",
     "@types/node": "^12.12.17",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "history": "^4.10.1",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,9 +44,14 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-info": "^5.3.3",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
-    "lerna": "^3.18.4"
+    "awesome-typescript-loader": "^5.2.1",
+    "jest": "^24.9.0",
+    "lerna": "^3.18.4",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "ts-jest": "^24.3.0"
   }
 }

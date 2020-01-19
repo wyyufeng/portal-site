@@ -1,7 +1,6 @@
-import { RouteMap } from 'portal-core';
-export * from './httpClient';
-export interface CmsDataProvider {
-    queryRoutes: (resource: string) => Promise<Array<RouteMap>>;
-}
-declare const _default: (httpClient: any, gateway?: string) => CmsDataProvider;
-export default _default;
+import DataProvider from "./cmsDataProvider";
+export * from "./util";
+export * from "./mapper";
+export * from "./types";
+export * from "./httpClient";
+export default DataProvider;

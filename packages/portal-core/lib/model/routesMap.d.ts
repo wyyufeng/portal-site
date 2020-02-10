@@ -1,15 +1,15 @@
-import { IRootRouteMap } from "../router/RouteMap";
+import { RootRouteMap, IRootRouteMap } from "../router/RouteMap";
 import { DataProvider } from "../types";
 export interface routeMapsState {
     loading: Boolean;
-    routes: IRootRouteMap;
+    root: IRootRouteMap;
     error: null | Error;
 }
 declare const routeMaps: (dataProvider: DataProvider) => {
     namespace: string;
     state: {
         loading: boolean;
-        routes: any[];
+        root: RootRouteMap;
         error: any;
     };
     reducer: {
@@ -18,16 +18,16 @@ declare const routeMaps: (dataProvider: DataProvider) => {
             payload: any;
         }): {
             loading: boolean;
-            routes: any;
+            root: any;
         };
-        getRoutesFailure(_: any, { meta }: {
+        getRoutesFailure(state: any, { meta }: {
             meta: any;
         }): {
             loading: boolean;
-            routes: any[];
             error: any;
+            root: any;
         };
     };
-    effect(actions: any): () => Generator<import("redux-saga/effects").ForkEffect<never>, void, unknown>;
+    effect(actions: any): () => IterableIterator<import("@redux-saga/types").SimpleEffect<"FORK", import("redux-saga/effects").ForkEffectDescriptor>>;
 };
 export default routeMaps;

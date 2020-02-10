@@ -1,2 +1,3 @@
-declare const useRoutesMap: () => any;
+import { IRootRouteMap } from '../router/RouteMap';
+declare const useRoutesMap: () => IRootRouteMap;
 export default useRoutesMap;

@@ -4,7 +4,8 @@ import { ListItem } from "portal-data-cms";
 const useQueryList = (
   resource: string,
   page: number,
-  size: number
+  size: number,
+  onSuccess: () => any
 ): {
   records?: Array<ListItem>;
   total?: number;
@@ -33,6 +34,7 @@ const useQueryList = (
     });
     dataProvider({ resource, page, size })
       .then(data => {
+        onSuccess && onSuccess()
         setState({
           ...data,
           loaded: true,

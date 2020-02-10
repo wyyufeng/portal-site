@@ -1,16 +1,16 @@
-import { IRootRouteMap } from "../router/RouteMap";
+import { RootRouteMap, IRootRouteMap } from "../router/RouteMap";
 import { DataProvider } from "../types";
 import { put, call, takeLatest } from "redux-saga/effects";
 export interface routeMapsState {
   loading: Boolean;
-  routes: IRootRouteMap;
+  root: IRootRouteMap;
   error: null | Error;
 }
 const routeMaps = (dataProvider: DataProvider) => ({
   namespace: "routesMap",
   state: {
     loading: true,
-    routes: [],
+    root: new RootRouteMap(),
     error: null
   },
   reducer: {
@@ -20,20 +20,19 @@ const routeMaps = (dataProvider: DataProvider) => ({
     getRoutesSuccess(_, { payload }) {
       return {
         loading: false,
-        routes: payload
+        root: payload
       };
     },
-    getRoutesFailure(_, { meta }) {
+    getRoutesFailure(state, { meta }) {
       return {
         loading: false,
-        routes: [],
-        error: meta.error
+        error: meta.error,
+        root: state.root
       };
     }
   },
   effect(actions: any) {
     function* worker(action) {
-      console.log(action);
       try {
         const records = yield call(
           [dataProvider, "queryRoutes"],
@@ -44,7 +43,7 @@ const routeMaps = (dataProvider: DataProvider) => ({
         yield put(actions.getRoutesFailure(null, null, error));
       }
     }
-    return function*() {
+    return function* () {
       yield takeLatest(actions.getRoutes, worker);
     };
   }

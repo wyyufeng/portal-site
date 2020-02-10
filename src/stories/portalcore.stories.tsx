@@ -1,42 +1,96 @@
-// import {
-//   CorePortalContext,
-//   useQueryList,
-//   routesMap,
-//   coreStore,
-//   useRoutesMap
-// } from "../../packages/portal-core/lib";
-// import cms, { createHttpClient } from "../../packages/portal-data-cms/lib";
-// import React, { useEffect } from "react";
-// import { Header } from "../../packages/portal-elements/lib";
-// import { createBrowserHistory } from "history";
-// export default {
-//   title: "portal"
-// };
-// function Test() {
-//   const res = useQueryList("snews", 3, 10);
-//   console.log(useRoutesMap());
 
-//   useEffect(() => {
-//     coreStore.store.dispatch(coreStore.actions("routesMap").getRoutes("cn"));
-//   }, []);
-//   // console.log(res);
-//   // console.log(useQueryOneById("50044b68b6d14f7ba47a9cf4baf0354e"));
-//   return <></>;
-// }
-// console.log(routesMap);
-// export const test = () => (
-//   <CorePortalContext
-//     history={createBrowserHistory()}
-//     models={[routesMap]}
-//     dataProvider={cms(http)}
-//   >
-//     <Test></Test>
-//     <Header></Header>
-//   </CorePortalContext>
-// );
-// const http = createHttpClient(
-//   "http://47.112.101.19:9990/",
-//   "9dda913f813c4138a8234435eebb8505",
-//   "76DE74CA877C1B564A0C937D69DA672E"
-// );
-// console.log();
+
+import {
+    CorePortalContext,
+    routesMap,
+    RouteContext
+} from "portal-core";
+
+import cms, { createHttpClient } from "portal-data-cms";
+import React from "react";
+import { Nav, List, Picture, Breadcrumb, Carousel } from "portal-elements";
+import { createBrowserHistory } from "history";
+export default {
+    title: "portal"
+};
+export const test1 = () => (
+    <CorePortalContext
+        history={createBrowserHistory()}
+        models={[routesMap]}
+        dataProvider={cms(http)}
+    >
+        <RouteContext root={"cn"}>
+            {/* <Nav exclude={['slide']}></Nav> */}
+            <List pagination={{
+                pageCount: 8
+            }} resource="News" renderItem={item => {
+                return <List.Item>
+                    <List.Item.Meta
+                        avatar={<Picture src={item.imgSrc}></Picture>}
+                        title={<>{item.title}
+                            <h6 style={{
+                                margin: '7px 0 15px',
+                                padding: 0,
+                                fontSize: '14px',
+                                fontWeight: 'normal'
+                            }}>{item.publishDate}</h6>
+                        </>}
+                        description={item.$content}
+                    >
+
+                    </List.Item.Meta>
+
+                </List.Item>
+            }} />
+        </RouteContext>
+    </CorePortalContext>
+);
+
+export const test2 = () => {
+    return <CorePortalContext
+        history={createBrowserHistory()}
+        models={[routesMap]}
+        dataProvider={cms(http)}
+    >
+        <RouteContext root={"cn"}>
+            {/* <Nav exclude={['slide']}></Nav> */}
+            <List pagination={{
+                pageCount: 8
+            }} resource="News" renderItem={item => {
+                return <List.Item>
+                    <List.Item.Meta
+                        avatar={<span style={{
+                            display: "inline-block",
+                            width: 8, height: 8,
+                            border: '1px solid #dcb295',
+                            boxShadow: "0 0 0 1px #fff, 0 0 0 2px #dcb295",
+                            borderRadius: '50%'
+                        }}></span>}
+                        title={item.title}
+                    >
+
+                    </List.Item.Meta>
+                    <div>{item.publishDate}</div>
+                </List.Item>
+            }} />
+        </RouteContext>
+    </CorePortalContext>
+}
+
+export const test3 = () => {
+    return <CorePortalContext
+        history={createBrowserHistory()}
+        models={[routesMap]}
+        dataProvider={cms(http)}
+    >
+        <RouteContext root={"cn"}>
+            <Carousel></Carousel>
+        </RouteContext>
+    </CorePortalContext>
+}
+
+const http = createHttpClient(
+    "http://220.191.224.251:80/api/",
+    "ce72b99f3d484ef4ba927d656e89205b",
+    "C7843A866062AFC06F736F6DF793183B"
+);

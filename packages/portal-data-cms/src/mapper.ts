@@ -1,8 +1,9 @@
-import { getImgFromHtml } from "./util";
+import { getImgFromHtml, html2text } from "./util";
 import { ListItem } from "./types";
 export const listMapper = (source: Array<any>): Array<ListItem> => {
   return source.map(item => {
     return {
+      $$rawData: item,
       id: item.archivesId, // 文章id
       channelNo: item.channelNo, // 栏目编号
       channelName: item.channelName, // 栏目名称
@@ -14,8 +15,9 @@ export const listMapper = (source: Array<any>): Array<ListItem> => {
         item.thumbImg ? item.thumbImg : getImgFromHtml(item.content)
       ),
       appImgSrc: encodeURI(item.thumbAppImg ?? ""), // app缩略图，默认为'' 字符串作为 URI 进行编码
-      abstract: item.description, // 摘要内容
       content: item.content, // 详情
+      $content: html2text(item.content),
+      abstract: item.description, // 摘要内容
       source: item.source ?? "", // 文章来源
       linkUrl: item.linkUrl ?? "", // 自定义链接,
       isShowTitle: item.isShowTitle, // 是否显示标题
@@ -25,6 +27,7 @@ export const listMapper = (source: Array<any>): Array<ListItem> => {
 };
 export function listOneMapper(source: any): ListItem {
   return {
+    $$rawData: source,
     id: source.archivesId, // 文章id
     channelNo: source.channelNo, // 栏目编号
     channelName: source.channelName, // 栏目名称

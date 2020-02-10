@@ -27,12 +27,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var RouteMap_1 = require("../router/RouteMap");
 var effects_1 = require("redux-saga/effects");
 var routeMaps = function (dataProvider) { return ({
     namespace: "routesMap",
     state: {
         loading: true,
-        routes: [],
+        root: new RouteMap_1.RootRouteMap(),
         error: null
     },
     reducer: {
@@ -43,15 +44,15 @@ var routeMaps = function (dataProvider) { return ({
             var payload = _a.payload;
             return {
                 loading: false,
-                routes: payload
+                root: payload
             };
         },
-        getRoutesFailure: function (_, _a) {
+        getRoutesFailure: function (state, _a) {
             var meta = _a.meta;
             return {
                 loading: false,
-                routes: [],
-                error: meta.error
+                error: meta.error,
+                root: state.root
             };
         }
     },
@@ -61,24 +62,21 @@ var routeMaps = function (dataProvider) { return ({
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log(action);
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 4, , 6]);
+                        _a.trys.push([0, 3, , 5]);
                         return [4 /*yield*/, effects_1.call([dataProvider, "queryRoutes"], action.payload)];
-                    case 2:
+                    case 1:
                         records = _a.sent();
                         return [4 /*yield*/, effects_1.put(actions.getRoutesSuccess(records))];
-                    case 3:
+                    case 2:
                         _a.sent();
-                        return [3 /*break*/, 6];
-                    case 4:
+                        return [3 /*break*/, 5];
+                    case 3:
                         error_1 = _a.sent();
                         return [4 /*yield*/, effects_1.put(actions.getRoutesFailure(null, null, error_1))];
-                    case 5:
+                    case 4:
                         _a.sent();
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         }

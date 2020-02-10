@@ -11,10 +11,12 @@ export interface ListItem {
     appImgSrc: string;
     abstract: string;
     content: string;
+    $content?: string;
     source: string;
     linkUrl: string;
     isShowTitle: boolean;
     visitCount: number;
+    $$rawData: any;
 }
 export interface httpClient {
     get: (any: any) => Promise<any>;
@@ -39,5 +41,5 @@ export interface queryOneByIdResult {
 export interface CmsDataProvider {
     queryRoutes: (resource: string) => Promise<Array<RouteMap>>;
     queryList: (params: queryListParams) => Promise<queryListResult>;
-    queryOneById: (resource: string) => Promise<queryOneByIdResult>;
+    queryOneById: (resource: string, path?: string) => Promise<queryOneByIdResult>;
 }

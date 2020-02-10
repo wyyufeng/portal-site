@@ -14,16 +14,16 @@ var RouteMap = /** @class */ (function () {
 }());
 exports.RouteMap = RouteMap;
 function toPath(route) {
-    var _a;
     if (route.parent) {
         return toPath(route.parent) + "/" + route.route;
     }
-    return _a = route.route, (_a !== null && _a !== void 0 ? _a : "");
+    return route.route || "";
 }
 var RootRouteMap = /** @class */ (function () {
     function RootRouteMap() {
         this.isRoot = true;
         this.parent = null;
+        this.children = [];
     }
     RootRouteMap.prototype.flat = function () { };
     RootRouteMap.prototype.find = function () { };

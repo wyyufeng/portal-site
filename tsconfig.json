@@ -1,14 +1,15 @@
 {
-  "exclude": ["packages/**/lib", "src"],
-  "compilerOptions": {
-    "target": "ES5",
-    "module": "commonjs",
-    "lib": ["es2017", "dom"],
-    "allowJs": true,
-    "jsx": "react",
-    "noImplicitAny": false,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+    "exclude": ["packages/**/lib", "src"],
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "commonjs",
+        "lib": ["es2017", "dom"],
+        "allowJs": true,
+        "jsx": "react",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "types": ["@emotion/core"]
+    }
 }

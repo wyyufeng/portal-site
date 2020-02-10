@@ -13,3 +13,14 @@ exports.getImgFromHtml = function (content) {
     var src = arr[0].match(srcReg);
     return src[1];
 };
+exports.html2text = function (content, _a) {
+    var _b = _a === void 0 ? {
+        length: 100,
+        wordBreak: false
+    } : _a, length = _b.length, wordBreak = _b.wordBreak;
+    var _c;
+    var s = (_c = content) === null || _c === void 0 ? void 0 : _c.replace(/<[^>]+>|&[^>]+;/g, '').trim();
+    if (s === "" || s === undefined)
+        return "";
+    return s.substr(0, length) + '...';
+};

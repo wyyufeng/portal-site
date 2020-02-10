@@ -1,8 +1,10 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { useRoutesMap } from "portal-core";
 
-export default function Header() {
-  const routesMap = useRoutesMap();
-  console.log(routesMap);
-  return <div></div>;
+
+const Header: FunctionComponent = () => {
+  console.log(useRoutesMap());
+  return <header></header>
 }
+
+export default Header

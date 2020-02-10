@@ -9,3 +9,19 @@ export const getImgFromHtml = (content: string = ""): string => {
   const src = arr[0].match(srcReg);
   return src[1];
 };
+
+
+export const html2text = (content: string, {
+  length,
+  wordBreak
+}: {
+  length: number,
+  wordBreak: boolean
+} = {
+    length: 100,
+    wordBreak: false
+  }): string => {
+  const s = content?.replace(/<[^>]+>|&[^>]+;/g, '').trim();
+  if (s === "" || s === undefined) return "";
+  return s.substr(0, length) + '...'
+}

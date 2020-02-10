@@ -7,6 +7,7 @@ export interface IRoute {
   url?: string;
   id: string;
   path: string;
+  isHome: boolean
 }
 
 export class RouteMap implements IRoute {
@@ -17,6 +18,7 @@ export class RouteMap implements IRoute {
   public description: string | undefined;
   public url: string | undefined;
   public id: string;
+  public isHome: boolean
   get path() {
     return toPath(this);
   }
@@ -26,13 +28,14 @@ function toPath(route: IRoute): string {
   if (route.parent) {
     return toPath(route.parent) + "/" + route.route;
   }
-  return route.route ?? "";
+  return route.route || "";
 }
 
 export interface IRootRouteMap {
   isRoot: Boolean;
   parent: null;
   children: Array<IRoute>;
+
 }
 
 export class RootRouteMap implements IRootRouteMap {
@@ -42,7 +45,8 @@ export class RootRouteMap implements IRootRouteMap {
   constructor() {
     this.isRoot = true;
     this.parent = null;
+    this.children = [];
   }
-  public flat() {}
-  public find() {}
+  public flat() { }
+  public find() { }
 }

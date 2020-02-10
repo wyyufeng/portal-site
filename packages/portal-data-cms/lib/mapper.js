@@ -5,6 +5,7 @@ exports.listMapper = function (source) {
     return source.map(function (item) {
         var _a, _b, _c;
         return {
+            $$rawData: item,
             id: item.archivesId,
             channelNo: item.channelNo,
             channelName: item.channelName,
@@ -14,8 +15,9 @@ exports.listMapper = function (source) {
             parentChannelNo: item.parentChannelNo,
             imgSrc: encodeURI(item.thumbImg ? item.thumbImg : util_1.getImgFromHtml(item.content)),
             appImgSrc: encodeURI((_a = item.thumbAppImg, (_a !== null && _a !== void 0 ? _a : ""))),
-            abstract: item.description,
             content: item.content,
+            $content: util_1.html2text(item.content),
+            abstract: item.description,
             source: (_b = item.source, (_b !== null && _b !== void 0 ? _b : "")),
             linkUrl: (_c = item.linkUrl, (_c !== null && _c !== void 0 ? _c : "")),
             isShowTitle: item.isShowTitle,
@@ -26,6 +28,7 @@ exports.listMapper = function (source) {
 function listOneMapper(source) {
     var _a;
     return {
+        $$rawData: source,
         id: source.archivesId,
         channelNo: source.channelNo,
         channelName: source.channelName,

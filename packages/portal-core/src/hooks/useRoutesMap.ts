@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-
-const useRoutesMap = () => {
-  const routesMap = useSelector((state: any) => state.routesMap);
+import { IRootRouteMap } from '../router/RouteMap'
+const useRoutesMap = (): IRootRouteMap => {
+  const routesMap = useSelector((state: any) => state.routesMap.root);
   return routesMap;
 };
 

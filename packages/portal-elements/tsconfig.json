@@ -4,7 +4,8 @@
         "outDir": "lib",
         "rootDir": "src",
         "declaration": true,
-        "allowJs": false
+        "allowJs": false,
+        "types": ["@emotion/core"]
     },
     "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.spec.js"],
     "include": ["src"]

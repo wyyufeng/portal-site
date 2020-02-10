@@ -1,18 +1,23 @@
 module.exports = {
-  webpackFinal: async config => {
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: require.resolve("awesome-typescript-loader")
-        },
-        // Optional
-        {
-          loader: require.resolve("react-docgen-typescript-loader")
-        }
-      ]
-    });
-    config.resolve.extensions.push(".ts", ".tsx");
-    return config;
-  }
+    stories: ['../src/**/*.stories.tsx'],
+    addons: [
+        '@storybook/preset-create-react-app',
+        '@storybook/addon-actions',
+        '@storybook/addon-links'
+    ],
+    webpackFinal: async (config) => {
+        config.module.rules.push({
+            test: /\.(ts|tsx)$/,
+            loader: require.resolve('babel-loader'),
+            options: {
+                presets: [
+                    ['react-app', { flow: false, typescript: true }],
+                    require.resolve('@emotion/babel-preset-css-prop')
+                ]
+                // ... other configs
+            }
+        });
+        config.resolve.extensions.push('.ts', '.tsx');
+        return config;
+    }
 };

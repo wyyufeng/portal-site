@@ -29,11 +29,11 @@ var useQueryList = function (resource, page, size) {
     }), state = _a[0], setState = _a[1];
     react_1.useEffect(function () {
         setState(function (prevState) {
-            return __assign(__assign({}, prevState), { loading: true });
+            return __assign({}, prevState, { loading: true });
         });
         dataProvider({ resource: resource, page: page, size: size })
             .then(function (data) {
-            setState(__assign(__assign({}, data), { loaded: true, error: null, loading: false }));
+            setState(__assign({}, data, { loaded: true, error: null, loading: false }));
         })
             .catch(function (error) {
             setState({

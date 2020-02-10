@@ -57,10 +57,11 @@ exports.default = (function (httpClient, gateway) {
                 });
             });
         },
-        queryOneById: function (resource) {
+        queryOneById: function (resource, path) {
+            if (path === void 0) { path = "queryArchivesById"; }
             return new Promise(function (resolve, reject) {
                 return httpClient
-                    .get("/" + gateway + "-cms/api/queryArchivesById/" + resource)
+                    .get("/" + gateway + "-cms/api/" + path + "/" + resource)
                     .then(function (res) {
                     resolve({
                         data: mapper_1.listOneMapper(res.data.data),

@@ -1,3 +1,3 @@
 import CorePortalContext from './CorePortalContext';
-
-export { CorePortalContext };
+import RouteContext from './RouteContext'
+export { CorePortalContext, RouteContext };

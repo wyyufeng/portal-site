@@ -12,10 +12,12 @@ export interface ListItem {
   appImgSrc: string;
   abstract: string;
   content: string;
+  $content?: string
   source: string;
   linkUrl: string;
   isShowTitle: boolean;
   visitCount: number;
+  $$rawData: any
 }
 export interface httpClient {
   get: (any) => Promise<any>;

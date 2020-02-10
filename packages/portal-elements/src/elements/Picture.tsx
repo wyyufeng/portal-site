@@ -1,5 +1,7 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 ///  <reference path="object-fit-images.d.ts"/>
-import React, {
+import {
     FunctionComponent,
     useRef,
     useEffect,
@@ -9,16 +11,18 @@ import React, {
 } from 'react';
 import objectFitImages from 'object-fit-images';
 import nopic from '../assets/default';
-
+import cx from 'classnames';
 export interface PictureProps
     extends DetailedHTMLProps<
-        ImgHTMLAttributes<HTMLImageElement>,
-        HTMLImageElement
+    ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
     > {
     src: string;
     webpSupport?: boolean;
     webpFix?: string;
     fallback?: string;
+    base?: string
+    className?: string
 }
 const Picture: FunctionComponent<PictureProps> = ({
     src,
@@ -26,6 +30,8 @@ const Picture: FunctionComponent<PictureProps> = ({
     webpFix = '_.webp',
     fallback = nopic,
     alt = '图片',
+    base = '',
+    className,
     ...rest
 }) => {
     const imgRef = useRef<HTMLImageElement>(null);
@@ -57,7 +63,26 @@ const Picture: FunctionComponent<PictureProps> = ({
             imgRef.current.onerror = onError;
         }
     }, [webpSrc]);
-    return <img alt={alt} {...rest} src={finalSrc} ref={imgRef}></img>;
+    return <div className={cx("portal-picture", {
+        [className]: !!className
+    })} {...rest}
+        css={{
+            width: 260,
+            height: 160,
+            textAlign: "center",
+            display: "flex"
+
+        }}
+    >
+        <img
+            css={{
+                width: "100%",
+                maxHeight: '100%',
+                objectFit: "cover"
+
+            }}
+            alt={alt} src={base + finalSrc} ref={imgRef}></img>
+    </div>
 };
 
 export default Picture;

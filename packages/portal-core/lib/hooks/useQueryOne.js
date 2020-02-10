@@ -33,7 +33,7 @@ var useQueryOne = function (resource, path) {
         });
         dataProvider(resource, path)
             .then(function (data) {
-            setState(__assign(__assign({}, data), { loaded: true, loading: false, error: null }));
+            setState(__assign({}, data, { loaded: true, loading: false, error: null }));
         })
             .catch(function (err) {
             setState({

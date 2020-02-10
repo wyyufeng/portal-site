@@ -10,6 +10,7 @@ function mapDataToRoute(data, parent) {
     route.name = data.channelName;
     route.route = data.channelNo;
     route.parent = parent;
+    route.isHome = data.channelNo === 'Home';
     return route;
 }
 exports.default = mapDataToRoute;

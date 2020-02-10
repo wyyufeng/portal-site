@@ -7,6 +7,7 @@ export interface IRoute {
     url?: string;
     id: string;
     path: string;
+    isHome: boolean;
 }
 export declare class RouteMap implements IRoute {
     parent: IRoute;
@@ -16,7 +17,8 @@ export declare class RouteMap implements IRoute {
     description: string | undefined;
     url: string | undefined;
     id: string;
-    get path(): string;
+    isHome: boolean;
+    readonly path: string;
 }
 export interface IRootRouteMap {
     isRoot: Boolean;

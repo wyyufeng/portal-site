@@ -1,2 +1,3 @@
-/// <reference types="react" />
-export default function Header(): JSX.Element;
+import { FunctionComponent } from "react";
+declare const Header: FunctionComponent;
+export default Header;

@@ -35,7 +35,17 @@ export interface IRootRouteMap {
   isRoot: Boolean;
   parent: null;
   children: Array<IRoute>;
+  flat: () => Array<IRoute>;
+  findByPath: (path: string) => IRoute | undefined
 
+}
+const _flatResultCache: IRoute[] = [];
+function _flatRoutes(root: any): Array<IRoute> {
+  const children = root.children;
+  if (children.length > 0) {
+    return children.map((i: any) => _flatRoutes(i))
+  }
+  !root.isRoot && _flatResultCache.push(root);
 }
 
 export class RootRouteMap implements IRootRouteMap {
@@ -47,6 +57,12 @@ export class RootRouteMap implements IRootRouteMap {
     this.parent = null;
     this.children = [];
   }
-  public flat() { }
-  public find() { }
+  public flat(): Array<IRoute> {
+    if (_flatResultCache.length > 0) return _flatResultCache;
+    _flatRoutes(this);
+    return _flatResultCache;
+  }
+  public findByPath(path: string): IRoute | undefined {
+    return this.flat().find(route => route.path === path);
+  }
 }

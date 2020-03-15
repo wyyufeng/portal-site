@@ -5,7 +5,7 @@ const useQueryList = (
   resource: string,
   page: number,
   size: number,
-  onSuccess: () => any
+  onSuccess?: (any) => any
 ): {
   records?: Array<ListItem>;
   total?: number;
@@ -34,7 +34,7 @@ const useQueryList = (
     });
     dataProvider({ resource, page, size })
       .then(data => {
-        onSuccess && onSuccess()
+        onSuccess && onSuccess(data)
         setState({
           ...data,
           loaded: true,

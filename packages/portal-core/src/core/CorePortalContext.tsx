@@ -1,32 +1,29 @@
-import React, { FunctionComponent, ReactNode } from "react";
-import { History } from "history";
-import { DataProvider } from "../types";
-import DataProviderContext from "../dataProvider/DataProviderContext";
-import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
-import { coreStore, createModels } from "../store";
+import React, { FunctionComponent, ReactNode } from 'react';
+import { DataProvider } from '../types';
+import DataProviderContext from '../dataProvider/DataProviderContext';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import { coreStore, createModels } from '../store';
 export interface CorePortalContextProps {
-  history: History;
-  dataProvider: DataProvider;
-  children: ReactNode;
-  models: any[];
+    dataProvider: DataProvider;
+    children: ReactNode;
+    models: any[];
 }
 
 const CorePortalContext: FunctionComponent<CorePortalContextProps> = ({
-  dataProvider,
-  children,
-  models = [],
-  history
+    dataProvider,
+    children,
+    models = []
 }) => {
-  coreStore.useModel(...createModels(models, dataProvider));
-  coreStore.run();
+    coreStore.useModel(...createModels(models, dataProvider));
+    coreStore.run();
 
-  return (
-    <Provider store={coreStore.store}>
-      <DataProviderContext.Provider value={dataProvider}>
-        <Router history={history}>{children}</Router>
-      </DataProviderContext.Provider>
-    </Provider>
-  );
+    return (
+        <Provider store={coreStore.store}>
+            <DataProviderContext.Provider value={dataProvider}>
+                {children}
+            </DataProviderContext.Provider>
+        </Provider>
+    );
 };
 export default CorePortalContext;

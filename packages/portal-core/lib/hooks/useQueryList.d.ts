@@ -1,6 +1,5 @@
-import { ListItem } from "portal-data-cms";
-declare const useQueryList: (resource: string, page: number, size: number) => {
-    records?: ListItem[];
+declare const useQueryList: (resource: string, page: number, size: number, onSuccess?: (any: any) => any) => {
+    records?: any[];
     total?: number;
     error: any;
     loading: boolean;

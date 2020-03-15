@@ -16,7 +16,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var useDataProvider_1 = __importDefault(require("./useDataProvider"));
-var useQueryList = function (resource, page, size) {
+var useQueryList = function (resource, page, size, onSuccess) {
     var dataProvider = useDataProvider_1.default("queryList");
     var _a = react_1.useState({
         records: [],
@@ -33,6 +33,7 @@ var useQueryList = function (resource, page, size) {
         });
         dataProvider({ resource: resource, page: page, size: size })
             .then(function (data) {
+            onSuccess && onSuccess(data);
             setState(__assign({}, data, { loaded: true, error: null, loading: false }));
         })
             .catch(function (error) {

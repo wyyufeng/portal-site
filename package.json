@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@storybook/addon-console": "^1.2.1",
     "@storybook/cli": "^5.3.12",
+    "@storybook/preset-typescript": "^2.1.0",
+    "@storybook/theming": "^5.3.17",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.1.2",
@@ -20,7 +23,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,11 +50,12 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.12",
+    "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-info": "^5.3.3",
     "@storybook/addon-links": "^5.3.12",
     "@storybook/addons": "^5.3.12",
     "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.12",
+    "@storybook/react": "^5.3.17",
     "awesome-typescript-loader": "^5.2.1",
     "jest": "^24.9.0",
     "lerna": "^3.18.4",

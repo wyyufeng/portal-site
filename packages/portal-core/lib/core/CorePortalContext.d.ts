@@ -1,8 +1,6 @@
-import { FunctionComponent, ReactNode } from "react";
-import { History } from "history";
-import { DataProvider } from "../types";
+import { FunctionComponent, ReactNode } from 'react';
+import { DataProvider } from '../types';
 export interface CorePortalContextProps {
-    history: History;
     dataProvider: DataProvider;
     children: ReactNode;
     models: any[];

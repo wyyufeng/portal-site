@@ -52,7 +52,7 @@ var Item = function (_a) {
         }, className: "portal-list-item" }, children);
 };
 var List = function (_a) {
-    var resource = _a.resource, renderItem = _a.renderItem, _b = _a.pagination, pagination = _b === void 0 ? {} : _b, onListChange = _a.onListChange, _c = _a.size, size = _c === void 0 ? 8 : _c;
+    var resource = _a.resource, renderItem = _a.renderItem, _b = _a.pagination, pagination = _b === void 0 ? false : _b, onListChange = _a.onListChange, _c = _a.size, size = _c === void 0 ? 8 : _c;
     var location = portal_core_1.useLocation();
     var history = portal_core_1.useHistory();
     var params = new URLSearchParams(location.search);

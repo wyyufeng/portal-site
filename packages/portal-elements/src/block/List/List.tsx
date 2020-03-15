@@ -71,7 +71,7 @@ const Item: IItem<{}> = ({ children }) => {
   </li>
 }
 
-const List: IList<ListProps> = ({ resource, renderItem, pagination = {}, onListChange, size = 8 }) => {
+const List: IList<ListProps> = ({ resource, renderItem, pagination = false, onListChange, size = 8 }) => {
   const location = useLocation();
   const history = useHistory();
   const params = new URLSearchParams(location.search);

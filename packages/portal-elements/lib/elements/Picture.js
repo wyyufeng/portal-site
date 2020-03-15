@@ -21,57 +21,70 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/** @jsx jsx */
-var core_1 = require("@emotion/core");
+var React = __importStar(require("react"));
 ///  <reference path="object-fit-images.d.ts"/>
 var react_1 = require("react");
+require("lazysizes");
 var object_fit_images_1 = __importDefault(require("object-fit-images"));
 var default_1 = __importDefault(require("../assets/default"));
+var config_provider_1 = require("../config-provider");
 var classnames_1 = __importDefault(require("classnames"));
-var Picture = function (_a) {
+exports.Picture = function (_a) {
     var _b;
-    var src = _a.src, webpSupport = _a.webpSupport, _c = _a.webpFix, webpFix = _c === void 0 ? '_.webp' : _c, _d = _a.fallback, fallback = _d === void 0 ? default_1.default : _d, _e = _a.alt, alt = _e === void 0 ? '图片' : _e, _f = _a.base, base = _f === void 0 ? '' : _f, className = _a.className, rest = __rest(_a, ["src", "webpSupport", "webpFix", "fallback", "alt", "base", "className"]);
+    var source = _a.source, _c = _a.fallback, fallback = _c === void 0 ? default_1.default : _c, _d = _a.alt, alt = _d === void 0 ? '图片' : _d, _e = _a.base, base = _e === void 0 ? '' : _e, className = _a.className, rest = __rest(_a, ["source", "fallback", "alt", "base", "className"]);
     var imgRef = react_1.useRef(null);
-    var webpSrc = src || fallback;
-    if (webpSupport && src) {
-        webpSrc = src + webpFix;
-    }
-    var _g = react_1.useState(!Boolean(webpSrc)), fb = _g[0], setFb = _g[1];
-    var _h = react_1.useState(webpSupport), webpExist = _h[0], setWebpExist = _h[1];
-    var memoref = react_1.useRef(webpExist);
-    var finalSrc = webpExist ? webpSrc : fb ? fallback : src;
+    var config = react_1.useContext(config_provider_1.ConfigContext);
+    var _base = base || config.assetsBase;
+    var _fallback = fallback || config.pictureFallback;
+    // 手动指定的 src 属性将会失效
+    delete rest.src;
+    var srcs = react_1.useMemo(function () {
+        var result = Array.isArray(source)
+            ? source.filter(Boolean).map(function (i) { return encodeURI(_base + source); })
+            : [source].filter(Boolean).map(function (i) { return encodeURI(_base + source); });
+        // 考虑到占位图一般是本地图片
+        result.push(_fallback);
+        return result;
+    }, [source, _base, _fallback]);
     react_1.useEffect(function () {
+        var current = imgRef.current;
+        current.src = srcs.shift();
         function onError() {
-            if (memoref.current) {
-                memoref.current = false;
-                return setWebpExist(false);
-            }
-            setFb(true);
+            srcs.length && (current.src = srcs.shift());
         }
         function onLoad() {
-            object_fit_images_1.default(imgRef.current, { watchMQ: true });
+            object_fit_images_1.default(current, { watchMQ: true });
         }
-        if (imgRef.current && webpSrc) {
-            imgRef.current.onload = onLoad;
-            imgRef.current.onerror = onError;
+        if (current) {
+            current.onload = onLoad;
+            current.onerror = onError;
         }
-    }, [webpSrc]);
-    return core_1.jsx("div", __assign({ className: classnames_1.default("portal-picture", (_b = {},
+        // 将图片src 设置为 "" ,可以取消正在加载的图片
+        return function () { return (current.src = ''); };
+    }, [srcs]);
+    return (React.createElement("div", __assign({ className: classnames_1.default('portal-picture', (_b = {},
             _b[className] = !!className,
             _b)) }, rest, { css: {
-            width: 260,
-            height: 160,
-            textAlign: "center",
-            display: "flex"
+            textAlign: 'center',
+            display: 'flex'
         } }),
-        core_1.jsx("img", { css: {
-                width: "100%",
+        React.createElement("img", { css: {
+                width: '100%',
                 maxHeight: '100%',
-                objectFit: "cover"
-            }, alt: alt, src: base + finalSrc, ref: imgRef }));
+                objectFit: 'cover',
+                margin: 0,
+                padding: 0
+            }, alt: alt, ref: imgRef })));
 };
-exports.default = Picture;
+exports.default = exports.Picture;

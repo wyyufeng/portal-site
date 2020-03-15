@@ -1,35 +1,50 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { FunctionComponent, useEffect, useState, useCallback } from 'react';
+import { FunctionComponent, useRef, useCallback, useEffect } from 'react';
 import { useQueryList } from 'portal-core';
 import Picture from '../../elements/Picture';
+import CarouselLib from './lib';
 
-const Carousel: FunctionComponent = function () {
-    const { records } = useQueryList('slide', 1, 10);
+let ins: any = null;
 
-    useCallback(
-        () => {
+export interface ICarouselProps {
+    delay?: number;
+    duration?: number;
+}
 
-        },
-        [],
-    )
+const Carousel: FunctionComponent<ICarouselProps> = function({ delay = 200, duration = 6000 }) {
+    const wrapperRef = useRef(null);
+    const navRef = useRef(null);
+    const onSuccess = useCallback(() => {
+        setTimeout(() => {
+            ins = new CarouselLib({
+                container: wrapperRef.current,
+                duration,
+                nav: navRef.current
+            }).init();
+        }, delay);
+    }, [delay, duration]);
 
+    useEffect(() => {
+        return () => {
+            ins && ins.destroy();
+        };
+    }, []);
+    const { records } = useQueryList('slide', 1, 10, onSuccess);
     const items = records.map((item, i) => (
-
         <Picture
+            key={item.imgSrc}
             className="portal-carousel-slide"
-            base="http://220.191.224.251:80/file/"
-            src={item.imgSrc}
+            source={item.imgSrc}
             css={css`
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    z-index: 0;
-                `}
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            `}
         ></Picture>
-
     ));
     return (
         <div
@@ -54,7 +69,42 @@ const Carousel: FunctionComponent = function () {
                     z-index: 0;
                 `}
             >
-                <div className="portal-carousel-wrappr">{items}</div>
+                <div ref={wrapperRef} className="portal-carousel-wrappr">
+                    {items}
+                </div>
+                <div
+                    ref={navRef}
+                    className="portal-carousel-nav"
+                    css={css`
+                        position: absolute;
+                        bottom: 5%;
+                        width: 100%;
+                        left: 0;
+                        text-align: center;
+                        & > .portal-carousel-nav-item.active {
+                            background-color: red;
+                        }
+                    `}
+                >
+                    {records.map((i) => (
+                        <i
+                            className="portal-carousel-nav-item"
+                            css={css`
+                                display: inline-block;
+                                width: 27px;
+                                height: 24px;
+                                margin: 0 5px;
+                                line-height: 3px;
+                                text-align: center;
+                                vertical-align: middle;
+                                cursor: pointer;
+                                background-color: #fff;
+                                border-radius: 50%;
+                            `}
+                            key={i.imgSrc}
+                        ></i>
+                    ))}
+                </div>
             </div>
         </div>
     );

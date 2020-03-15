@@ -24,4 +24,4 @@ export const html2text = (content: string, {
   const s = content?.replace(/<[^>]+>|&[^>]+;/g, '').trim();
   if (s === "" || s === undefined) return "";
   return s.substr(0, length) + '...'
-}
+};

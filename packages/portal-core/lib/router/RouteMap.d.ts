@@ -24,12 +24,14 @@ export interface IRootRouteMap {
     isRoot: Boolean;
     parent: null;
     children: Array<IRoute>;
+    flat: () => Array<IRoute>;
+    findByPath: (path: string) => IRoute | undefined;
 }
 export declare class RootRouteMap implements IRootRouteMap {
     isRoot: Boolean;
     parent: null;
     children: Array<IRoute>;
     constructor();
-    flat(): void;
-    find(): void;
+    flat(): Array<IRoute>;
+    findByPath(path: string): IRoute | undefined;
 }

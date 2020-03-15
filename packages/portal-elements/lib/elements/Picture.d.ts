@@ -1,11 +1,14 @@
 import { FunctionComponent, ImgHTMLAttributes, DetailedHTMLProps } from 'react';
-export interface PictureProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
-    src: string;
-    webpSupport?: boolean;
-    webpFix?: string;
+import 'lazysizes';
+export interface Props extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
+    /**
+     * Some text to display
+     */
+    source: string | Array<string>;
     fallback?: string;
     base?: string;
     className?: string;
+    lazyload?: boolean;
 }
-declare const Picture: FunctionComponent<PictureProps>;
+export declare const Picture: FunctionComponent<Props>;
 export default Picture;

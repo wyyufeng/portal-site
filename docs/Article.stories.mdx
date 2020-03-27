@@ -1,0 +1,17 @@
+import { Meta, Story, Props, Preview, Source } from '@storybook/addon-docs/blocks';
+import { Article} from '../packages/portal-elements/src';
+import App from './App';
+
+<Meta title="Portal-Elements|Block-Article" component={Article} parameters={{ order: 1}}/>
+
+
+<Preview withSource="open">
+    <Story height={200} name="Article">
+        <App>
+            <Article resource="1"/>
+        </App>
+    </Story>
+</Preview>
+
+
+<Props of={Article} />

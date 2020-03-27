@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var CarouselLib = /** @class */ (function () {
     function CarouselLib(options) {
         this.container = options.container;
@@ -87,4 +85,4 @@ var CarouselLib = /** @class */ (function () {
     };
     return CarouselLib;
 }());
-exports.default = CarouselLib;
+export default CarouselLib;

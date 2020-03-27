@@ -1,4 +1,3 @@
-"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -10,15 +9,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
-var useDataProvider_1 = __importDefault(require("./useDataProvider"));
-var useQueryList = function (resource, page, size, onSuccess) {
-    var dataProvider = useDataProvider_1.default("queryList");
-    var _a = react_1.useState({
+import { useEffect, useState } from "react";
+import useDataProvider from "./useDataProvider";
+var useQueryList = function (resource, page, size, onSuccess, onFailure) {
+    var dataProvider = useDataProvider("queryList");
+    var _a = useState({
         records: [],
         total: 0,
         error: null,
@@ -27,7 +22,7 @@ var useQueryList = function (resource, page, size, onSuccess) {
         pages: 0,
         page: 1
     }), state = _a[0], setState = _a[1];
-    react_1.useEffect(function () {
+    useEffect(function () {
         setState(function (prevState) {
             return __assign({}, prevState, { loading: true });
         });
@@ -37,6 +32,7 @@ var useQueryList = function (resource, page, size, onSuccess) {
             setState(__assign({}, data, { loaded: true, error: null, loading: false }));
         })
             .catch(function (error) {
+            onFailure && onFailure(error);
             setState({
                 error: error,
                 loading: false,
@@ -51,4 +47,4 @@ var useQueryList = function (resource, page, size, onSuccess) {
     }, [resource, page]);
     return state;
 };
-exports.default = useQueryList;
+export default useQueryList;

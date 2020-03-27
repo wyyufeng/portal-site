@@ -1,6 +1,6 @@
 import { addParameters } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import '@storybook/addon-console';
+// import '@storybook/addon-console';
 addParameters({
     options: {
         theme: themes.dark,

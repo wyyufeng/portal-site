@@ -1,7 +1,10 @@
-declare const useQueryOne: (resource: string, path: string) => {
+import { ListItem } from "./types";
+declare const useQueryOne: (resource: string, path?: string) => {
     loading: boolean;
     loaded: boolean;
-    data: any;
+    data: ListItem | {
+        [prop: string]: any;
+    };
     error?: any;
 };
 export default useQueryOne;

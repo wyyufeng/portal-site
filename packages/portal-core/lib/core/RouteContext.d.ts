@@ -4,6 +4,6 @@ declare const RouteContext: FunctionComponent<{
     children: any;
     root: string;
     history: History;
-    baename: string;
+    baename?: string;
 }>;
 export default RouteContext;

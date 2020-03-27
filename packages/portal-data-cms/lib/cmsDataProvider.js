@@ -1,16 +1,8 @@
-"use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var mapDataToRoute_1 = __importDefault(require("./mapDataToRoute"));
-var portal_core_1 = require("portal-core");
-var mapper_1 = require("./mapper");
-__export(require("./httpClient"));
-exports.default = (function (httpClient, gateway) {
+import mapDataToRoute from "./mapDataToRoute";
+import { RootRouteMap } from "portal-core";
+import { listMapper, listOneMapper } from "./mapper";
+export * from "./httpClient";
+export default (function (httpClient, gateway) {
     if (gateway === void 0) { gateway = "sw"; }
     return {
         queryRoutes: function (resource) {
@@ -19,9 +11,9 @@ exports.default = (function (httpClient, gateway) {
                 httpClient
                     .get(endPoint)
                     .then(function (res) {
-                    var root = new portal_core_1.RootRouteMap();
+                    var root = new RootRouteMap();
                     var routeMaps = res.data.data.records.map(function (r) {
-                        return mapDataToRoute_1.default(r, root);
+                        return mapDataToRoute(r, root);
                     });
                     root.children = routeMaps;
                     resolve(root);
@@ -45,7 +37,7 @@ exports.default = (function (httpClient, gateway) {
                 })
                     .then(function (res) {
                     resolve({
-                        records: mapper_1.listMapper(res.data.data.records),
+                        records: listMapper(res.data.data.records),
                         pages: res.data.data.pages,
                         page: res.data.data.current,
                         total: res.data.data.total,
@@ -64,8 +56,33 @@ exports.default = (function (httpClient, gateway) {
                     .get("/" + gateway + "-cms/api/" + path + "/" + resource)
                     .then(function (res) {
                     resolve({
-                        data: mapper_1.listOneMapper(res.data.data),
-                        $$rawData: res.data.data
+                        data: listOneMapper(res.data.data),
+                    });
+                })
+                    .catch(function (err) {
+                    reject(err);
+                });
+            });
+        },
+        likeIt: function (resource) {
+            return new Promise(function (resolve, reject) {
+                return httpClient.get("/" + gateway + "-cms/api/doStarByArcId/" + resource)
+                    .then(function (res) {
+                    resolve({
+                        code: res.data.code
+                    });
+                })
+                    .catch(function (err) {
+                    reject(err);
+                });
+            });
+        },
+        unLikeIt: function (resource) {
+            return new Promise(function (resolve, reject) {
+                return httpClient.get("/" + gateway + "-cms/api/cancelStarByActId/" + resource)
+                    .then(function (res) {
+                    resolve({
+                        code: res.data.code
                     });
                 })
                     .catch(function (err) {

@@ -1,4 +1,3 @@
-"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -21,12 +20,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
-var react_router_dom_1 = require("react-router-dom");
+import React from 'react';
+import { Route, matchPath, useLocation } from 'react-router-dom';
 var PortalRoute = function (_a) {
     var exclude = _a.exclude, path = _a.path, rest = __rest(_a, ["exclude", "path"]);
     var isStar = path === '*';
@@ -38,12 +33,12 @@ var PortalRoute = function (_a) {
             ? exclude
             : [exclude]
         : null;
-    var location = react_router_dom_1.useLocation();
+    var location = useLocation();
     // 如果exclude 匹配了当前路径
     var match = excludePaths &&
-        excludePaths.some(function (path) { return react_router_dom_1.matchPath(path, location.pathname); });
+        excludePaths.some(function (path) { return matchPath(path, location.pathname); });
     if (match)
         return null;
-    return react_1.default.createElement(react_router_dom_1.Route, __assign({ path: path }, rest));
+    return React.createElement(Route, __assign({ path: path }, rest));
 };
-exports.default = PortalRoute;
+export default PortalRoute;

@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var RouteMap = /** @class */ (function () {
     function RouteMap() {
     }
@@ -12,7 +10,7 @@ var RouteMap = /** @class */ (function () {
     });
     return RouteMap;
 }());
-exports.RouteMap = RouteMap;
+export { RouteMap };
 function toPath(route) {
     if (route.parent) {
         return toPath(route.parent) + "/" + route.route;
@@ -44,4 +42,4 @@ var RootRouteMap = /** @class */ (function () {
     };
     return RootRouteMap;
 }());
-exports.RootRouteMap = RootRouteMap;
+export { RootRouteMap };

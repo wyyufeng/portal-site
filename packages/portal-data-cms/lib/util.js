@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getImgFromHtml = function (content) {
+export var getImgFromHtml = function (content) {
     if (content === void 0) { content = ""; }
     //   匹配图片
     var imgReg = /<img.*?(?:>|\/>)/gi;
@@ -13,7 +11,7 @@ exports.getImgFromHtml = function (content) {
     var src = arr[0].match(srcReg);
     return src[1];
 };
-exports.html2text = function (content, _a) {
+export var html2text = function (content, _a) {
     var _b = _a === void 0 ? {
         length: 100,
         wordBreak: false

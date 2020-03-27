@@ -1,9 +1,9 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-import { DataProvider } from "../types";
-import defaultDataProvider from "./defaultDataProvider";
+import { DataProvider } from '../types';
+import defaultDataProvider from './defaultDataProvider';
 const DataProviderContext = createContext<DataProvider>(defaultDataProvider);
 
-DataProviderContext.displayName = "DataProviderContext";
+DataProviderContext.displayName = 'Fuck';
 
 export default DataProviderContext;

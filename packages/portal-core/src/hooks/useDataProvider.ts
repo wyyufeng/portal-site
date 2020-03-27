@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import DataProviderContext from "../dataProvider/DataProviderContext";
 
-const useDataProvider = (method: string): Function => {
+export type Method = (any, ...args: any[]) => Promise<any>;
+const useDataProvider = (method?: string): Method => {
   const dataProvider = useContext(DataProviderContext);
-  return dataProvider[method];
+  return method ? dataProvider[method] : dataProvider;
 };
 
 export default useDataProvider;

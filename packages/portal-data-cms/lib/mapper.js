@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = require("./util");
-exports.listMapper = function (source) {
+import { getImgFromHtml, html2text } from "./util";
+export var listMapper = function (source) {
     return source.map(function (item) {
         var _a, _b, _c;
         return {
@@ -13,10 +11,10 @@ exports.listMapper = function (source) {
             subTitle: item.subTitle,
             publishDate: item.publishDate.split(" ")[0],
             parentChannelNo: item.parentChannelNo,
-            imgSrc: encodeURI(item.thumbImg ? item.thumbImg : util_1.getImgFromHtml(item.content)),
+            imgSrc: encodeURI(item.thumbImg ? item.thumbImg : getImgFromHtml(item.content)),
             appImgSrc: encodeURI((_a = item.thumbAppImg, (_a !== null && _a !== void 0 ? _a : ""))),
             content: item.content,
-            $content: util_1.html2text(item.content),
+            $content: html2text(item.content),
             abstract: item.description,
             source: (_b = item.source, (_b !== null && _b !== void 0 ? _b : "")),
             linkUrl: (_c = item.linkUrl, (_c !== null && _c !== void 0 ? _c : "")),
@@ -25,7 +23,7 @@ exports.listMapper = function (source) {
         };
     });
 };
-function listOneMapper(source) {
+export function listOneMapper(source) {
     var _a;
     return {
         $$rawData: source,
@@ -36,7 +34,7 @@ function listOneMapper(source) {
         subTitle: source.subTitle,
         publishDate: source.publishDate.split(" ")[0],
         parentChannelNo: source.parentChannelNo,
-        imgSrc: encodeURI(source.thumbImg ? source.thumbImg : util_1.getImgFromHtml(source.content)),
+        imgSrc: encodeURI(source.thumbImg ? source.thumbImg : getImgFromHtml(source.content)),
         appImgSrc: encodeURI((_a = source.thumbAppImg, (_a !== null && _a !== void 0 ? _a : ""))),
         abstract: source.description,
         content: source.content,
@@ -46,4 +44,3 @@ function listOneMapper(source) {
         visitCount: source.visitCount
     };
 }
-exports.listOneMapper = listOneMapper;

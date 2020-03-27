@@ -1,5 +1,6 @@
-declare const useQueryList: (resource: string, page: number, size: number, onSuccess?: (any: any) => any) => {
-    records?: any[];
+import { ListItem } from "./types";
+declare const useQueryList: (resource: string, page: number, size: number, onSuccess?: (any: any) => any, onFailure?: (any: any) => any) => {
+    records?: ListItem[];
     total?: number;
     error: any;
     loading: boolean;

@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React, { FunctionComponent } from "react";
-import { ListItem } from "portal-data-cms";
+import React, { FunctionComponent } from 'react';
+import { ListItem } from 'portal-data-cms';
 import '@mpfe/pager/dist/index.css';
-import { PagerProps } from "@mpfe/pager/dist/Pager";
+import { PagerProps } from '@mpfe/pager/dist/Pager';
 export interface ListProps {
     resource: string;
     size?: number;

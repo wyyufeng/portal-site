@@ -1,3 +1,36 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Portal-Site|Start"  />
+<Meta title="Portal-Site|Start"  parameters={{ order: 2}}/>
+
+# Getting Started
+
+### 📦 Installing 
+---
+使用 npm/yarn 安装
+- npm: `npm i portal-core portal-data-cms portal-elements`
+- yarn: `yarn add portal-core portal-data-cms portal-elements`
+
+### Quick Start
+
+```jsx
+import cms, { createHttpClient } from '../packages/portal-data-cms/src';
+import { PortalContext, routesMap, RouteContext } from '../packages/portal-core/src';
+
+// 1. 创建 dataProvider
+ const http = createHttpClient(
+    api,
+    appid,
+    appkey
+);
+const dataProvider = cms(http)
+// 2. 创建上下文
+
+<PortalContext models={[routesMap]} dataProvider={dataProvider}>
+    <RouteContext history={createBrowserHistory()} root={'cn'}>
+       // ...
+    </RouteContext>
+</PortalContext>
+```
+
+### development
+

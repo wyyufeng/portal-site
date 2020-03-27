@@ -36,10 +36,15 @@ export interface queryListResult {
 }
 export interface queryOneByIdResult {
     data: ListItem | {};
-    $$rawData: any;
 }
 export interface CmsDataProvider {
     queryRoutes: (resource: string) => Promise<Array<RouteMap>>;
     queryList: (params: queryListParams) => Promise<queryListResult>;
     queryOneById: (resource: string, path?: string) => Promise<queryOneByIdResult>;
+    likeIt: (resource: string) => Promise<{
+        code: number;
+    }>;
+    unLikeIt: (resource: string) => Promise<{
+        code: number;
+    }>;
 }

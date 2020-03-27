@@ -1,6 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+export default {
     queryRoutes: function () { return Promise.resolve({ data: [] }); },
-    queryList: function () { return Promise.resolve({ records: [] }); }
+    queryList: function () { return Promise.resolve({ records: [] }); },
+    queryOneById: function () { return Promise.resolve({}); }
 };

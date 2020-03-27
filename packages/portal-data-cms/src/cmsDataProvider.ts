@@ -60,13 +60,39 @@ export default (
           .then((res: any) => {
             resolve({
               data: listOneMapper(res.data.data),
-              $$rawData: res.data.data
+              // $$rawData: res.data.data
             });
           })
           .catch(err => {
             reject(err);
           });
       });
+    },
+    likeIt(resource) {
+      return new Promise((resolve, reject) => {
+        return httpClient.get(`/${gateway}-cms/api/doStarByArcId/${resource}`)
+          .then((res: any) => {
+            resolve({
+              code: res.data.code
+            })
+          })
+          .catch(err => {
+            reject(err);
+          });
+      })
+    },
+    unLikeIt(resource) {
+      return new Promise((resolve, reject) => {
+        return httpClient.get(`/${gateway}-cms/api/cancelStarByActId/${resource}`)
+          .then((res: any) => {
+            resolve({
+              code: res.data.code
+            })
+          })
+          .catch(err => {
+            reject(err);
+          });
+      })
     }
   };
 };

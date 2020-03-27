@@ -17,7 +17,6 @@ const CorePortalContext: FunctionComponent<CorePortalContextProps> = ({
 }) => {
     coreStore.useModel(...createModels(models, dataProvider));
     coreStore.run();
-
     return (
         <Provider store={coreStore.store}>
             <DataProviderContext.Provider value={dataProvider}>

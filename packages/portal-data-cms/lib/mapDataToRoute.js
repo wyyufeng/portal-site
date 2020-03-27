@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var portal_core_1 = require("portal-core");
-function mapDataToRoute(data, parent) {
-    var route = new portal_core_1.RouteMap();
+import { RouteMap } from 'portal-core';
+export default function mapDataToRoute(data, parent) {
+    var route = new RouteMap();
     var children = data.subChannel
         ? data.subChannel.map(function (i) { return mapDataToRoute(i, route); })
         : [];
@@ -13,4 +11,3 @@ function mapDataToRoute(data, parent) {
     route.isHome = data.channelNo === 'Home';
     return route;
 }
-exports.default = mapDataToRoute;

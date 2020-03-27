@@ -1,4 +1,3 @@
-"use strict";
 var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
@@ -25,13 +24,12 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-var core_1 = require("@emotion/core");
+import { jsx, css } from '@emotion/core';
 var Center = function (_a) {
     var _b = _a.tag, tag = _b === void 0 ? 'div' : _b, _c = _a.width, width = _c === void 0 ? 1250 : _c, children = _a.children, rest = __rest(_a, ["tag", "width", "children"]);
     // const X = tag;
-    return (core_1.jsx("div", __assign({ className: "portal-center", css: core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n                margin: 0 auto;\n                width: ", "px;\n            "], ["\n                margin: 0 auto;\n                width: ", "px;\n            "])), width) }, rest), children));
+    return (jsx("div", __assign({ className: "portal-center", css: css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n                margin: 0 auto;\n                width: ", "px;\n            "], ["\n                margin: 0 auto;\n                width: ", "px;\n            "])), width) }, rest), children));
 };
-exports.default = Center;
+export default Center;
 var templateObject_1;

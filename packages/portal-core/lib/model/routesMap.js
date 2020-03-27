@@ -1,4 +1,3 @@
-"use strict";
 var __generator = (this && this.__generator) || function (thisArg, body) {
     var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
     return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
@@ -26,14 +25,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var RouteMap_1 = require("../router/RouteMap");
-var effects_1 = require("redux-saga/effects");
+import { RootRouteMap } from "../router/RouteMap";
+import { put, call, takeLatest } from "redux-saga/effects";
 var routeMaps = function (dataProvider) { return ({
     namespace: "routesMap",
     state: {
         loading: true,
-        root: new RouteMap_1.RootRouteMap(),
+        root: new RootRouteMap(),
         error: null
     },
     reducer: {
@@ -63,16 +61,16 @@ var routeMaps = function (dataProvider) { return ({
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 5]);
-                        return [4 /*yield*/, effects_1.call([dataProvider, "queryRoutes"], action.payload)];
+                        return [4 /*yield*/, call([dataProvider, "queryRoutes"], action.payload)];
                     case 1:
                         records = _a.sent();
-                        return [4 /*yield*/, effects_1.put(actions.getRoutesSuccess(records))];
+                        return [4 /*yield*/, put(actions.getRoutesSuccess(records))];
                     case 2:
                         _a.sent();
                         return [3 /*break*/, 5];
                     case 3:
                         error_1 = _a.sent();
-                        return [4 /*yield*/, effects_1.put(actions.getRoutesFailure(null, null, error_1))];
+                        return [4 /*yield*/, put(actions.getRoutesFailure(null, null, error_1))];
                     case 4:
                         _a.sent();
                         return [3 /*break*/, 5];
@@ -83,7 +81,7 @@ var routeMaps = function (dataProvider) { return ({
         return function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, effects_1.takeLatest(actions.getRoutes, worker)];
+                    case 0: return [4 /*yield*/, takeLatest(actions.getRoutes, worker)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -92,4 +90,4 @@ var routeMaps = function (dataProvider) { return ({
         };
     }
 }); };
-exports.default = routeMaps;
+export default routeMaps;

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import useDataProvider from "./useDataProvider";
-import { ListItem } from "portal-data-cms";
+import { ListItem } from "./types";
 const useQueryList = (
   resource: string,
   page: number,
   size: number,
-  onSuccess?: (any) => any
+  onSuccess?: (any) => any,
+  onFailure?: (any) => any
 ): {
   records?: Array<ListItem>;
   total?: number;
@@ -43,6 +44,7 @@ const useQueryList = (
         });
       })
       .catch(error => {
+        onFailure && onFailure(error);
         setState({
           error,
           loading: false,

@@ -1,4 +1,3 @@
-"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -10,21 +9,17 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
-var useDataProvider_1 = __importDefault(require("./useDataProvider"));
+import { useEffect, useState } from "react";
+import useDataProvider from "./useDataProvider";
 var useQueryOne = function (resource, path) {
-    var dataProvider = useDataProvider_1.default("queryOneById");
-    var _a = react_1.useState({
+    var dataProvider = useDataProvider("queryOneById");
+    var _a = useState({
         loading: true,
         loaded: false,
         data: {},
         error: null
     }), state = _a[0], setState = _a[1];
-    react_1.useEffect(function () {
+    useEffect(function () {
         setState({
             data: {},
             loaded: false,
@@ -47,4 +42,4 @@ var useQueryOne = function (resource, path) {
     }, [resource]);
     return state;
 };
-exports.default = useQueryOne;
+export default useQueryOne;

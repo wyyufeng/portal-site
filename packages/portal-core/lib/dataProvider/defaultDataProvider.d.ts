@@ -5,5 +5,6 @@ declare const _default: {
     queryList: () => Promise<{
         records: any[];
     }>;
+    queryOneById: () => Promise<{}>;
 };
 export default _default;

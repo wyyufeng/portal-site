@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { ListItem } from "portal-data-cms";
+import { ListItem } from "./types";
 import useDataProvider from "./useDataProvider";
 
 const useQueryOne = (
   resource: string,
-  path: string
+  path?: string
 ): {
   loading: boolean;
   loaded: boolean;
-  data: ListItem | {};
+  data: ListItem | { [prop: string]: any };
   error?: any;
 } => {
   const dataProvider = useDataProvider("queryOneById");

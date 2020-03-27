@@ -7,6 +7,5 @@
         "allowJs": false,
         "types": ["@emotion/core"]
     },
-    "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.spec.js"],
     "include": ["src"]
 }

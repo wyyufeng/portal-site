@@ -5,5 +5,5 @@ function createModels(models: Array<Function>, dataProvider): Array<Model> {
   return models.map(model => model(dataProvider));
 }
 
-const coreStore = mpa();
+const coreStore = mpa({ silence: true });
 export { coreStore, createModels };

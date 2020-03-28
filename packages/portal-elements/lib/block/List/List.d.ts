@@ -1,25 +1,29 @@
-/** @jsx jsx */
-import React, { FunctionComponent } from 'react';
-import { ListItem } from 'portal-data-cms';
 import '@mpfe/pager/dist/index.css';
 import { PagerProps } from '@mpfe/pager/dist/Pager';
+import { ListItem } from 'portal-data-cms';
+import React, { FunctionComponent } from 'react';
 export interface ListProps {
+    /**
+     * 列表id
+     */
     resource: string;
-    size?: number;
-    renderItem?: (item: ListItem, index: number) => React.ReactNode;
+    /**
+     * 列表项渲染函数
+     */
+    renderItem: (item: ListItem, index: number) => React.ReactNode;
+    /**
+     * 分页组件props，参考 Pager
+     */
     pagination?: false | PagerProps;
+    /**
+     * 每页条数
+     */
+    size?: number;
+    /**
+     * 当列表数据改变时的回调函数
+     */
     onListChange?: () => any;
 }
-export interface IList<T> extends FunctionComponent<T> {
+export declare const List: FunctionComponent<ListProps> & {
     Item: any;
-}
-export interface IItem<T> extends FunctionComponent<T> {
-    Meta: any;
-}
-export interface MetaProps {
-    avatar?: React.ReactNode;
-    title?: React.ReactNode;
-    description?: React.ReactNode;
-}
-declare const List: IList<ListProps>;
-export default List;
+};

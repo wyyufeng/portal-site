@@ -1,11 +1,12 @@
 import * as React from 'react';
 ///  <reference path="object-fit-images.d.ts"/>
-import { FunctionComponent, useRef, useEffect, useContext, useMemo } from 'react';
+import { FunctionComponent, useRef, useEffect, useContext, useMemo, useState } from 'react';
 import 'lazysizes';
 import objectFitImages from 'object-fit-images';
 import nopic from '../assets/default';
 import { ConfigContext } from '../config-provider';
 import cx from 'classnames';
+import { skeleton_animation } from '../styles';
 export interface Props {
     /**
      * 图片资源地址,如果传递数组，将显示第一个加载成功的图片，或者显示fallback
@@ -43,7 +44,7 @@ export const Picture: FunctionComponent<Props> = ({
 }) => {
     const imgRef = useRef<HTMLImageElement>(null);
     const config = useContext(ConfigContext);
-
+    const [loading, setLoading] = useState(true);
     const _base = base || config.assetsBase;
     const _fallback = fallback || config.pictureFallback;
 
@@ -69,6 +70,7 @@ export const Picture: FunctionComponent<Props> = ({
 
         function onLoad() {
             objectFitImages(current, { watchMQ: true });
+            setLoading(false);
         }
 
         if (current) {
@@ -85,10 +87,14 @@ export const Picture: FunctionComponent<Props> = ({
                 [className]: !!className
             })}
             {...rest}
-            css={{
-                textAlign: 'center',
-                display: 'flex'
-            }}
+            css={[
+                {
+                    textAlign: 'center',
+                    display: 'flex',
+                    borderRadius: '2px'
+                },
+                loading && skeleton_animation
+            ]}
         >
             <img
                 css={{
@@ -96,7 +102,8 @@ export const Picture: FunctionComponent<Props> = ({
                     maxHeight: '100%',
                     objectFit: 'cover',
                     margin: 0,
-                    padding: 0
+                    padding: 0,
+                    borderRadius: 'inherit'
                 }}
                 alt={alt}
                 ref={imgRef}

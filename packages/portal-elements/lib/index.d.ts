@@ -9,4 +9,5 @@ import Carousel from './block/Carousel';
 import Center from './layout/Center';
 import ListView from './view/ListView';
 import { ConfigContext, ConfigConsumer, ConfigProvider } from './config-provider';
-export { Picture, Header, List, Nav, Breadcrumb, Carousel, ConfigContext, ConfigConsumer, ConfigProvider, Center, ListView, Article, Like };
+import Pager from '@mpfe/pager';
+export { Picture, Header, List, Nav, Breadcrumb, Carousel, ConfigContext, ConfigConsumer, ConfigProvider, Center, ListView, Article, Like, Pager };

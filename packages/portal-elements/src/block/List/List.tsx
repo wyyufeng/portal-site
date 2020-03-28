@@ -1,100 +1,36 @@
-/** @jsx jsx */
-import React, { FunctionComponent, useState } from 'react';
-import { useQueryList, useLocation, useHistory } from 'portal-core';
-import { ListItem } from 'portal-data-cms';
-import { jsx } from '@emotion/core';
 import Pager from '@mpfe/pager';
 import '@mpfe/pager/dist/index.css';
 import { PagerProps } from '@mpfe/pager/dist/Pager';
+import { useHistory, useLocation, useQueryList } from 'portal-core';
+import { ListItem } from 'portal-data-cms';
+import React, { FunctionComponent, useState } from 'react';
+import { Item } from './Item';
 export interface ListProps {
+    /**
+     * 列表id
+     */
     resource: string;
-    size?: number;
-    renderItem?: (item: ListItem, index: number) => React.ReactNode;
+    /**
+     * 列表项渲染函数
+     */
+    renderItem: (item: ListItem, index: number) => React.ReactNode;
+    /**
+     * 分页组件props，参考 Pager
+     */
     pagination?: false | PagerProps;
+    /**
+     * 每页条数
+     */
+    size?: number;
+    /**
+     * 当列表数据改变时的回调函数
+     */
     onListChange?: () => any;
 }
-export interface IList<T> extends FunctionComponent<T> {
+
+export const List: FunctionComponent<ListProps> & {
     Item: any;
-}
-
-export interface IItem<T> extends FunctionComponent<T> {
-    Meta: any;
-}
-
-export interface MetaProps {
-    avatar?: React.ReactNode;
-    title?: React.ReactNode;
-    description?: React.ReactNode;
-}
-
-const Meta: FunctionComponent<MetaProps> = ({ avatar, title, description }) => {
-    return (
-        <div
-            className="portal-list-item-meta"
-            css={{
-                display: 'flex',
-                flex: 1,
-                alignItems: 'center'
-            }}
-        >
-            <div className="portal-list-item-meta-avatar">{avatar}</div>
-            <div
-                className="portal-list-item-meta-content"
-                css={{
-                    flex: '1 0',
-                    marginLeft: 40
-                }}
-            >
-                <h4
-                    css={{
-                        lineHeight: '22px',
-                        fontSize: '16px',
-                        margin: '4px 0 4px 0',
-                        fontWeight: 400,
-                        color: '#595757'
-                    }}
-                    className="portal-list-item-meta-title"
-                >
-                    {title}
-                </h4>
-                <div
-                    className="portal-list-item-meta-description"
-                    css={{
-                        lineHeight: '1.8',
-                        textAlign: 'justify',
-                        fontsize: '14px',
-                        color: '#898989'
-                    }}
-                >
-                    {description}
-                </div>
-            </div>
-        </div>
-    );
-};
-const Item: IItem<{}> = ({ children }) => {
-    return (
-        <li
-            css={{
-                display: 'flex',
-                padding: '25px 0',
-                justifyContent: 'space-between',
-                borderBottom: '1px solid #e8ebed'
-            }}
-            className="portal-list-item"
-        >
-            {children}
-        </li>
-    );
-};
-
-const List: IList<ListProps> = ({
-    resource,
-    renderItem,
-    pagination = false,
-    onListChange,
-    size = 8
-}) => {
+} = ({ resource, renderItem, pagination = false, onListChange, size = 8 }) => {
     const location = useLocation();
     const history = useHistory();
     const params = new URLSearchParams(location.search);
@@ -154,7 +90,8 @@ const List: IList<ListProps> = ({
     );
 };
 
-Item.Meta = Meta;
-List.Item = Item;
+List.defaultProps = {
+    renderItem: (item) => <Item>{item.title}</Item>
+};
 
-export default List;
+List.Item = Item;

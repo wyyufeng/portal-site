@@ -22,17 +22,19 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import * as React from 'react';
 ///  <reference path="object-fit-images.d.ts"/>
-import { useRef, useEffect, useContext, useMemo } from 'react';
+import { useRef, useEffect, useContext, useMemo, useState } from 'react';
 import 'lazysizes';
 import objectFitImages from 'object-fit-images';
 import nopic from '../assets/default';
 import { ConfigContext } from '../config-provider';
 import cx from 'classnames';
+import { skeleton_animation } from '../styles';
 export var Picture = function (_a) {
     var _b;
     var source = _a.source, _c = _a.fallback, fallback = _c === void 0 ? nopic : _c, base = _a.base, alt = _a.alt, className = _a.className, Wrapper = _a.wrapper, rest = __rest(_a, ["source", "fallback", "base", "alt", "className", "wrapper"]);
     var imgRef = useRef(null);
     var config = useContext(ConfigContext);
+    var _d = useState(true), loading = _d[0], setLoading = _d[1];
     var _base = base || config.assetsBase;
     var _fallback = fallback || config.pictureFallback;
     var srcs = useMemo(function () {
@@ -55,6 +57,7 @@ export var Picture = function (_a) {
         }
         function onLoad() {
             objectFitImages(current, { watchMQ: true });
+            setLoading(false);
         }
         if (current) {
             current.onload = onLoad;
@@ -66,16 +69,21 @@ export var Picture = function (_a) {
     }, [srcs]);
     return (React.createElement(Wrapper, __assign({ className: cx('portal-picture', (_b = {},
             _b[className] = !!className,
-            _b)) }, rest, { css: {
-            textAlign: 'center',
-            display: 'flex'
-        } }),
+            _b)) }, rest, { css: [
+            {
+                textAlign: 'center',
+                display: 'flex',
+                borderRadius: '2px'
+            },
+            loading && skeleton_animation
+        ] }),
         React.createElement("img", { css: {
                 width: '100%',
                 maxHeight: '100%',
                 objectFit: 'cover',
                 margin: 0,
-                padding: 0
+                padding: 0,
+                borderRadius: 'inherit'
             }, alt: alt, ref: imgRef })));
 };
 Picture.defaultProps = {

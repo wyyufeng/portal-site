@@ -1,4 +1,4 @@
-import { ListItem } from "./types";
+import { ListItem } from "portal-types";
 declare const useQueryList: (resource: string, page: number, size: number, onSuccess?: (any: any) => any, onFailure?: (any: any) => any) => {
     records?: ListItem[];
     total?: number;

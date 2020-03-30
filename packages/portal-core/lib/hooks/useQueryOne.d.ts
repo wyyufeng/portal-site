@@ -1,4 +1,4 @@
-import { ListItem } from "./types";
+import { ListItem } from "portal-types";
 declare const useQueryOne: (resource: string, path?: string) => {
     loading: boolean;
     loaded: boolean;

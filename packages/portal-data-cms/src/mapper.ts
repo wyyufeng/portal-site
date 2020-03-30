@@ -1,7 +1,7 @@
 import { getImgFromHtml, html2text } from "./util";
-import { ListItem } from "./types";
-export const listMapper = (source: Array<any>): Array<ListItem> => {
-  return source.map(item => {
+import { ListItem } from "portal-types";
+export const listMapper = (source: any[]): ListItem[] => {
+  return source.map((item): ListItem => {
     return {
       $$rawData: item,
       id: item.archivesId, // 文章id

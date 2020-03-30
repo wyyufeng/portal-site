@@ -7,7 +7,7 @@ export const getImgFromHtml = (content: string = ""): string => {
   if (arr === null || arr.length < 0) return "";
   //   获取第一张图片的src
   const src = arr[0].match(srcReg);
-  return src[1];
+  return src ? src[1] : "";
 };
 
 

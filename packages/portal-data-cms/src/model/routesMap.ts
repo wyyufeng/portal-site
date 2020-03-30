@@ -1,12 +1,15 @@
-import { RootRouteMap, IRootRouteMap } from "../router/RouteMap";
-import { DataProvider } from "../types";
+
+import { RootRouteMap, } from "../route/index";
+import { CmsDataProvider, IRootRouteMap } from "portal-types";
 import { put, call, takeLatest } from "redux-saga/effects";
-export interface routeMapsState {
-  loading: Boolean;
-  root: IRootRouteMap;
-  error: null | Error;
+
+export interface routesMapState {
+  loading: boolean
+  root: IRootRouteMap,
+  error: any
 }
-const routeMaps = (dataProvider: DataProvider) => ({
+
+const routeMaps = (dataProvider: CmsDataProvider) => ({
   namespace: "routesMap",
   state: {
     loading: true,

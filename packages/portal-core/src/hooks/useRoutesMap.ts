@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { IRootRouteMap } from '../router/RouteMap'
+import { IRootRouteMap } from 'portal-types';
 const useRoutesMap = (): IRootRouteMap => {
   const routesMap = useSelector((state: any) => state.routesMap.root);
   return routesMap;

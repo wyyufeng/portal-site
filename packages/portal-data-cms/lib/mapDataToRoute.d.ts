@@ -1,2 +1,2 @@
-import { IRoute } from 'portal-core';
+import { IRoute } from 'portal-types';
 export default function mapDataToRoute(data: any, parent: any): IRoute;

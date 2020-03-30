@@ -2,7 +2,7 @@ import Pager from '@mpfe/pager';
 import '@mpfe/pager/dist/index.css';
 import { PagerProps } from '@mpfe/pager/dist/Pager';
 import { useHistory, useLocation, useQueryList } from 'portal-core';
-import { ListItem } from 'portal-data-cms';
+import { ListItem } from 'portal-types';
 import React, { FunctionComponent, useState } from 'react';
 import { Item } from './Item';
 export interface ListProps {

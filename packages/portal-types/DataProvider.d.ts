@@ -1,4 +1,4 @@
-import { RouteMap } from "portal-core";
+import { IRootRouteMap } from './Route'
 export interface ListItem {
     id: string;
     channelNo: string;
@@ -11,21 +11,23 @@ export interface ListItem {
     appImgSrc: string;
     abstract: string;
     content: string;
-    $content?: string;
+    $content?: string
     source: string;
     linkUrl: string;
     isShowTitle: boolean;
     visitCount: number;
-    $$rawData: any;
+    $$rawData: any
 }
-export interface httpClient {
-    get: (any: any) => Promise<any>;
+export interface IHTTPClient {
+    get: (any) => Promise<any>;
     post: (endPoint: string, data: any) => Promise<any>;
 }
+
 export interface queryListParams {
     resource: string;
     page: number;
     size: number;
+    [prop: string]: any
 }
 export interface queryListResult {
     records: Array<ListItem>;
@@ -38,13 +40,12 @@ export interface queryOneByIdResult {
     data: ListItem | {};
 }
 export interface CmsDataProvider {
-    queryRoutes: (resource: string) => Promise<Array<RouteMap>>;
+    queryRoutes: (resource: string) => Promise<IRootRouteMap>;
     queryList: (params: queryListParams) => Promise<queryListResult>;
-    queryOneById: (resource: string, path?: string) => Promise<queryOneByIdResult>;
-    likeIt: (resource: string) => Promise<{
-        code: number;
-    }>;
-    unLikeIt: (resource: string) => Promise<{
-        code: number;
-    }>;
+    queryOneById: (
+        resource: string,
+        path?: string
+    ) => Promise<queryOneByIdResult>;
+    likeIt: (resource: string) => Promise<{ code: number }>,
+    unLikeIt: (resource: string) => Promise<{ code: number }>
 }

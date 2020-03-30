@@ -24,12 +24,12 @@ var useQueryList = function (resource, page, size, onSuccess, onFailure) {
     }), state = _a[0], setState = _a[1];
     useEffect(function () {
         setState(function (prevState) {
-            return __assign({}, prevState, { loading: true });
+            return __assign(__assign({}, prevState), { loading: true });
         });
         dataProvider({ resource: resource, page: page, size: size })
             .then(function (data) {
             onSuccess && onSuccess(data);
-            setState(__assign({}, data, { loaded: true, error: null, loading: false }));
+            setState(__assign(__assign({}, data), { loaded: true, error: null, loading: false }));
         })
             .catch(function (error) {
             onFailure && onFailure(error);

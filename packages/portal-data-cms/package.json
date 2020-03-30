@@ -1,18 +1,19 @@
 {
   "name": "portal-data-cms",
   "version": "0.0.2",
-  "description": "> TODO: description",
+  "description": "portal-site 数据处理模块",
   "author": "wyyufeng <54129580+wyyufeng@users.noreply.github.com>",
   "homepage": "https://github.com/wyyufeng/portal-site#readme",
-  "license": "ISC",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": false,
   "files": [
-    "lib"
+    "*.md",
+    "lib",
+    "esm",
+    "src"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -22,21 +23,30 @@
     "url": "git+https://github.com/wyyufeng/portal-site.git"
   },
   "scripts": {
-    "build": "yarn run build-cjs",
+    "build": "yarn run build-cjs && yarn run build-esm",
     "build-cjs": "rimraf ./lib && tsc",
     "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
-    "watch": "rimraf ./lib && tsc --watch"
+    "watch": "tsc --outDir esm --module es2015 --watch"
   },
   "bugs": {
     "url": "https://github.com/wyyufeng/portal-site/issues"
   },
   "dependencies": {
+    "@babel/types": "^7.9.0",
+    "@types/axios": "^0.14.0",
     "@types/crypto-js": "^3.1.43",
     "axios": "^0.19.0",
     "crypto-js": "^3.1.9-1",
+    "csstype": "^2.6.10",
     "html-to-text": "^5.1.1",
-    "rimraf": "^3.0.1",
-    "typescript": "^3.7.5"
+    "portal-types": "^1.0.1",
+    "redux-saga": "^1.1.3"
+  },
+  "peerDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.1"
   },
   "gitHead": "6edc43f9ea1ba7ea6da2e4622c81d079df57a90c"
 }

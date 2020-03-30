@@ -24,3 +24,5 @@ yarn-error.log*
 
 .out
 storybook-static
+lib
+esm

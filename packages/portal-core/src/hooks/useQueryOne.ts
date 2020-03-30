@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ListItem } from "./types";
+import { ListItem } from "portal-types";
 import useDataProvider from "./useDataProvider";
 
 const useQueryOne = (

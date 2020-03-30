@@ -1,4 +1,4 @@
-import { CmsDataProvider, httpClient } from "./types";
+import { CmsDataProvider, IHTTPClient } from "portal-types";
 export * from "./httpClient";
-declare const _default: (httpClient: httpClient, gateway?: string) => CmsDataProvider;
+declare const _default: (httpClient: IHTTPClient, gateway?: string) => CmsDataProvider;
 export default _default;

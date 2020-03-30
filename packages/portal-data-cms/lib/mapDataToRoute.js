@@ -1,4 +1,4 @@
-import { RouteMap } from 'portal-core';
+import { RouteMap } from './route';
 export default function mapDataToRoute(data, parent) {
     var route = new RouteMap();
     var children = data.subChannel

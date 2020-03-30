@@ -24,19 +24,14 @@ import React from 'react';
 import { Route, matchPath, useLocation } from 'react-router-dom';
 var PortalRoute = function (_a) {
     var exclude = _a.exclude, path = _a.path, rest = __rest(_a, ["exclude", "path"]);
-    var isStar = path === '*';
-    if (exclude && !isStar) {
+    var matchAll = path === '*';
+    if (exclude && !matchAll) {
         console.warn("The prop 'exclude' could only be used when path is '*' ");
     }
-    var excludePaths = exclude
-        ? Array.isArray(exclude)
-            ? exclude
-            : [exclude]
-        : null;
+    var excludePaths = exclude ? (Array.isArray(exclude) ? exclude : [exclude]) : null;
     var location = useLocation();
     // 如果exclude 匹配了当前路径
-    var match = excludePaths &&
-        excludePaths.some(function (path) { return matchPath(path, location.pathname); });
+    var match = excludePaths && excludePaths.some(function (path) { return matchPath(path, location.pathname); });
     if (match)
         return null;
     return React.createElement(Route, __assign({ path: path }, rest));

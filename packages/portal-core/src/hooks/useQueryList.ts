@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useDataProvider from "./useDataProvider";
-import { ListItem } from "./types";
+import { ListItem } from "portal-types";
 const useQueryList = (
   resource: string,
   page: number,

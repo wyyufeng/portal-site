@@ -1,6 +1,6 @@
 import mapDataToRoute from "./mapDataToRoute";
-import { RootRouteMap } from "portal-core";
 import { listMapper, listOneMapper } from "./mapper";
+import { RootRouteMap } from "./route/index";
 export * from "./httpClient";
 export default (function (httpClient, gateway) {
     if (gateway === void 0) { gateway = "sw"; }

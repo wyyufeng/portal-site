@@ -1,11 +1,10 @@
 import mapDataToRoute from "./mapDataToRoute";
-import { RootRouteMap } from "portal-core";
 import { listMapper, listOneMapper } from "./mapper";
-import { CmsDataProvider, httpClient } from "./types";
+import { CmsDataProvider, IHTTPClient } from "portal-types";
+import { RootRouteMap } from "./route/index";
 export * from "./httpClient";
-
 export default (
-  httpClient: httpClient,
+  httpClient: IHTTPClient,
   gateway: string = "sw"
 ): CmsDataProvider => {
   return {
@@ -26,7 +25,7 @@ export default (
           .catch((err: Error) => reject(err));
       });
     },
-    queryList({ resource, page, size }) {
+    queryList({ resource, page, size }: { resource: string, page: number, size: number }) {
       const endPoint = `/${gateway}-cms/api/queryArchivesList`;
       return new Promise((resolve, reject) => {
         httpClient
@@ -48,12 +47,12 @@ export default (
               $$rawData: res.data.data
             });
           })
-          .catch(err => {
+          .catch((err: any) => {
             reject(err);
           });
       });
     },
-    queryOneById(resource, path = "queryArchivesById") {
+    queryOneById(resource: string, path = "queryArchivesById") {
       return new Promise((resolve, reject) => {
         return httpClient
           .get(`/${gateway}-cms/api/${path}/${resource}`)
@@ -63,12 +62,12 @@ export default (
               // $$rawData: res.data.data
             });
           })
-          .catch(err => {
+          .catch((err: any) => {
             reject(err);
           });
       });
     },
-    likeIt(resource) {
+    likeIt(resource: string) {
       return new Promise((resolve, reject) => {
         return httpClient.get(`/${gateway}-cms/api/doStarByArcId/${resource}`)
           .then((res: any) => {
@@ -76,12 +75,12 @@ export default (
               code: res.data.code
             })
           })
-          .catch(err => {
+          .catch((err: any) => {
             reject(err);
           });
       })
     },
-    unLikeIt(resource) {
+    unLikeIt(resource: string) {
       return new Promise((resolve, reject) => {
         return httpClient.get(`/${gateway}-cms/api/cancelStarByActId/${resource}`)
           .then((res: any) => {
@@ -89,7 +88,7 @@ export default (
               code: res.data.code
             })
           })
-          .catch(err => {
+          .catch((err: any) => {
             reject(err);
           });
       })

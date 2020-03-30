@@ -1,6 +1,6 @@
 import '@mpfe/pager/dist/index.css';
 import { PagerProps } from '@mpfe/pager/dist/Pager';
-import { ListItem } from 'portal-data-cms';
+import { ListItem } from 'portal-types';
 import React, { FunctionComponent } from 'react';
 export interface ListProps {
     /**

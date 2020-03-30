@@ -1,4 +1,5 @@
-import { RouteMap, IRoute } from 'portal-core';
+import { IRoute } from 'portal-types';
+import { RouteMap } from './route';
 
 export default function mapDataToRoute(data: any, parent: any): IRoute {
     const route = new RouteMap();

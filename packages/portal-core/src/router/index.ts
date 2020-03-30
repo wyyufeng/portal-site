@@ -1,5 +1,6 @@
-import PortalRoute from "./PortalRoute";
-import PortalLink from "./PortalLink";
-import { RouteMap, RootRouteMap, IRoute } from "./RouteMap";
-export * from "react-router-dom";
-export { PortalLink, PortalRoute, RouteMap, RootRouteMap, IRoute };
+import Link from './PortalLink';
+import Route from './PortalRoute';
+export * from 'react-router-dom';
+export {
+    Link, Route
+}

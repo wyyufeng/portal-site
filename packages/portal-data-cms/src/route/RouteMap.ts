@@ -1,16 +1,6 @@
-export interface IRoute {
-  parent: IRoute;
-  children: Array<IRoute>;
-  name: string;
-  route: string;
-  description?: string;
-  url?: string;
-  id: string;
-  path: string;
-  isHome: boolean
-}
 
-export class RouteMap implements IRoute {
+import { IRouteMap, IRoute, IRootRouteMap } from 'portal-types';
+export class RouteMap implements IRouteMap {
   public parent: IRoute;
   public children: Array<IRoute>;
   public name: string;
@@ -22,6 +12,15 @@ export class RouteMap implements IRoute {
   get path() {
     return toPath(this);
   }
+  constructor() {
+    this.parent = {} as IRoute;
+    this.route = "";
+    this.children = [];
+    this.name = "";
+    this.isHome = false;
+    this.id = "";
+
+  }
 }
 
 function toPath(route: IRoute): string {
@@ -31,16 +30,9 @@ function toPath(route: IRoute): string {
   return route.route || "";
 }
 
-export interface IRootRouteMap {
-  isRoot: Boolean;
-  parent: null;
-  children: Array<IRoute>;
-  flat: () => Array<IRoute>;
-  findByPath: (path: string) => IRoute | undefined
 
-}
 const _flatResultCache: IRoute[] = [];
-function _flatRoutes(root: any): Array<IRoute> {
+function _flatRoutes(root: any) {
   const children = root.children;
   if (children.length > 0) {
     return children.map((i: any) => _flatRoutes(i))
@@ -49,20 +41,23 @@ function _flatRoutes(root: any): Array<IRoute> {
 }
 
 export class RootRouteMap implements IRootRouteMap {
-  isRoot: Boolean;
+
+  isRoot: true;
   parent: null;
-  children: Array<IRoute>;
+  children: IRoute[];
+
   constructor() {
+
     this.isRoot = true;
     this.parent = null;
     this.children = [];
   }
-  public flat(): Array<IRoute> {
+  flat(): Array<IRoute> {
     if (_flatResultCache.length > 0) return _flatResultCache;
     _flatRoutes(this);
     return _flatResultCache;
   }
-  public findByPath(path: string): IRoute | undefined {
+  findByPath(path: string): IRoute | undefined {
     return this.flat().find(route => route.path === path);
   }
 }

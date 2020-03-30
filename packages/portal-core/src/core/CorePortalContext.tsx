@@ -1,8 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import { DataProvider } from '../types';
+import { DataProvider } from '../dataProvider/DataProviderContext';
 import DataProviderContext from '../dataProvider/DataProviderContext';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
 import { coreStore, createModels } from '../store';
 export interface CorePortalContextProps {
     dataProvider: DataProvider;

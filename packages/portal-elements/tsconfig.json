@@ -5,8 +5,9 @@
         "rootDir": "src",
         "declaration": true,
         "allowJs": false,
-        "types": ["@emotion/core"]
+        "types": ["@emotion/core"],
+        "lib": ["ES2016.Array.Include", "ES2018.Promise", "DOM", "ES2015"]
     },
-    "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.spec.js"],
+    "exclude": ["esm", "lib"],
     "include": ["src"]
 }

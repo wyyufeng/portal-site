@@ -1,66 +1,42 @@
 {
-  "name": "test",
-  "version": "0.1.0",
-  "private": true,
+  "name": "portal-site",
+  "version": "1.0.0",
+  "description": "![logo](https://github.com/wyyufeng/portal-site/raw/master/docs/logo.png)",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs"
+  },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@storybook/addon-console": "^1.2.1",
-    "@storybook/cli": "^5.3.12",
-    "@storybook/preset-typescript": "^2.1.0",
-    "@storybook/theming": "^5.3.17",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.25",
-    "@types/node": "^12.12.17",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
-    "babel-loader": "^8.0.6",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.2",
+    "@storybook/addon-docs": "^5.3.18",
+    "babel-loader": "^8.1.0",
     "history": "^4.10.1",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
+    "portal-core": "file:packages/portal-core",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-scripts": "^3.4.1",
     "typescript": "^3.8.3"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook -c .storybook -o .out"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.12",
-    "@storybook/addon-docs": "^5.3.17",
-    "@storybook/addon-info": "^5.3.3",
-    "@storybook/addon-links": "^5.3.12",
-    "@storybook/addons": "^5.3.12",
-    "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.17",
-    "awesome-typescript-loader": "^5.2.1",
-    "jest": "^24.9.0",
-    "lerna": "^3.18.4",
-    "react-docgen-typescript-loader": "^3.6.0",
-    "ts-jest": "^24.3.0",
-    "ts-loader": "^6.2.1"
-  }
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/react": "^5.3.18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyyufeng/portal-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyyufeng/portal-site/issues"
+  },
+  "homepage": "https://github.com/wyyufeng/portal-site#readme"
 }

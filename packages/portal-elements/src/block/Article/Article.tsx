@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
-import { useQueryOne } from 'portal-core';
+import { useQueryOne, useDataProvider } from 'portal-core';
 import { css } from '@emotion/core';
 import Center from '../../layout/Center';
 
@@ -26,6 +26,7 @@ const Article: FunctionComponent<ArticleProps> = ({
     path
 }) => {
     const { data } = useQueryOne(resource, path);
+    console.log(useDataProvider('queryOneById'));
     const { title, publishDate, source, content, visitCount } = data;
     return (
         <Center width={900}>

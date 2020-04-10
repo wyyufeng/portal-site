@@ -1,0 +1,20 @@
+import { Meta, Story, Props, Preview, Source } from '@storybook/addon-docs/blocks';
+import { Carousel} from '../packages/portal-elements/src';
+import App from './App';
+
+<Meta title="Portal-Elements|Block-Carousel" component={Carousel} parameters={{ order: 1}}/>
+
+# Carousel 
+故宫幻灯片复刻版
+
+<Preview withSource="open">
+    <Story name="默认">
+        <App>
+            <Carousel/>
+        </App>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Carousel} />

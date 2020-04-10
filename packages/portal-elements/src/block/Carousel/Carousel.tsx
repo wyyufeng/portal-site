@@ -6,17 +6,32 @@ import Picture from '../../elements/Picture';
 import CarouselLib from './lib';
 
 let ins: any = null;
+let timer: any = null;
 
 export interface ICarouselProps {
+    /**
+     * 启动延时
+     */
     delay?: number;
+    /**
+     * 动画间隔
+     */
     duration?: number;
+    /**
+     * 资源名
+     */
+    resource?: string;
 }
 
-const Carousel: FunctionComponent<ICarouselProps> = function({ delay = 200, duration = 6000 }) {
+export const Carousel: FunctionComponent<ICarouselProps> = ({
+    delay = 200,
+    duration = 6000,
+    resource
+}) => {
     const wrapperRef = useRef(null);
     const navRef = useRef(null);
     const onSuccess = useCallback(() => {
-        setTimeout(() => {
+        timer = setTimeout(() => {
             ins = new CarouselLib({
                 container: wrapperRef.current,
                 duration,
@@ -28,9 +43,10 @@ const Carousel: FunctionComponent<ICarouselProps> = function({ delay = 200, dura
     useEffect(() => {
         return () => {
             ins && ins.destroy();
+            clearTimeout(timer);
         };
     }, []);
-    const { records } = useQueryList('slide', 1, 10, onSuccess);
+    const { records } = useQueryList(resource, 1, 10, onSuccess);
     const items = records.map((item, i) => (
         <Picture
             key={item.imgSrc}
@@ -110,4 +126,8 @@ const Carousel: FunctionComponent<ICarouselProps> = function({ delay = 200, dura
     );
 };
 
-export default Carousel;
+Carousel.defaultProps = {
+    delay: 200,
+    duration: 6000,
+    resource: 'slide'
+};

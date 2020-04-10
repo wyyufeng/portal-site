@@ -6,10 +6,6 @@
         "declaration": true,
         "allowJs": false
     },
-    "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.spec.js"],
-    "include": [
-        "src",
-        "../portal-core/src/router/PortalLink.tsx",
-        "../portal-core/src/router/PortalRoute.tsx"
-    ]
+    "exclude": ["esm", "lib"],
+    "include": ["src"]
 }

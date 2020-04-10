@@ -40,6 +40,7 @@ var useQueryOne = function (resource, path) {
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resource]);
+    console.log(state);
     return state;
 };
 export default useQueryOne;

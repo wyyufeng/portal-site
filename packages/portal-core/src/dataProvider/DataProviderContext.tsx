@@ -1,13 +1,12 @@
 import { createContext } from 'react';
 
 import defaultDataProvider from './defaultDataProvider';
-export type Method = (any, ...args: any[]) => Promise<any>;
 
 export type DataProvider = {
-    [method: string]: Method;
+    [method: string]: any;
 };
-const DataProviderContext = createContext<DataProvider>(defaultDataProvider);
+const DataProviderContext = createContext<DataProvider>({});
 
-DataProviderContext.displayName = 'Fuck';
+DataProviderContext.displayName = 'DataProviderContext';
 
 export default DataProviderContext;

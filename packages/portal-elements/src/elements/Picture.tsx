@@ -1,13 +1,14 @@
 import * as React from 'react';
 ///  <reference path="object-fit-images.d.ts"/>
 import { FunctionComponent, useRef, useEffect, useContext, useMemo, useState } from 'react';
-import 'lazysizes';
 import objectFitImages from 'object-fit-images';
 import nopic from '../assets/default';
 import { ConfigContext } from '../config-provider';
 import cx from 'classnames';
 import { skeleton_animation } from '../styles';
-export interface Props {
+import { StyleFix } from '../types';
+import { emptyObj } from '../helper';
+export interface Props extends StyleFix {
     /**
      * 图片资源地址,如果传递数组，将显示第一个加载成功的图片，或者显示fallback
      */
@@ -21,17 +22,13 @@ export interface Props {
      */
     base?: string;
     /**
-     * `Picture`默认使用 `div`包裹,可以通过这个`prop` 修改
+     * `Picture`默认使用 `div`包裹,可以通过`wrapper` 修改
      */
     wrapper?: any;
     /**
      * 图像的文本描述
      */
     alt?: string;
-    /**
-     * css 类名
-     */
-    className?: string;
 }
 export const Picture: FunctionComponent<Props> = ({
     source,
@@ -39,13 +36,14 @@ export const Picture: FunctionComponent<Props> = ({
     base,
     alt,
     className,
+    style = emptyObj,
     wrapper: Wrapper,
     ...rest
 }) => {
     const imgRef = useRef<HTMLImageElement>(null);
     const config = useContext(ConfigContext);
     const [loading, setLoading] = useState(true);
-    const _base = base || config.assetsBase;
+    const _base = base || config.assetBasePath;
     const _fallback = fallback || config.pictureFallback;
 
     const srcs = useMemo(() => {
@@ -83,6 +81,7 @@ export const Picture: FunctionComponent<Props> = ({
     }, [srcs]);
     return (
         <Wrapper
+            style={style}
             className={cx('portal-picture', {
                 [className]: !!className
             })}

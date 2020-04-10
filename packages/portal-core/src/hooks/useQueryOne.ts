@@ -35,6 +35,7 @@ const useQueryOne = (
         });
       })
       .catch(err => {
+
         setState({
           data: {},
           loaded: false,
@@ -44,6 +45,7 @@ const useQueryOne = (
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resource]);
+  console.log(state)
   return state;
 };
 

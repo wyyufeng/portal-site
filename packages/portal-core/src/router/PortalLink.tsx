@@ -3,15 +3,10 @@ import { LinkProps, Link } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 
 export interface PortalLinkProps extends LinkProps {
-    href: string;
+    href?: string;
 }
 
-const PortalLink: FunctionComponent<PortalLinkProps> = ({
-    href,
-    children,
-    to,
-    ...rest
-}) => {
+const PortalLink: FunctionComponent<PortalLinkProps> = ({ href, children, to, ...rest }) => {
     if (typeof href === 'string') {
         return (
             <a rel="noopener noreferrer" href={href} {...rest}>

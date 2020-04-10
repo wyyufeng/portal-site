@@ -59,6 +59,7 @@ class CarouselLib {
     }
     // 动画
     animate(isFirst: boolean) {
+        if (this.slides.length === 0) return this;
         if (isFirst) {
             this.currentItem = this.slides[0];
         } else {

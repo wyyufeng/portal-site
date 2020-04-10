@@ -3,11 +3,10 @@ import { coreStore } from '../store';
 import { Router } from 'react-router-dom';
 import { History } from 'history';
 
-const RouteContext: FunctionComponent<{
+const CorePortalRouter: FunctionComponent<{
     children: any;
     root: string;
     history: History;
-    baename?: string;
 }> = ({ children, root, history }) => {
     useEffect(() => {
         coreStore.store.dispatch(coreStore.actions('routesMap').getRoutes(root));
@@ -16,4 +15,4 @@ const RouteContext: FunctionComponent<{
     return <Router history={history}>{children}</Router>;
 };
 
-export default RouteContext;
+export default CorePortalRouter;

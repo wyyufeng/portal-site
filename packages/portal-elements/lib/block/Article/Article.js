@@ -3,12 +3,13 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
     return cooked;
 };
 import * as React from 'react';
-import { useQueryOne } from 'portal-core';
+import { useQueryOne, useDataProvider } from 'portal-core';
 import { css } from '@emotion/core';
 import Center from '../../layout/Center';
 var Article = function (_a) {
     var Title = _a.title, Content = _a.content, Pubdate = _a.pubdate, Address = _a.address, VisitCount = _a.visitCount, Footer = _a.footer, resource = _a.resource, path = _a.path;
     var data = useQueryOne(resource, path).data;
+    console.log(useDataProvider('queryOneById'));
     var title = data.title, publishDate = data.publishDate, source = data.source, content = data.content, visitCount = data.visitCount;
     return (React.createElement(Center, { width: 900 },
         React.createElement("article", { css: {

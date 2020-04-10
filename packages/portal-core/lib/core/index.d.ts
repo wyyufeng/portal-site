@@ -1,3 +1,4 @@
 import CorePortalContext from './CorePortalContext';
-import RouteContext from './RouteContext';
-export { CorePortalContext as PortalContext, RouteContext };
+import CorePortalRouter from './CorePortalRouter';
+import PortalSite from './PortalSite';
+export { CorePortalContext, CorePortalRouter, PortalSite };

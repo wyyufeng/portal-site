@@ -7,17 +7,20 @@ export interface CorePortalContextProps {
     dataProvider: DataProvider;
     children: ReactNode;
     models: any[];
+    store?: any;
 }
 
 const CorePortalContext: FunctionComponent<CorePortalContextProps> = ({
     dataProvider,
     children,
-    models = []
+    models = [],
+    store
 }) => {
     coreStore.useModel(...createModels(models, dataProvider));
     coreStore.run();
+    console.log(dataProvider);
     return (
-        <Provider store={coreStore.store}>
+        <Provider store={store || coreStore.store}>
             <DataProviderContext.Provider value={dataProvider}>
                 {children}
             </DataProviderContext.Provider>

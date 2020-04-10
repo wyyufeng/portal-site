@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import DataProviderContext, { Method } from "../dataProvider/DataProviderContext";
+import DataProviderContext from "../dataProvider/DataProviderContext";
 
 
-const useDataProvider = (method: string): Method => {
+const useDataProvider = (method: string) => {
   const dataProvider = useContext(DataProviderContext);
   return dataProvider[method];
 };

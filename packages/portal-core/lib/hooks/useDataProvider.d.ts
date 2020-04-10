@@ -1,3 +1,2 @@
-import { Method } from "../dataProvider/DataProviderContext";
-declare const useDataProvider: (method: string) => Method;
+declare const useDataProvider: (method: string) => any;
 export default useDataProvider;

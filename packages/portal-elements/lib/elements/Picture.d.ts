@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
-import 'lazysizes';
-export interface Props {
+import { StyleFix } from '../types';
+export interface Props extends StyleFix {
     /**
      * 图片资源地址,如果传递数组，将显示第一个加载成功的图片，或者显示fallback
      */
@@ -14,17 +14,13 @@ export interface Props {
      */
     base?: string;
     /**
-     * `Picture`默认使用 `div`包裹,可以通过这个`prop` 修改
+     * `Picture`默认使用 `div`包裹,可以通过`wrapper` 修改
      */
     wrapper?: any;
     /**
      * 图像的文本描述
      */
     alt?: string;
-    /**
-     * css 类名
-     */
-    className?: string;
 }
 export declare const Picture: FunctionComponent<Props>;
 export default Picture;

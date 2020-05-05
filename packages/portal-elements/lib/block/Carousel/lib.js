@@ -39,6 +39,8 @@ var CarouselLib = /** @class */ (function () {
     // 动画
     CarouselLib.prototype.animate = function (isFirst) {
         var _this = this;
+        if (this.slides.length === 0)
+            return this;
         if (isFirst) {
             this.currentItem = this.slides[0];
         }

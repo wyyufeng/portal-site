@@ -23,19 +23,19 @@ var __rest = (this && this.__rest) || function (s, e) {
 import * as React from 'react';
 ///  <reference path="object-fit-images.d.ts"/>
 import { useRef, useEffect, useContext, useMemo, useState } from 'react';
-import 'lazysizes';
 import objectFitImages from 'object-fit-images';
 import nopic from '../assets/default';
 import { ConfigContext } from '../config-provider';
 import cx from 'classnames';
 import { skeleton_animation } from '../styles';
+import { emptyObj } from '../helper';
 export var Picture = function (_a) {
     var _b;
-    var source = _a.source, _c = _a.fallback, fallback = _c === void 0 ? nopic : _c, base = _a.base, alt = _a.alt, className = _a.className, Wrapper = _a.wrapper, rest = __rest(_a, ["source", "fallback", "base", "alt", "className", "wrapper"]);
+    var source = _a.source, _c = _a.fallback, fallback = _c === void 0 ? nopic : _c, base = _a.base, alt = _a.alt, className = _a.className, _d = _a.style, style = _d === void 0 ? emptyObj : _d, Wrapper = _a.wrapper, rest = __rest(_a, ["source", "fallback", "base", "alt", "className", "style", "wrapper"]);
     var imgRef = useRef(null);
     var config = useContext(ConfigContext);
-    var _d = useState(true), loading = _d[0], setLoading = _d[1];
-    var _base = base || config.assetsBase;
+    var _e = useState(true), loading = _e[0], setLoading = _e[1];
+    var _base = base || config.assetBasePath;
     var _fallback = fallback || config.pictureFallback;
     var srcs = useMemo(function () {
         var result = Array.isArray(source)
@@ -67,7 +67,7 @@ export var Picture = function (_a) {
         return function () { return (current.src = ''); };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [srcs]);
-    return (React.createElement(Wrapper, __assign({ className: cx('portal-picture', (_b = {},
+    return (React.createElement(Wrapper, __assign({ style: style, className: cx('portal-picture', (_b = {},
             _b[className] = !!className,
             _b)) }, rest, { css: [
             {

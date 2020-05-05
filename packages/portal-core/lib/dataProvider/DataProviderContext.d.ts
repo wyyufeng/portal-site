@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare type DataProvider = {
     [method: string]: any;
 };

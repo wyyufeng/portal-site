@@ -2,7 +2,7 @@ import * as React from 'react';
 ///  <reference path="object-fit-images.d.ts"/>
 import { FunctionComponent, useRef, useEffect, useContext, useMemo, useState } from 'react';
 import objectFitImages from 'object-fit-images';
-import nopic from '../assets/default';
+import nopic from '../assets/no-img.svg';
 import { ConfigContext } from '../config-provider';
 import cx from 'classnames';
 import { skeleton_animation } from '../styles';
@@ -16,7 +16,7 @@ export interface Props extends StyleFix {
     /**
      * 图片加载失败或者资源地址无效时的占位图片
      */
-    fallback?: string;
+    fallback?: any;
     /**
      * 图片资源的基础地址
      */

@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+
+
 # testing
 /coverage
 
@@ -26,3 +28,4 @@ yarn-error.log*
 storybook-static
 lib
 esm
+example/node_modules

@@ -1,6 +1,6 @@
 import React from 'react';
 export interface ConfigConsumerProps {
-    assetsBase?: string;
+    assetBasePath?: string;
     pictureFallback?: string;
 }
 export declare const ConfigContext: React.Context<ConfigConsumerProps>;

@@ -1,6 +1,6 @@
 import React from 'react';
 export var ConfigContext = React.createContext({
-    assetsBase: '',
+    assetBasePath: '',
     pictureFallback: ''
 });
 export var ConfigConsumer = ConfigContext.Consumer;

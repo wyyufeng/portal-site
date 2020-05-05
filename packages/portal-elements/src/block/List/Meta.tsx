@@ -87,7 +87,7 @@ export const Meta: FunctionComponent<Props> = ({
                 >
                     <h4
                         css={css`
-                            font-size: 18px;
+                            font-size: 16px;
                             color: #595757;
                             font-weight: normal;
                             margin: -4px 0 0 1px;

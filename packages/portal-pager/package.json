@@ -17,6 +17,10 @@
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "style": "sass src/style.scss dist/style.css"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "peerDependencies": {
     "react": "^16.0.0"
   },
@@ -49,5 +53,6 @@
   "dependencies": {
     "@types/classnames": "^2.2.10",
     "sass": "^1.26.5"
-  }
+  },
+  "gitHead": "dbb085fd33105a39b4781285d34887b490898a60"
 }

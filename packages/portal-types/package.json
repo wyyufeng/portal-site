@@ -1,13 +1,15 @@
 {
-    "name": "@portal-site/types",
-    "version": "0.1.0",
-    "description": "",
-    "main": "",
-    "keywords": [],
-    "publishConfig": {
-        "access": "public"
-    },
-    "author": "",
-    "license": "MIT",
-    "types": "index"
+  "name": "@portal-site/types",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "keywords": [],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "author": "",
+  "license": "MIT",
+  "types": "index",
+  "gitHead": "dbb085fd33105a39b4781285d34887b490898a60"
 }

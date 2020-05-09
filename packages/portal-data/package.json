@@ -15,7 +15,8 @@
     "src"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,5 @@
     "microbundle-crl": "^0.13.10",
     "rimraf": "^3.0.1"
   },
-  "gitHead": "6edc43f9ea1ba7ea6da2e4622c81d079df57a90c"
+  "gitHead": "dbb085fd33105a39b4781285d34887b490898a60"
 }

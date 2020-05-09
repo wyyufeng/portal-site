@@ -1,0 +1,51 @@
+{
+  "name": "@portal-site/components",
+  "version": "0.0.1",
+  "description": "portal-elements",
+  "author": "wyyufeng <wyyufeng@gmail.com>",
+  "homepage": "https://github.com/wyyufeng/portal-site#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "module": "lib/index.modern.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs"
+  },
+  "files": [
+    "*.md",
+    "lib",
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@portal-site/core": "^0.0.1",
+    "@portal-site/data": "^0.0.1",
+    "@portal-site/types": "*",
+    "@portal-site/pager": "*",
+    "classnames": "^2.2.6",
+    "emotion": "^10.0.27",
+    "object-fit-images": "^3.2.4",
+    "react-feather": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "microbundle-crl": "^0.13.10",
+    "rimraf": "^3.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyyufeng/portal-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wyyufeng/portal-site/issues"
+  },
+  "gitHead": "6edc43f9ea1ba7ea6da2e4622c81d079df57a90c"
+}

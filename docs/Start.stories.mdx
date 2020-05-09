@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Portal-Site|Start"  parameters={{ order: 2}}/>
+
+
+### 📦 Installing 
+---
+使用 npm/yarn 安装
+- npm: `npm i portal-core portal-data-cms portal-elements`
+- yarn: `yarn add portal-core portal-data-cms portal-elements`
+
+### 🎸 Quick Start
+---
+```jsx
+import cms, { createHttpClient } from '../packages/portal-data-cms/src';
+import { PortalContext, routesMap, RouteContext } from '../packages/portal-core/src';
+
+// 1. 创建 dataProvider
+ const http = createHttpClient(
+    api,
+    appid,
+    appkey
+);
+const dataProvider = cms(http)
+// 2. 创建上下文
+
+<PortalContext models={[routesMap]} dataProvider={dataProvider}>
+    <RouteContext history={createBrowserHistory()} root={'cn'}>
+       // ...
+    </RouteContext>
+</PortalContext>
+```
+
+### 🎨 Development
+---
+```bash
+git clone git@github.com:wyyufeng/portal-site.git
+cd portal-site
+npm install
+lerna bootstrap
+lerna exec npm link
+```
+将项目依赖安装完成后，启动三个package的`watch`脚本，然后启动`storybook` 即可.(三个package之间存在依赖，可以通过npm link 软链接)
+
+*本项目使用 `lerna` 和 `storybook` 辅助开发*

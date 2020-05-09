@@ -1,0 +1,57 @@
+.mp-pager {
+  font-size: 14px;
+  display: inline-block;
+  margin: 6px;
+  .mp-pages {
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .page-btn {
+      margin: 0 6px;
+      &.disable {
+        cursor: not-allowed;
+        color: #ddd;
+        pointer-events: none;
+      }
+    }
+    .page-item {
+      text-align: center;
+      min-width: 30px;
+      margin: 0 3px;
+
+      &.active {
+        background-color: #337ab7;
+        color: #fff;
+      }
+    }
+  }
+  .page-jump {
+    display: inline-block;
+    margin: 0 5px;
+    input {
+      width: 24px;
+      border: none;
+      outline: none;
+      border: 1px solid rgb(94, 93, 93);
+      margin: 0 5px;
+      text-align: center;
+    }
+    button {
+      background-color: #337ab7;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

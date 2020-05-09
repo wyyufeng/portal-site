@@ -1,0 +1,13 @@
+{
+    "name": "@portal-site/types",
+    "version": "1.0.1",
+    "description": "",
+    "main": "",
+    "keywords": [],
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "",
+    "license": "MIT",
+    "types": "index"
+}

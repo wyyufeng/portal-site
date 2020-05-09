@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "portal-elements",
   "author": "wyyufeng <wyyufeng@gmail.com>",
   "homepage": "https://github.com/wyyufeng/portal-site#readme",
@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "@portal-site/core": "^0.1.0",
-    "@portal-site/data": "^0.1.0",
-    "@portal-site/pager": "^0.1.0",
-    "@portal-site/types": "^0.1.0",
+    "@portal-site/core": "^0.1.1",
+    "@portal-site/data": "^0.1.1",
+    "@portal-site/pager": "^0.1.1",
+    "@portal-site/types": "^0.1.1",
     "classnames": "^2.2.6",
     "emotion": "^10.0.27",
     "object-fit-images": "^3.2.4",

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7a23fe91-c862-4aa3-b4f6-5d3d48997946" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/src/serviceWorker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/assets/default.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Article/Article.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Article/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Breadcrumb/Breadcrumb.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Breadcrumb/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Carousel/Carousel.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Carousel/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Carousel/lib.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Header/Header.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Header/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Like/Like.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Like/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/List/Item.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/List/List.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/List/Meta.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/List/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Nav/Nav.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/block/Nav/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/config-provider/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/elements/Details.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/elements/Picture.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/elements/Skeleton.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/helper.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/index.modern.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/index.modern.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/layout/Center.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/no-img~ZZhrWrAK.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/styles/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/view/ListView/ListView.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/lib/view/ListView/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/assets/default.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/assets/no-img.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Article/Article.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Article/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Breadcrumb/Breadcrumb.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Breadcrumb/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Carousel/Carousel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Carousel/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Carousel/lib.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Header/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Header/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Like/Like.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Like/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/List/Item.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/List/List.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/List/Meta.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/List/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Nav/Nav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/block/Nav/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/config-provider/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/custom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/elements/Details.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/elements/Picture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/elements/Skeleton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/elements/object-fit-images.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/helper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/layout/Center.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/view/ListView/ListView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/src/view/ListView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-components/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-core/lib/core/CorePortalRouter.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-core/lib/core/PortalSite.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-core/lib/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-core/lib/index.modern.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-core/lib/index.modern.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/cmsDataProvider.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/httpClient.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/index.modern.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/index.modern.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/mapDataToRoute.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/mapper.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/model/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/model/routesMap.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/route/RouteMap.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/route/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-data/lib/util.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/block/Breadcrumb/Breadcrumb.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/elements/Skeleton.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/elements/Skeleton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/helper.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/lib/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/assets/default.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Article/Article.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Article/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Breadcrumb/Breadcrumb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Breadcrumb/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Carousel/Carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Carousel/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Carousel/lib.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Header/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Header/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Like/Like.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Like/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/List/Item.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/List/List.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/List/Meta.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/List/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Nav/Nav.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/block/Nav/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/config-provider/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/elements/Details.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/elements/Picture.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/elements/Skeleton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/layout/Center.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/styles/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/view/ListView/ListView.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-elements/src/view/ListView/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/src/Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/src/Pager.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/src/PagerConfig.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/src/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-pager/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/portal-types/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Article.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Article.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Carousel.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Carousel.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Intro.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Intro.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Like.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Like.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/List.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/List.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Nav.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Nav.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Picture.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Picture.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Skeleton.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Skeleton.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/example/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/src/serviceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lerna.json" beforeDir="false" afterPath="$PROJECT_DIR$/lerna.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/core/CorePortalContext.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/core/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/DataProviderContext.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/DataProviderContext.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/DataProviderContext.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/defaultDataProvider.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/defaultDataProvider.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/defaultDataProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/dataProvider/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useDataProvider.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useDataProvider.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useDataProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useLikeIt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useQueryList.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useQueryList.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useQueryList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useQueryOne.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useQueryOne.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useQueryOne.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useRoutesMap.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useRoutesMap.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/hooks/useRoutesMap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/router/PortalLink.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/router/PortalRoute.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/store/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/lib/store/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/lib/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/core/CorePortalContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/core/CorePortalContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/core/PortalSite.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/core/PortalSite.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/dataProvider/DataProviderContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/dataProvider/DataProviderContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/dataProvider/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/hooks/useDataProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/hooks/useDataProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/hooks/useLikeIt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/hooks/useLikeIt.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/hooks/useQueryList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/hooks/useQueryList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/hooks/useQueryOne.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/hooks/useQueryOne.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/hooks/useRoutesMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/hooks/useRoutesMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-core/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-core/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/cmsDataProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/cmsDataProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/mapDataToRoute.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/mapDataToRoute.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/mapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/mapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/model/routesMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/model/routesMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/route/RouteMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/route/RouteMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/src/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/src/util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-data/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-data/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/lib/assets/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/lib/assets/default.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/lib/assets/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/lib/assets/default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/lib/elements/Picture.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/lib/elements/Picture.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/lib/elements/Picture.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/lib/elements/Picture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/src/assets/default.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/src/assets/default.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-elements/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-elements/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-types/DataProvider.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-types/DataProvider.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-types/Route.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-types/Route.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-types/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/portal-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/portal-types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\github\portal-site\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1WKhlFs1gWierBiiWWp0XIM1bXN" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\github\portal-site\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="D:\github\portal-site\example\node_modules\typescript\lib" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a23fe91-c862-4aa3-b4f6-5d3d48997946" name="Default Changelist" comment="" />
+      <created>1578904342961</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578904342961</updated>
+      <workItem from="1578904353211" duration="46000" />
+      <workItem from="1589528747473" duration="15000" />
+      <workItem from="1589531482839" duration="744000" />
+      <workItem from="1589532861416" duration="497000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/styles/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/helper.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/types.js" />
+        <option value="$PROJECT_DIR$/example/src/setupTests.js" />
+        <option value="$PROJECT_DIR$/example/src/serviceWorker.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Carousel/lib.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/assets/default.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/elements/Details.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/elements/Skeleton.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/view/ListView/ListView.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/view/ListView/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/config-provider/index.js" />
+        <option value="$PROJECT_DIR$/example/src/index.js" />
+        <option value="$PROJECT_DIR$/example/src/App.js" />
+        <option value="$PROJECT_DIR$/example/src/App.test.js" />
+        <option value="$PROJECT_DIR$/docs/App.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/layout/Center.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Breadcrumb/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Breadcrumb/Breadcrumb.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Carousel/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Carousel/Carousel.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Article/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Article/Article.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/List/Meta.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/List/List.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/List/Item.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/List/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Header/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Header/Header.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Nav/Nav.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Nav/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Like/Like.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/block/Like/index.js" />
+        <option value="$PROJECT_DIR$/packages/portal-elements/src/elements/Picture.js" />
+      </list>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1589532841487">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589532841487" />
+  </component>
+</project>

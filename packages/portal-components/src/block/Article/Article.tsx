@@ -1,35 +1,33 @@
 /** @jsx jsx */
 import * as React from 'react';
 import { FunctionComponent } from 'react';
-import { useQueryOne } from '@portal-site/core';
 import { css, jsx } from '@emotion/core';
-import Center from '../../layout/Center';
-
+import Container from '../../layout/Container';
 export interface ArticleProps {
-    title?: React.FunctionComponent<{ title: string }>;
-    pubdate?: React.FunctionComponent<{ pubdate: string }>;
-    address?: React.FunctionComponent<{ address: string }>;
-    content?: React.FunctionComponent<{ content: string }>;
-    visitCount?: React.FunctionComponent<{ visitCount: number }>;
+    title?: React.FunctionComponent;
+    pubdate?: React.FunctionComponent;
+    address?: React.FunctionComponent;
+    content?: React.FunctionComponent;
+    visitCount?: React.FunctionComponent;
     footer?: React.ReactNode;
-    resource: string;
-    path?: string;
+    // resource: string;
+    // path?: string;
 }
-
+const isString = (test: any): boolean => Object.prototype.toString.call(test) === '[object String]';
 const Article: FunctionComponent<ArticleProps> = ({
-    title: Title,
-    content: Content,
-    pubdate: Pubdate,
-    address: Address,
-    visitCount: VisitCount,
-    footer: Footer,
-    resource,
-    path
+    title,
+    content = '',
+    pubdate,
+    address,
+    visitCount,
+    footer
+    // resource,
+    // path
 }) => {
-    const { data } = useQueryOne(resource, path);
-    const { title, publishDate, source, content, visitCount } = data;
+    // const { data } = useQueryOne(resource, path);
+    // const { title, publishDate, source, content, visitCount } = data;
     return (
-        <Center width={900}>
+        <Container>
             <article
                 css={{
                     textAlign: 'justify'
@@ -53,7 +51,7 @@ const Article: FunctionComponent<ArticleProps> = ({
                             padding: 0;
                         `}
                     >
-                        {Title ? <Title title={title}></Title> : title}
+                        {title}
                     </h1>
                     <section
                         className="portal-article-info"
@@ -71,19 +69,15 @@ const Article: FunctionComponent<ArticleProps> = ({
                     >
                         <span className="portal-article-info-pubdate">
                             发布时间：
-                            {Pubdate ? <Pubdate pubdate={publishDate}></Pubdate> : publishDate}
+                            {pubdate}
                         </span>
                         <address className="portal-article-info-address" css={css``}>
                             信息来源：
-                            {Address ? <Address address={source}></Address> : source}
+                            {address}
                         </address>
                         <span className="portal-article-info-visitcount">
                             浏览次数：
-                            {VisitCount ? (
-                                <VisitCount visitCount={visitCount}></VisitCount>
-                            ) : (
-                                visitCount
-                            )}
+                            {visitCount}
                         </span>
                     </section>
                 </header>
@@ -101,19 +95,19 @@ const Article: FunctionComponent<ArticleProps> = ({
                         }
                     `}
                 >
-                    {Content ? (
-                        <Content content={content}></Content>
-                    ) : (
+                    {isString(content) ? (
                         <article
                             dangerouslySetInnerHTML={{
-                                __html: content
+                                __html: content as string
                             }}
                         ></article>
+                    ) : (
+                        content
                     )}
                 </section>
-                <footer>{Footer}</footer>
+                <footer>{footer}</footer>
             </article>
-        </Center>
+        </Container>
     );
 };
 

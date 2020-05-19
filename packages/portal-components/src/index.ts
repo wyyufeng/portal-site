@@ -7,8 +7,6 @@ import Article from "./block/Article";
 import Like from './block/Like';
 import Breadcrumb from './block/Breadcrumb';
 import Carousel, { CarouselLib } from './block/Carousel';
-import Center from './layout/Center';
-import ListView from './view/ListView'
-import { ConfigContext, ConfigConsumer, ConfigProvider } from './config-provider'
-import Pager from '@mpfe/pager';
-export { Picture, Header, List, Nav, Breadcrumb, Carousel, ConfigContext, ConfigConsumer, ConfigProvider, Center, ListView, Article, Like, Pager, Skeleton, CarouselLib };
+import Container from './layout/Container';
+import { PortalUIContext, PortalUIConsumer, PortalUIProvider } from './config-context';
+export { Picture, Header, List, Nav, Breadcrumb, Carousel, PortalUIContext, PortalUIConsumer, PortalUIProvider, Container, Article, Like, Skeleton, CarouselLib };

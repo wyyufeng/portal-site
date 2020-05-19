@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { FunctionComponent, useRef, useCallback, useEffect } from 'react';
-import { useQueryList } from '@portal-site/core';
+import { FunctionComponent, useRef, useEffect } from 'react';
 import Picture from '../../elements/Picture';
 import CarouselLib from './lib';
 import cls from 'classnames';
@@ -21,34 +20,22 @@ export interface ICarouselProps {
     /**
      * 资源名
      */
-    resource?: string;
+    dataSource?: any[];
+    /**
+     * 渲染函数
+     */
+    renderSlide?: (item: { imgSrc: string; [key: string]: any }, index: number) => React.ReactNode;
 }
 
 export const Carousel: FunctionComponent<ICarouselProps> = ({
     delay = 200,
     duration = 6000,
-    resource = 'slide'
+    dataSource = [],
+    renderSlide
 }) => {
     const wrapperRef = useRef(null);
     const navRef = useRef(null);
-    const onSuccess = useCallback(() => {
-        timer = setTimeout(() => {
-            ins = new CarouselLib({
-                container: wrapperRef.current!,
-                duration,
-                nav: navRef.current!
-            }).init();
-        }, delay);
-    }, [delay, duration]);
-
-    useEffect(() => {
-        return () => {
-            ins && ins.destroy();
-            clearTimeout(timer);
-        };
-    }, []);
-    const { records } = useQueryList(resource, 1, 10, onSuccess);
-    const items = records.map((item) => (
+    const render = (item: { imgSrc: string }) => (
         <Picture
             key={item.imgSrc}
             className={cls(
@@ -64,7 +51,22 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
             )}
             source={item.imgSrc}
         ></Picture>
-    ));
+    );
+    const _renderSlide = renderSlide || render;
+    useEffect(() => {
+        timer = setTimeout(() => {
+            ins = new CarouselLib({
+                container: wrapperRef.current!,
+                duration,
+                nav: navRef.current!
+            }).init();
+        }, delay);
+        return () => {
+            ins && ins.destroy();
+            clearTimeout(timer);
+        };
+    }, [delay, duration]);
+    const items = dataSource.map(_renderSlide);
     return (
         <div
             className="portal-carousel"
@@ -105,7 +107,7 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
                         }
                     `}
                 >
-                    {records.map((i) => (
+                    {dataSource.map((i) => (
                         <i
                             className="portal-carousel-nav-item"
                             css={css`
@@ -131,6 +133,5 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
 
 Carousel.defaultProps = {
     delay: 200,
-    duration: 6000,
-    resource: 'slide'
+    duration: 6000
 };

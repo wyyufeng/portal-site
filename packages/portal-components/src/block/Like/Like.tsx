@@ -5,13 +5,16 @@ import { css, jsx } from '@emotion/core';
 import cls from 'classnames';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { button_base } from '../../styles';
-import { useDataProvider } from '@portal-site/core';
 
 export interface Props {
     /**
-     * id
+     * 喜欢的时候
      */
-    resource: string;
+    onLikeIt: () => any;
+    /**
+     * 不喜欢的时候
+     */
+    onDislikeIt: () => any;
     /**
      * 是否可取消
      */
@@ -22,9 +25,12 @@ export interface Props {
     icon?: React.ReactNode;
 }
 
-export const Like: FunctionComponent<Props> = ({ resource, cancellable, icon: Icon }) => {
-    const likeFetch = useDataProvider('likeIt');
-    const unLikeFetch = useDataProvider('unLikeIt');
+export const Like: FunctionComponent<Props> = ({
+    onLikeIt,
+    onDislikeIt,
+    cancellable,
+    icon: Icon
+}) => {
     const btn = useRef<HTMLButtonElement>(null);
     const [_active, setActive] = useState(false);
     useEffect(() => {
@@ -32,16 +38,13 @@ export const Like: FunctionComponent<Props> = ({ resource, cancellable, icon: Ic
         const clickHandle = () => {
             if (dom.classList.contains('portal-like-active')) {
                 if (cancellable) {
-                    unLikeFetch(resource).finally(() => {
-                        setActive(false);
-                    });
+                    onDislikeIt();
+                    setActive(false);
                 }
                 return;
             }
             setActive(true);
-            likeFetch(resource).finally(() => {
-                setActive(true);
-            });
+            onLikeIt();
         };
 
         dom.addEventListener('click', clickHandle);
@@ -49,7 +52,7 @@ export const Like: FunctionComponent<Props> = ({ resource, cancellable, icon: Ic
             dom.removeEventListener('click', clickHandle);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [resource, likeFetch, unLikeFetch]);
+    }, [onLikeIt, onDislikeIt]);
 
     return (
         <button

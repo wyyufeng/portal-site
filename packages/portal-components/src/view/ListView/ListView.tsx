@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Center from '../../layout/Center';
+import Container from '../../layout/Container';
 import Breadcrumb from '../../block/Breadcrumb';
 import List from '../../block/List';
 
@@ -7,7 +7,7 @@ export default class ListView extends Component {
     render() {
         return (
             <div className="portal-listview">
-                <Center>
+                <Container>
                     <Breadcrumb
                         routes={[
                             { name: '首页', path: '/' },
@@ -39,7 +39,7 @@ export default class ListView extends Component {
                             );
                         }}
                     />
-                </Center>
+                </Container>
             </div>
         );
     }

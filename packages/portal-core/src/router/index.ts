@@ -1,6 +1,6 @@
-import Link from './PortalLink';
-import Route from './PortalRoute';
-export * from 'react-router-dom';
+import PortalLink from './PortalLink';
+import PortalRoute from './PortalRoute';
+
 export {
-    Link, Route
+  PortalLink, PortalRoute
 };

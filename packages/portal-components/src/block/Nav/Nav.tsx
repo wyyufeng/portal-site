@@ -1,16 +1,17 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FunctionComponent } from 'react';
-import { useRoutesMap, NavLink } from '@portal-site/core';
+import { NavLink } from 'react-router-dom';
+import { IRootRouteMap } from '@portal-site/types';
 export interface Props {
     /**
      * 排除某些路由，这些路由将不会出现在导航中
      */
     exclude?: Array<string>;
+    routes: IRootRouteMap;
 }
 
-export const Nav: FunctionComponent<Props> = ({ exclude = [] }) => {
-    const routes = useRoutesMap();
+export const Nav: FunctionComponent<Props> = ({ exclude = [], routes }) => {
     return (
         <nav
             className="portal-nav"

@@ -1,16 +1,18 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import React, { FunctionComponent } from 'react';
-import Nav from '../Nav/Nav';
-import { Link } from '@portal-site/core';
-import Center from '../../layout/Center';
+import Nav from '../Nav';
+import { Link } from 'react-router-dom';
+import { IRootRouteMap } from '@portal-site/types';
+import Container from '../../layout/Container';
 export interface IHeaderProps {
     logo: string | React.ReactNode;
     title?: string;
     extra?: React.ReactNode;
+    routes: IRootRouteMap;
 }
 
-const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra }) => {
+const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra, routes }) => {
     const isSrc = typeof logo === 'string';
 
     return (
@@ -25,7 +27,7 @@ const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra
                 z-index: 10;
             `}
         >
-            <Center
+            <Container
                 css={css`
                     display: flex;
                     justify-content: space-between;
@@ -35,7 +37,7 @@ const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra
             >
                 <div className="portal-logo">
                     {isSrc ? (
-                        <Link css={{}} to="/" title="首页">
+                        <Link to="/" title="首页">
                             <img
                                 css={{
                                     verticalAlign: 'middle',
@@ -56,9 +58,9 @@ const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra
                         {title}
                     </h1>
                 </div>
-                <Nav exclude={['Slide']}></Nav>
+                <Nav routes={routes} exclude={['Slide']}></Nav>
                 <div className="portal-header-extra">{extra}</div>
-            </Center>
+            </Container>
         </header>
     );
 };

@@ -142,7 +142,7 @@ var listMapper = function listMapper(source) {
       appImgSrc: encodeURI((_item$thumbAppImg = item.thumbAppImg) != null ? _item$thumbAppImg : ''),
       content: item.content,
       $content: html2text(item.content),
-      "abstract": item.description,
+      abstract: item.description,
       source: (_item$source = item.source) != null ? _item$source : '',
       linkUrl: (_item$linkUrl = item.linkUrl) != null ? _item$linkUrl : '',
       isShowTitle: item.isShowTitle,
@@ -164,7 +164,7 @@ function listOneMapper(source) {
     parentChannelNo: source.parentChannelNo,
     imgSrc: encodeURI(source.thumbImg ? source.thumbImg : getImgFromHtml(source.content)),
     appImgSrc: encodeURI((_source$thumbAppImg = source.thumbAppImg) != null ? _source$thumbAppImg : ''),
-    "abstract": source.description,
+    abstract: source.description,
     content: source.content,
     source: source.source || '',
     linkUrl: source.linkUrl || '',
@@ -213,12 +213,12 @@ function resErrorInterceptor(err) {
 
 var cmsDataProvider = (function (httpClient, gateway) {
   if (gateway === void 0) {
-    gateway = 'sw';
+    gateway = 'sw-cms';
   }
 
   return {
     queryRoutes: function queryRoutes(resource) {
-      var endPoint = "/" + gateway + "-cms/api/queryAllChannel/" + resource;
+      var endPoint = "/" + gateway + "/api/queryAllChannel/" + resource;
       return new Promise(function (resolve, reject) {
         httpClient.get(endPoint).then(function (res) {
           var root = new RootRouteMap();
@@ -227,7 +227,7 @@ var cmsDataProvider = (function (httpClient, gateway) {
           });
           root.children = routeMaps;
           resolve(root);
-        })["catch"](function (err) {
+        }).catch(function (err) {
           return reject(err);
         });
       });
@@ -236,7 +236,7 @@ var cmsDataProvider = (function (httpClient, gateway) {
       var resource = _ref.resource,
           page = _ref.page,
           size = _ref.size;
-      var endPoint = "/" + gateway + "-cms/api/queryArchivesList";
+      var endPoint = "/" + gateway + "/api/queryArchivesList";
       return new Promise(function (resolve, reject) {
         httpClient.post(endPoint, {
           entity: {
@@ -254,7 +254,7 @@ var cmsDataProvider = (function (httpClient, gateway) {
             total: res.data.data.total,
             $$rawData: res.data.data
           });
-        })["catch"](function (err) {
+        }).catch(function (err) {
           reject(err);
         });
       });
@@ -265,33 +265,33 @@ var cmsDataProvider = (function (httpClient, gateway) {
       }
 
       return new Promise(function (resolve, reject) {
-        return httpClient.get("/" + gateway + "-cms/api/" + path + "/" + resource).then(function (res) {
+        return httpClient.get("/" + gateway + "/api/" + path + "/" + resource).then(function (res) {
           resolve({
             data: listOneMapper(res.data.data)
           });
-        })["catch"](function (err) {
+        }).catch(function (err) {
           reject(err);
         });
       });
     },
     likeIt: function likeIt(resource) {
       return new Promise(function (resolve, reject) {
-        return httpClient.get("/" + gateway + "-cms/api/doStarByArcId/" + resource).then(function (res) {
+        return httpClient.get("/" + gateway + "/api/doStarByArcId/" + resource).then(function (res) {
           resolve({
             code: res.data.code
           });
-        })["catch"](function (err) {
+        }).catch(function (err) {
           reject(err);
         });
       });
     },
     unLikeIt: function unLikeIt(resource) {
       return new Promise(function (resolve, reject) {
-        return httpClient.get("/" + gateway + "-cms/api/cancelStarByActId/" + resource).then(function (res) {
+        return httpClient.get("/" + gateway + "/api/cancelStarByActId/" + resource).then(function (res) {
           resolve({
             code: res.data.code
           });
-        })["catch"](function (err) {
+        }).catch(function (err) {
           reject(err);
         });
       });

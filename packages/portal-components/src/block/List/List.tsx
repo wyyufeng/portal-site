@@ -1,14 +1,9 @@
 import { Pager, PagerProps } from '@portal-site/pager';
 import '@portal-site/pager/dist/style.css';
-import { useHistory, useLocation, useQueryList } from '@portal-site/core';
 import { ListItem } from '@portal-site/types';
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Item } from './Item';
 export interface ListProps {
-    /**
-     * 列表id
-     */
-    resource: string;
     /**
      * 列表项渲染函数
      */
@@ -18,37 +13,30 @@ export interface ListProps {
      */
     pagination?: false | PagerProps;
     /**
-     * 每页条数
+     * 列表数据
      */
-    size?: number;
+    dataSource: any[];
     /**
-     * 当列表数据改变时的回调函数
+     * 当前页
      */
-    onListChange?: () => any;
+    page: number;
+    /**
+     * 总页数
+     */
+    pages: number;
+    /**
+     * 页面改变时的回调函数
+     */
+    onPageChange: (page: number) => any;
 }
 
 export const List: FunctionComponent<ListProps> & {
     Item: any;
-} = ({ resource, renderItem, pagination = false, onListChange, size = 8 }) => {
-    const location = useLocation();
-    const history = useHistory();
-    const params = new URLSearchParams(location.search);
-    const currentPage = params.get('page') || 0;
-
-    const [page, setPage] = useState(+currentPage || 1);
-    const { records = [], pages } = useQueryList(resource, page, size);
-    const items = records.map((item: any, index: number) => {
+} = ({ renderItem, pagination = false, dataSource, page, pages, onPageChange }) => {
+    const items = dataSource.map((item: any, index: number) => {
         return renderItem(item, index);
     });
-    const onPageChange = (page: number) => {
-        setPage(page);
-        onListChange && onListChange();
-        params.set('page', page + '');
-        history.push({
-            pathname: location.pathname,
-            search: '?' + params.toString()
-        });
-    };
+
     const childrenList: Array<React.ReactNode> = [];
     React.Children.forEach(items, (child: any, index) => {
         childrenList.push(

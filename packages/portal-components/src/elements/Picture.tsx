@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 import { FunctionComponent, useRef, useEffect, useContext, useMemo, useState } from 'react';
 import objectFitImages from 'object-fit-images';
 import fallback_svg from '../assets/no-img.svg';
-import { ConfigContext } from '../config-provider';
+import { PortalUIContext } from '../config-context';
 import cls from 'classnames';
 import { skeleton_animation } from '../styles';
 import { StyleFix } from '../types';
@@ -41,9 +41,9 @@ export const Picture: FunctionComponent<Props> = ({
     wrapper: Wrapper
 }) => {
     const imgRef = useRef<HTMLImageElement>(null);
-    const config = useContext(ConfigContext);
+    const config = useContext(PortalUIContext);
     const [loading, setLoading] = useState(true);
-    const _base = base || config.assetsBasePath;
+    const _base = base || config.assetsPrefix;
     const _fallback = fallback || config.pictureFallback;
 
     const sourceSets = useMemo(() => {
@@ -112,7 +112,7 @@ export const Picture: FunctionComponent<Props> = ({
 Picture.defaultProps = {
     base: '',
     alt: '图片',
-    wrapper: 'div',
+    wrapper: 'figure',
     className: ''
 };
 export default Picture;

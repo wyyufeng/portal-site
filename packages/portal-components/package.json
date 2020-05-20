@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -50,5 +50,6 @@
   "dependencies": {
     "@portal-site/types": "^0.3.0",
     "@rollup/plugin-image": "^2.0.5"
-  }
+  },
+  "gitHead": "162d5147f6587cf5e8c637fa3c0837baf3c2700b"
 }

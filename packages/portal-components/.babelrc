@@ -1,3 +1,13 @@
 {
-    "plugins": ["emotion"]
+    "plugins": [
+        [
+            "emotion",
+            {
+                "sourceMap": false,
+                "autoLabel": false,
+                "labelFormat": "[local]",
+                "cssPropOptimization": true
+            }
+        ]
+    ]
 }

@@ -53,5 +53,6 @@
   "dependencies": {
     "@types/react-redux": "^7.1.8",
     "@types/react-router-dom": "^5.1.5"
-  }
+  },
+  "gitHead": "162d5147f6587cf5e8c637fa3c0837baf3c2700b"
 }

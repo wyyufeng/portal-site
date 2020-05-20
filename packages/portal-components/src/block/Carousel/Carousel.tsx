@@ -63,7 +63,7 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
             ins && ins.destroy();
             clearTimeout(timer);
         };
-    }, [delay, duration]);
+    }, [delay, duration, dataSource.length]);
     const items = dataSource.map(_renderSlide);
     return (
         <div

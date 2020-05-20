@@ -23,11 +23,7 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
+  "husky": {},
   "author": "wyyufeng",
   "module": "dist/components.esm.js",
   "devDependencies": {
@@ -52,6 +48,7 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
+    "@portal-site/types": "^0.1.1",
     "@rollup/plugin-image": "^2.0.5"
   }
 }

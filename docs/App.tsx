@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { PortalSite, useQueryOne, useDataProvider } from '@portal-site/core';
+import { PortalSite, useQueryOne, useDataProvider } from '../packages/portal-core';
 import { createBrowserHistory } from 'history';
-import { createHttpClient, routesMap, cmsDataProvider } from '@portal-site/data';
-import { Article } from '@portal-site/components';
+import { createHttpClient, routesMap, cmsDataProvider } from '../packages/portal-data';
 const http = createHttpClient(
     'https://www.fastmock.site/mock/3f757e04fc524a3b552de633cd63de6c/',
     'ce72b99f3d484ef4ba927d656e89205b',
@@ -16,17 +15,8 @@ const App: FunctionComponent = ({ children }) => {
             history={createBrowserHistory()}
             root={'cn'}
         >
-            <Test></Test>
+            {children}
         </PortalSite>
     );
 };
 export default App;
-export function Test() {
-    const dp = useQueryOne('queryOneById');
-    console.log(dp);
-    return (
-        <div>
-            <Article></Article>
-        </div>
-    );
-}

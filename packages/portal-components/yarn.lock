@@ -1030,6 +1030,11 @@
     "@types/classnames" "^2.2.10"
     sass "^1.26.5"
 
+"@portal-site/types@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npm.taobao.org/@portal-site/types/download/@portal-site/types-0.1.1.tgz#9515d2214b94d7edcdb1803839e56196aaf3f978"
+  integrity sha1-lRXSIUuU1+3NsYA4OeVhlqrz+Xg=
+
 "@rollup/plugin-commonjs@^11.0.0":
   version "11.1.0"
   resolved "https://registry.npm.taobao.org/@rollup/plugin-commonjs/download/@rollup/plugin-commonjs-11.1.0.tgz#60636c7a722f54b41e419e1709df05c7234557ef"

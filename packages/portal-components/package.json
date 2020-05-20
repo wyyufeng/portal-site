@@ -28,11 +28,11 @@
   "module": "dist/components.esm.js",
   "devDependencies": {
     "@babel/core": "^7.9.6",
-    "@emotion/core": "^10.0.28",
     "@portal-site/pager": "^0.2.0",
     "@types/react-redux": "^7.1.8",
     "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.1.0",
+    "babel-plugin-emotion": "^10.0.33",
     "classnames": "^2.2.6",
     "emotion": "^10.0.27",
     "husky": "^4.2.5",

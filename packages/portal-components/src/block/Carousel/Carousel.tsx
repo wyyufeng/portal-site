@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { FunctionComponent, useRef, useEffect } from 'react';
+import { css, cx } from 'emotion';
+import * as React from 'react';
+import { FunctionComponent, useEffect, useRef } from 'react';
 import Picture from '../../elements/Picture';
 import CarouselLib from './lib';
-import cls from 'classnames';
-
 let ins: any = null;
 let timer: any = null;
 
@@ -35,11 +33,10 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
 }) => {
     const wrapperRef = useRef(null);
     const navRef = useRef(null);
-    const render = (item: { imgSrc: string }) => (
+    const render = (imgSrc: string) => (
         <Picture
-            key={item.imgSrc}
-            className={cls(
-                'portal-carousel-slide',
+            key={imgSrc}
+            className={cx(
                 css`
                     position: absolute;
                     width: 100%;
@@ -47,9 +44,10 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
                     top: 0;
                     left: 0;
                     z-index: 0;
-                `
+                `,
+                'portal-carousel-slide'
             )}
-            source={item.imgSrc}
+            source={imgSrc}
         ></Picture>
     );
     const _renderSlide = renderSlide || render;
@@ -69,60 +67,68 @@ export const Carousel: FunctionComponent<ICarouselProps> = ({
     const items = dataSource.map(_renderSlide);
     return (
         <div
-            className="portal-carousel"
-            css={css`
-                width: 100%;
-                height: 100vh;
-                position: relative;
-                top: 0;
-                left: 0;
-                overflow: hidden;
-            `}
-        >
-            <div
-                className="portal-carousel-container"
-                css={css`
-                    position: absolute;
+            className={cx(
+                css`
                     width: 100%;
-                    height: 100%;
+                    height: 100vh;
+                    position: relative;
                     top: 0;
                     left: 0;
-                    z-index: 0;
-                `}
+                    overflow: hidden;
+                `,
+                'portal-carousel'
+            )}
+        >
+            <div
+                className={cx(
+                    css`
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 0;
+                    `,
+                    'portal-carousel-container'
+                )}
             >
                 <div ref={wrapperRef} className="portal-carousel-wrappr">
                     {items}
                 </div>
                 <div
                     ref={navRef}
-                    className="portal-carousel-nav"
-                    css={css`
-                        position: absolute;
-                        bottom: 5%;
-                        width: 100%;
-                        left: 0;
-                        text-align: center;
-                        & > .portal-carousel-nav-item.active {
-                            background-color: red;
-                        }
-                    `}
+                    className={cx(
+                        css`
+                            position: absolute;
+                            bottom: 5%;
+                            width: 100%;
+                            left: 0;
+                            text-align: center;
+                            & > .portal-carousel-nav-item.active {
+                                background-color: red;
+                            }
+                        `,
+                        'portal-carousel-nav'
+                    )}
                 >
-                    {dataSource.map((i) => (
+                    {dataSource.map((imgSrc) => (
                         <i
-                            className="portal-carousel-nav-item"
-                            css={css`
-                                display: inline-block;
-                                width: 27px;
-                                height: 24px;
-                                margin: 0 5px;
-                                line-height: 3px;
-                                text-align: center;
-                                vertical-align: middle;
-                                cursor: pointer;
-                                background-color: #fff;
-                                border-radius: 50%;
-                            `}
-                            key={i.imgSrc}
+                            className={cx(
+                                css`
+                                    display: inline-block;
+                                    width: 27px;
+                                    height: 24px;
+                                    margin: 0 5px;
+                                    line-height: 3px;
+                                    text-align: center;
+                                    vertical-align: middle;
+                                    cursor: pointer;
+                                    background-color: #fff;
+                                    border-radius: 50%;
+                                `,
+                                'portal-carousel-nav-item'
+                            )}
+                            key={imgSrc}
                         ></i>
                     ))}
                 </div>

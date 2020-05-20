@@ -1,6 +1,7 @@
-/** @jsx jsx */
-import React, { FunctionComponent } from 'react';
-import { css, jsx } from '@emotion/core';
+import * as React from 'react';
+import { css, cx } from 'emotion';
+
+import { FunctionComponent } from 'react';
 
 export interface Props {
     /**
@@ -38,55 +39,61 @@ export const Meta: FunctionComponent<Props> = ({
 }) => {
     return (
         <div
-            className="portal-list-item-meta"
-            css={[
-                {
+            className={cx(
+                css({
                     display: 'flex',
                     flex: 1
-                },
+                }),
                 center &&
                     css`
                         align-items: center;
-                    `
-            ]}
+                    `,
+                'portal-list-item-meta'
+            )}
         >
             <div
-                css={css`
-                    position: relative;
-                    flex: 0 0 auto;
-                    float: none;
-                    margin: 0;
-                    padding: 0;
-                `}
-                className="portal-list-item-meta-avatar"
+                className={cx(
+                    css`
+                        position: relative;
+                        flex: 0 0 auto;
+                        float: none;
+                        margin: 0;
+                        padding: 0;
+                    `,
+                    'portal-list-item-meta-avatar'
+                )}
             >
                 {avatar}
             </div>
             <div
-                className="portal-list-item-meta-main"
-                css={css`
-                    flex: 1 1 auto;
-                    background: 0 0;
-                    margin: 0;
-                    padding: 0;
-                    box-shadow: none;
-                    font-size: 1em;
-                    border: none;
-                    min-width: 0;
-                    width: auto;
-                    align-self: top;
-                    padding-left: 1.5em;
-                `}
+                className={cx(
+                    css`
+                        flex: 1 1 auto;
+                        background: 0 0;
+                        margin: 0;
+                        padding: 0;
+                        box-shadow: none;
+                        font-size: 1em;
+                        border: none;
+                        min-width: 0;
+                        width: auto;
+                        align-self: top;
+                        padding-left: 1.5em;
+                    `,
+                    'portal-list-item-meta-main'
+                )}
             >
                 <div
-                    css={css`
-                        display: inline-block;
-                        margin: 6px 0 10px;
-                    `}
-                    className="portal-list-item-meta-header"
+                    className={cx(
+                        css`
+                            display: inline-block;
+                            margin: 6px 0 10px;
+                        `,
+                        'portal-list-item-meta-header'
+                    )}
                 >
                     <h4
-                        css={css`
+                        className={css`
                             font-size: 16px;
                             color: #595757;
                             font-weight: normal;
@@ -96,7 +103,7 @@ export const Meta: FunctionComponent<Props> = ({
                         {title}
                     </h4>
                     <span
-                        css={css`
+                        className={css`
                             margin: 7px 0 7px;
                             font-size: 14px;
                             line-height: 1em;
@@ -107,33 +114,37 @@ export const Meta: FunctionComponent<Props> = ({
                     </span>
                 </div>
                 <div
-                    className="portal-list-item-meta-description"
-                    css={{
-                        lineHeight: '1.8',
-                        textAlign: 'justify',
-                        fontSize: '14px',
-                        color: '#898989'
-                    }}
+                    className={cx(
+                        css({
+                            lineHeight: '1.8',
+                            textAlign: 'justify',
+                            fontSize: '14px',
+                            color: '#898989'
+                        }),
+                        'portal-list-item-meta-description'
+                    )}
                 >
                     {description}
                 </div>
                 {actions && (
                     <div
-                        css={css`
-                            display: flex;
+                        className={cx(
+                            css`
+                                display: flex;
 
-                            position: relative;
-                            background: 0 0;
-                            margin: 1rem 0 0;
-                            width: 100%;
-                            padding: 0 0 0;
-                            top: 0;
-                            left: 0;
-                            box-shadow: none;
-                            border-top: none;
-                            justify-content: flex-end;
-                        `}
-                        className="portal-list-item-meta-action"
+                                position: relative;
+                                background: 0 0;
+                                margin: 1rem 0 0;
+                                width: 100%;
+                                padding: 0 0 0;
+                                top: 0;
+                                left: 0;
+                                box-shadow: none;
+                                border-top: none;
+                                justify-content: flex-end;
+                            `,
+                            'portal-list-item-meta-action'
+                        )}
                     >
                         {actions}
                     </div>

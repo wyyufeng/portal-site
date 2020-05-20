@@ -1,6 +1,6 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import React, { FunctionComponent } from 'react';
+import { cx, css } from 'emotion';
+import { FunctionComponent } from 'react';
+import * as React from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
 import { IRootRouteMap } from '@portal-site/types';
@@ -17,18 +17,20 @@ const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra
 
     return (
         <header
-            className="portal-header"
-            css={css`
-                background-color: rgba(0, 0, 0, 0.5);
-                height: 85px;
-                width: 100%;
-                position: absolute;
-                top: 0;
-                z-index: 10;
-            `}
+            className={cx(
+                css`
+                    background-color: rgba(0, 0, 0, 0.5);
+                    height: 85px;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    z-index: 10;
+                `,
+                'portal-header'
+            )}
         >
             <Container
-                css={css`
+                className={css`
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -39,10 +41,7 @@ const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra
                     {isSrc ? (
                         <Link to="/" title="首页">
                             <img
-                                css={{
-                                    verticalAlign: 'middle',
-                                    height: 30
-                                }}
+                                className={css({ verticalAlign: 'middle', height: 30 })}
                                 src={logo as string}
                                 alt="logo"
                             ></img>

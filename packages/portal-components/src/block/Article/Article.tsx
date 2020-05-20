@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import * as React from 'react';
 import { FunctionComponent } from 'react';
-import { css, jsx } from '@emotion/core';
+import { css, cx } from 'emotion';
 import Container from '../../layout/Container';
 export interface ArticleProps {
     title?: React.FunctionComponent;
@@ -29,22 +28,26 @@ const Article: FunctionComponent<ArticleProps> = ({
     return (
         <Container>
             <article
-                css={{
-                    textAlign: 'justify'
-                }}
-                className="portal-article"
+                className={cx(
+                    css({
+                        textAlign: 'justify'
+                    }),
+                    'portal-article'
+                )}
             >
                 <header
-                    className="portal-article-header"
-                    css={css`
-                        margin: 20px 0;
-                        line-height: 50px;
-                        color: #595757;
-                        text-align: center;
-                    `}
+                    className={cx(
+                        css`
+                            margin: 20px 0;
+                            line-height: 50px;
+                            color: #595757;
+                            text-align: center;
+                        `,
+                        'portal-article-header'
+                    )}
                 >
                     <h1
-                        css={css`
+                        className={css`
                             font-size: 24px;
                             line-height: 1.5;
                             margin: 0;
@@ -54,24 +57,26 @@ const Article: FunctionComponent<ArticleProps> = ({
                         {title}
                     </h1>
                     <section
-                        className="portal-article-info"
-                        css={css`
-                            & > * {
-                                font-size: 16px;
-                                color: #b7b6b6;
-                                text-align: center;
-                                line-height: 2;
-                                display: inline;
-                                font-style: normal;
-                                margin: 0 10px;
-                            }
-                        `}
+                        className={cx(
+                            css`
+                                & > * {
+                                    font-size: 16px;
+                                    color: #b7b6b6;
+                                    text-align: center;
+                                    line-height: 2;
+                                    display: inline;
+                                    font-style: normal;
+                                    margin: 0 10px;
+                                }
+                            `,
+                            'portal-article-info'
+                        )}
                     >
                         <span className="portal-article-info-pubdate">
                             发布时间：
                             {pubdate}
                         </span>
-                        <address className="portal-article-info-address" css={css``}>
+                        <address className="portal-article-info-address">
                             信息来源：
                             {address}
                         </address>
@@ -82,18 +87,20 @@ const Article: FunctionComponent<ArticleProps> = ({
                     </section>
                 </header>
                 <section
-                    className="portal-article-content"
-                    css={css`
-                        margin-top: 30px;
-                        min-height: 300px;
-                        line-height: 1.625;
-                        font-size: 16px;
-                        color: #434343;
-                        & > p {
-                            margin: 15px 0;
-                            text-indent: 2em;
-                        }
-                    `}
+                    className={cx(
+                        css`
+                            margin-top: 30px;
+                            min-height: 300px;
+                            line-height: 1.625;
+                            font-size: 16px;
+                            color: #434343;
+                            & > p {
+                                margin: 15px 0;
+                                text-indent: 2em;
+                            }
+                        `,
+                        'portal-article-content'
+                    )}
                 >
                     {isString(content) ? (
                         <article

@@ -1,7 +1,8 @@
-/** @jsx jsx */
-import React, { FunctionComponent } from 'react';
+import * as React from 'react';
+import { css, cx } from 'emotion';
+
+import { FunctionComponent } from 'react';
 import { Meta } from './Meta';
-import { css, jsx } from '@emotion/core';
 export interface Props {
     /**
      * 列表的附加内容
@@ -31,26 +32,30 @@ export const Item: FunctionComponent<Props> & {
     }
     return (
         <li
-            css={css`
-                display: flex;
-                width: 100%;
-                min-height: 0;
-                background: 0 0;
-                padding: 18px 0;
-                border-bottom: 1px solid #f0f0f0;
-                &:last-child {
-                    border-bottom: none;
-                }
-            `}
-            className="portal-list-item"
+            className={cx(
+                css`
+                    display: flex;
+                    width: 100%;
+                    min-height: 0;
+                    background: 0 0;
+                    padding: 18px 0;
+                    border-bottom: 1px solid #f0f0f0;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                `,
+                'portal-list-item'
+            )}
         >
             {children}
             {extra && (
                 <div
-                    css={css`
-                        margin-left: 40px;
-                    `}
-                    className="portal-list-item-extra"
+                    className={cx(
+                        css`
+                            margin-left: 40px;
+                        `,
+                        'portal-list-item-extra'
+                    )}
                 >
                     {extraNodes}
                 </div>

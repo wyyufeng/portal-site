@@ -1,7 +1,10 @@
+import * as React from 'react';
+import { css, cx } from 'emotion';
+
 import { Pager, PagerProps } from '@portal-site/pager';
 import '@portal-site/pager/dist/style.css';
 import { ListItem } from '@portal-site/types';
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { Item } from './Item';
 export interface ListProps {
     /**
@@ -48,22 +51,26 @@ export const List: FunctionComponent<ListProps> & {
     return (
         <div className="portal-list">
             <ul
-                css={{
-                    listStyle: 'none',
-                    margin: 0,
-                    padding: 0
-                }}
-                className="portal-list-items"
+                className={cx(
+                    css({
+                        listStyle: 'none',
+                        margin: 0,
+                        padding: 0
+                    }),
+                    'portal-list-items'
+                )}
             >
                 {childrenList}
             </ul>
             {pagination && (
                 <div
-                    css={{
-                        textAlign: 'center',
-                        marginTop: 70
-                    }}
-                    className="portal-list-pagination"
+                    className={cx(
+                        css({
+                            textAlign: 'center',
+                            marginTop: 70
+                        }),
+                        'portal-list-pagination'
+                    )}
                 >
                     <Pager
                         hrefCreator={(page) => `?page=${page}`}

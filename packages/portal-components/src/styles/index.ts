@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from 'emotion';
 const button_base = css`
 outline:none;
 border:none;

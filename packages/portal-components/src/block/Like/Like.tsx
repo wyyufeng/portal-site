@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import React from 'react';
+import * as React from 'react';
 import { ThumbsUp } from 'react-feather';
-import { css, jsx } from '@emotion/core';
-import cls from 'classnames';
+import { css, cx } from 'emotion';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { button_base } from '../../styles';
 
@@ -57,14 +55,15 @@ export const Like: FunctionComponent<Props> = ({
     return (
         <button
             ref={btn}
-            className={cls('portal-like', { 'portal-like-active': _active })}
-            css={[
+            className={cx(
                 button_base,
                 _active &&
                     css`
                         color: #ef5353;
-                    `
-            ]}
+                    `,
+                { 'portal-like-active': _active },
+                'portal-like'
+            )}
             type="button"
         >
             {Icon}

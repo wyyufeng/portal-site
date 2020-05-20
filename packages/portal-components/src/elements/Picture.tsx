@@ -1,11 +1,11 @@
-/** @jsx jsx */
 ///  <reference path="object-fit-images.d.ts"/>
-import { jsx } from '@emotion/core';
+import * as React from 'react';
+import { css, cx } from 'emotion';
+
 import { FunctionComponent, useRef, useEffect, useContext, useMemo, useState } from 'react';
 import objectFitImages from 'object-fit-images';
 import fallback_svg from '../assets/no-img.svg';
 import { PortalUIContext } from '../config-context';
-import cls from 'classnames';
 import { skeleton_animation } from '../styles';
 import { StyleFix } from '../types';
 import { emptyObj } from '../helper';
@@ -84,25 +84,26 @@ export const Picture: FunctionComponent<Props> = ({
     return (
         <Wrapper
             style={style}
-            className={cls('portal-picture', className)}
-            css={[
-                {
+            className={cx(
+                css({
                     textAlign: 'center',
                     display: 'flex',
                     borderRadius: '2px'
-                },
-                loading && skeleton_animation
-            ]}
+                }),
+                loading && skeleton_animation,
+                'portal-picture',
+                className
+            )}
         >
             <img
-                css={{
+                className={css({
                     width: '100%',
                     maxHeight: '100%',
                     objectFit: 'cover',
                     margin: 0,
                     padding: 0,
                     borderRadius: 'inherit'
-                }}
+                })}
                 alt={alt}
                 ref={imgRef}
             ></img>

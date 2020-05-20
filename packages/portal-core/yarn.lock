@@ -956,10 +956,10 @@
     rimraf "^2.6.3"
     warning "^4.0.3"
 
-"@portal-site/types@":
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/@portal-site/types/download/@portal-site/types-0.1.1.tgz#9515d2214b94d7edcdb1803839e56196aaf3f978"
-  integrity sha1-lRXSIUuU1+3NsYA4OeVhlqrz+Xg=
+"@portal-site/types@*":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@portal-site/types/-/types-0.2.0.tgz#edf2def8decf1b9de367f8ef9620ddf4940685de"
+  integrity sha512-KE3UyOD3KXFdTXO4FG7Cpqfvg+nALZnEw7Zc/srx0U5C4N/pni3xvAtsnmLq8992kWGRcZHsEeLRz9xjzYG73A==
 
 "@redux-saga/core@^1.1.3":
   version "1.1.3"

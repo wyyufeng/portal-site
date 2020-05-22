@@ -3,11 +3,11 @@ import { FunctionComponent } from 'react';
 import { css, cx } from 'emotion';
 import Container from '../../layout/Container';
 export interface ArticleProps {
-    title?: React.FunctionComponent;
-    pubdate?: React.FunctionComponent;
-    address?: React.FunctionComponent;
-    content?: React.FunctionComponent;
-    visitCount?: React.FunctionComponent;
+    title?: React.ReactNode;
+    publishDate?: React.ReactNode;
+    source?: React.ReactNode;
+    content?: React.ReactNode;
+    visitCount?: React.ReactNode;
     footer?: React.ReactNode;
     // resource: string;
     // path?: string;
@@ -16,15 +16,13 @@ const isString = (test: any): boolean => Object.prototype.toString.call(test) ==
 const Article: FunctionComponent<ArticleProps> = ({
     title,
     content = '',
-    pubdate,
-    address,
+    publishDate,
+    source,
     visitCount,
-    footer
-    // resource,
-    // path
+    footer,
+    a
 }) => {
-    // const { data } = useQueryOne(resource, path);
-    // const { title, publishDate, source, content, visitCount } = data;
+    console.log(a);
     return (
         <Container>
             <article
@@ -74,11 +72,11 @@ const Article: FunctionComponent<ArticleProps> = ({
                     >
                         <span className="portal-article-info-pubdate">
                             发布时间：
-                            {pubdate}
+                            {publishDate}
                         </span>
                         <address className="portal-article-info-address">
                             信息来源：
-                            {address}
+                            {source}
                         </address>
                         <span className="portal-article-info-visitcount">
                             浏览次数：
@@ -112,7 +110,7 @@ const Article: FunctionComponent<ArticleProps> = ({
                         content
                     )}
                 </section>
-                <footer>{footer}</footer>
+                {footer && <footer>{footer}</footer>}
             </article>
         </Container>
     );

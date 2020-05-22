@@ -1,14 +1,4 @@
-import {
-    Meta,
-    Story,
-    Props,
-    Preview,
-    Source,
-    Primary,
-    Title,
-    Stories
-} from '@storybook/addon-docs/blocks';
-import { Article as ArticleComp, List } from '../packages/portal-components/src';
+import { Article as ArticleComp, Like } from '../packages/portal-components/src';
 import { useArticleController } from '../packages/portal-core';
 import App from './App';
 import React from 'react';
@@ -20,11 +10,20 @@ function Article() {
 
 export default {
     title: 'Article',
-    component: ArticleComp,
-    info: { inline: true }
+    parameters: { component: ArticleComp }
 };
-export const Default = () => (
+export const a = () => (
     <App>
         <Article></Article>
+    </App>
+);
+function CustomArticle() {
+    const { data } = useArticleController({ resource: '1' });
+    console.log(data);
+    return <ArticleComp footer={123} {...data}></ArticleComp>;
+}
+export const b = () => (
+    <App>
+        <CustomArticle></CustomArticle>
     </App>
 );

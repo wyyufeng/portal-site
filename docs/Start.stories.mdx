@@ -3,17 +3,21 @@ import { Meta } from '@storybook/addon-docs/blocks';
 <Meta title="Portal-Site|Start"  parameters={{ order: 2}}/>
 
 
-### 📦 Installing 
+### 🎨 介绍
 ---
-使用 npm/yarn 安装
-- npm: `npm i portal-core portal-data-cms portal-elements`
-- yarn: `yarn add portal-core portal-data-cms portal-elements`
+portal-site 是专门用于cms前端开发的工具库，主要包含四个pakage
 
-### 🎸 Quick Start
+ - `@portal-site/core` 路由、redux、DataProviderContext和其他Context的创建以及各种hooks
+ - `@portal-site/data` 接口封装，源数据处理
+ - `@portal-site/components` 包含各种基础组件(elements)和逻辑块(blocks)
+ - `@portal-site/types` 公共的类型定义
+
+### 🎸 快速开始
 ---
 ```jsx
-import cms, { createHttpClient } from '../packages/portal-data-cms/src';
-import { PortalContext, routesMap, RouteContext } from '../packages/portal-core/src';
+import { createHttpClient, routesMap, cmsDataProvider } from '@portal-site/data';
+import { createBrowserHistory } from 'history';
+import { PortalSite } from '@portal-site/core';
 
 // 1. 创建 dataProvider
  const http = createHttpClient(
@@ -21,25 +25,23 @@ import { PortalContext, routesMap, RouteContext } from '../packages/portal-core/
     appid,
     appkey
 );
-const dataProvider = cms(http)
+const dataProvider = cmsDataProvider(http)
 // 2. 创建上下文
 
-<PortalContext models={[routesMap]} dataProvider={dataProvider}>
-    <RouteContext history={createBrowserHistory()} root={'cn'}>
-       // ...
-    </RouteContext>
-</PortalContext>
+ <PortalSite
+      models={[routesMap]}
+      dataProvider={cmsDataProvider(http, 'sw-cms-zb')}
+      history={createBrowserHistory()}
+      root="cn"
+    >
+    // components
+ </PortalSite>
 ```
 
-### 🎨 Development
----
-```bash
-git clone git@github.com:wyyufeng/portal-site.git
-cd portal-site
-npm install
-lerna bootstrap
-lerna exec npm link
-```
-将项目依赖安装完成后，启动三个package的`watch`脚本，然后启动`storybook` 即可.(三个package之间存在依赖，可以通过npm link 软链接)
+### 🎮 前提
 
-*本项目使用 `lerna` 和 `storybook` 辅助开发*
+ - 知道`react hooks`的使用方法
+ - 知道`react context`的使用方法
+ - 知道`mpa(redux)`的使用方法
+
+

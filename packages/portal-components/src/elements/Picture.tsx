@@ -76,9 +76,10 @@ export const Picture: FunctionComponent<Props> = ({
             current.onerror = onError;
         }
         // 将图片src 设置为 "" ,可以取消正在加载的图片
-        return () => {
-            current.src = '';
-        };
+        // 可能会导致内存泄漏
+        // return () => {
+        //     current.src = '';
+        // };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sourceSets]);
     return (

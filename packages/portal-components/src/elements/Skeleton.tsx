@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import * as React from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from 'emotion';
 import { skeleton_animation } from '../styles';
-import cls from 'classnames';
+import { cx } from 'emotion';
 import { StyleFix } from '../types';
 import { emptyObj } from '../helper';
 
@@ -45,19 +44,23 @@ export default class Skeleton extends React.Component<SkeletonProps> {
         if (loading) {
             return (
                 <div
-                    className={cls('portal-skeleton', className, {
-                        'portal-skeleton-animation': animation
-                    })}
-                    style={style}
-                    css={css`
-                        display: inline-block;
-                        width: 100%;
-                        &.portal-skeleton-animation {
-                            .portal-skeleton-element {
-                                ${skeleton_animation}
+                    className={cx(
+                        'portal-skeleton',
+                        css`
+                            display: inline-block;
+                            width: 100%;
+                            &.portal-skeleton-animation {
+                                .portal-skeleton-element {
+                                    ${skeleton_animation}
+                                }
                             }
+                        `,
+                        className,
+                        {
+                            'portal-skeleton-animation': animation
                         }
-                    `}
+                    )}
+                    style={style}
                 >
                     {this.renderContent()}
                 </div>
@@ -73,13 +76,15 @@ export default class Skeleton extends React.Component<SkeletonProps> {
 export const Card: React.FunctionComponent = () => {
     return (
         <div
-            className="portal-skeleton-card"
-            css={css`
-                width: 268px;
-                height: 320px;
-                margin: 16px;
-                box-shadow: 0px 0px 5px 3px #f7f9fa;
-            `}
+            className={cx(
+                'portal-skeleton-card',
+                css`
+                    width: 268px;
+                    height: 320px;
+                    margin: 16px;
+                    box-shadow: 0px 0px 5px 3px #f7f9fa;
+                `
+            )}
         >
             <Avatar
                 style={{
@@ -104,13 +109,15 @@ export const Card: React.FunctionComponent = () => {
 export const List: React.FunctionComponent = () => {
     return (
         <div
-            className="portal-skeleton-list"
-            css={css`
-                display: flex;
-                justify-content: space-around;
-                padding: 16px 24px;
-                border-bottom: 1px solid #f0f0f0;
-            `}
+            className={cx(
+                'portal-skeleton-list',
+                css`
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 16px 24px;
+                    border-bottom: 1px solid #f0f0f0;
+                `
+            )}
         >
             <Avatar
                 style={{
@@ -147,7 +154,7 @@ export const Paragraph: React.FunctionComponent<ParagraphProps> = ({
     style = emptyObj
 }) => {
     return (
-        <div className={cls('portal-skeleton-paragraph', className)}>
+        <div className={cx('portal-skeleton-paragraph', className)}>
             {[...Array(rows)].map((_, index) => (
                 <Line width={getWidth(index, rows, width)} style={style} key={index}></Line>
             ))}
@@ -169,17 +176,21 @@ export const Avatar: React.FunctionComponent<AvatarProps> = ({
 }) => {
     return (
         <span
-            className={cls('portal-skeleton-avatar', 'portal-skeleton-element', className)}
+            className={cx(
+                'portal-skeleton-avatar',
+                'portal-skeleton-element',
+                css`
+                    display: inline-block;
+                    vertical-align: top;
+                    background: #f2f2f2;
+                    width: 32px;
+                    height: 32px;
+                    line-height: 32px;
+                    ${shape === 'circle' && 'border-radius:50%'}
+                `,
+                className
+            )}
             style={style}
-            css={css`
-                display: inline-block;
-                vertical-align: top;
-                background: #f2f2f2;
-                width: 32px;
-                height: 32px;
-                line-height: 32px;
-                ${shape === 'circle' && 'border-radius:50%'}
-            `}
         ></span>
     );
 };
@@ -198,15 +209,19 @@ export const Title: React.FunctionComponent<TitleProps> = ({
     return (
         // eslint-disable-next-line jsx-a11y/heading-has-content
         <h3
-            css={css`
-                height: 20px;
-                margin-top: 16px;
-                background: #f2f2f2;
-                display: inline-block;
-                margin: 0;
-                padding: 0;
-            `}
-            className={cls('portal-skeleton-title', 'portal-skeleton-element', className)}
+            className={cx(
+                'portal-skeleton-title',
+                'portal-skeleton-element',
+                css`
+                    height: 20px;
+                    margin-top: 16px;
+                    background: #f2f2f2;
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                `,
+                className
+            )}
             style={{
                 width: width,
                 ...style
@@ -238,12 +253,16 @@ export const Line: React.FunctionComponent<LineProps> = ({
                 height: height,
                 ...style
             }}
-            css={css`
-                background-color: #f2f2f2;
-                margin-top: 16px;
-                display: inline-block;
-            `}
-            className={cls('portal-skeleton-line', 'portal-skeleton-element', className)}
+            className={cx(
+                'portal-skeleton-line',
+                'portal-skeleton-element',
+                css`
+                    background-color: #f2f2f2;
+                    margin-top: 16px;
+                    display: inline-block;
+                `,
+                className
+            )}
         ></span>
     );
 };

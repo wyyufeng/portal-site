@@ -19,10 +19,8 @@ const Article: FunctionComponent<ArticleProps> = ({
     publishDate,
     source,
     visitCount,
-    footer,
-    a
+    footer
 }) => {
-    console.log(a);
     return (
         <Container>
             <article

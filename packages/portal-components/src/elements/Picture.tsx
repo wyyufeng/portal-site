@@ -87,9 +87,9 @@ export const Picture: FunctionComponent<Props> = ({
             style={style}
             className={cx(
                 css({
-                    textAlign: 'center',
-                    display: 'flex',
-                    borderRadius: '2px'
+                    borderRadius: '2px',
+                    display: 'block',
+                    position: 'relative'
                 }),
                 loading && skeleton_animation,
                 'portal-picture',
@@ -98,11 +98,12 @@ export const Picture: FunctionComponent<Props> = ({
         >
             <img
                 className={css({
+                    display: 'block',
+                    height: 'auto',
                     width: '100%',
-                    maxHeight: '100%',
+                    maxWidth: '100%',
                     objectFit: 'cover',
-                    margin: 0,
-                    padding: 0,
+
                     borderRadius: 'inherit'
                 })}
                 alt={alt}

@@ -16,8 +16,7 @@
     "style": "sass src/style.scss dist/style.css",
     "start": "tsdx watch",
     "build": "tsdx build && npm run style",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "lint": "tsdx lint"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

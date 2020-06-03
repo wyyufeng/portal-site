@@ -23,7 +23,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "publish": "lerna publish --canary minor -yes",
+    "publish": "npx lerna publish --canary minor -yes",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },

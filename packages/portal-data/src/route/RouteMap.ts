@@ -32,6 +32,7 @@ const _flatResultCache: IRoute[] = [];
 function _flatRoutes(root: any) {
     const children = root.children;
     if (children.length > 0) {
+        !root.isRoot && _flatResultCache.push(root);
         return children.map((i: any) => _flatRoutes(i));
     }
     !root.isRoot && _flatResultCache.push(root);

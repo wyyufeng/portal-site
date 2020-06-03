@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -46,8 +46,8 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@portal-site/pager": "^0.3.1",
-    "@portal-site/types": "^0.3.1",
+    "@portal-site/pager": "^0.4.0",
+    "@portal-site/types": "^0.4.0",
     "emotion": "^10.0.27",
     "object-fit-images": "^3.2.4",
     "react-feather": "^2.0.3",

@@ -22,6 +22,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
 
-      - run: npm run publish
+      - run: npx lerna version patch && npm run publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

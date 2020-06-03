@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.3.2",
+  "version": "0.3.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,6 +31,7 @@
   "module": "dist/components.esm.js",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@rollup/plugin-image": "^2.0.5",
     "@types/react-redux": "^7.1.8",
     "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.1.0",
@@ -42,16 +43,15 @@
     "ts-loader": "^7.0.4",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.2",
-    "@rollup/plugin-image": "^2.0.5"
+    "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@portal-site/types": "^0.3.0",
-    "react-router-dom": "^5.2.0",
-    "object-fit-images": "^3.2.4",
+    "@portal-site/pager": "^0.3.1",
+    "@portal-site/types": "^0.3.1",
     "emotion": "^10.0.27",
+    "object-fit-images": "^3.2.4",
     "react-feather": "^2.0.3",
-    "@portal-site/pager": "^0.3.0"
+    "react-router-dom": "^5.2.0"
   },
   "gitHead": "162d5147f6587cf5e8c637fa3c0837baf3c2700b"
 }

@@ -30,7 +30,7 @@
     "@types/react": "^16.9.27",
     "sass": "^1.26.5",
     "tsdx": "^0.13.2",
-    "tslib": "",
+    "tslib": "^2.0.0",
     "typescript": ""
   },
   "files": [

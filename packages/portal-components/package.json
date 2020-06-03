@@ -17,10 +17,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
-    "lint": "tsdx lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "tsdx build"
   },
   "peerDependencies": {
     "react": "",
@@ -30,17 +27,8 @@
   "author": "wyyufeng",
   "module": "dist/components.esm.js",
   "devDependencies": {
-    "@babel/core": "^7.9.6",
     "@rollup/plugin-image": "^2.0.5",
-    "@types/react-redux": "^7.1.8",
     "@types/react-router-dom": "^5.1.5",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-emotion": "^10.0.33",
-    "husky": "^4.2.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "ts-loader": "^7.0.4",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.2"

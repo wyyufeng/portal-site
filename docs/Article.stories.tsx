@@ -1,5 +1,5 @@
 import { Article as ArticleComp, Like } from '../packages/portal-components/src';
-import { useArticleController } from '../packages/portal-core';
+import { useArticleController } from '../packages/portal-core/src';
 import App from './App';
 import React from 'react';
 

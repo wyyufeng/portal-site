@@ -18,6 +18,7 @@ export class RouteMap implements IRouteMap {
         this.name = '';
         this.isHome = false;
         this.id = '';
+        this.description = '';
     }
 }
 

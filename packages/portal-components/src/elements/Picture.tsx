@@ -86,11 +86,14 @@ export const Picture: FunctionComponent<Props> = ({
         <Wrapper
             style={style}
             className={cx(
-                css({
-                    borderRadius: '2px',
-                    display: 'block',
-                    position: 'relative'
-                }),
+                css`
+                    border-radius: 2px;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #f7f7f7;
+                `,
                 loading && skeleton_animation,
                 'portal-picture',
                 className

@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -43,5 +43,5 @@
     "react-router-dom": "^5.2.0",
     "sass": "^1.26.7"
   },
-  "gitHead": "63982d45b4b51117e74aed8ba0546a8f2bb06f75"
+  "gitHead": "d571b4b90a770289ab2f88150fc75d2236e98381"
 }

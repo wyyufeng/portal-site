@@ -81,7 +81,7 @@ export const Picture: FunctionComponent<Props> = ({
             current.src = '';
             current.onload = null;
             current.onerror = null;
-        }
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sourceSets]);
     return (

@@ -1,4 +1,5 @@
 export const getImgFromHtml = (content: string = ''): string => {
+    if (!content) return '';
     //   匹配图片
     const imgReg = /<img.*?(?:>|\/>)/gi;
     //   匹配src

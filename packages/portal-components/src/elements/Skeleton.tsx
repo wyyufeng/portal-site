@@ -48,6 +48,7 @@ export default class Skeleton extends React.Component<SkeletonProps> {
                         'portal-skeleton',
                         css`
                             display: inline-block;
+                            margin: 1.5rem 0;
                             width: 100%;
                             &.portal-skeleton-animation {
                                 .portal-skeleton-element {
@@ -155,7 +156,7 @@ export const Paragraph: React.FunctionComponent<ParagraphProps> = ({
 }) => {
     return (
         <div className={cx('portal-skeleton-paragraph', className)}>
-            {[...Array(rows)].map((_, index) => (
+            {[...Array(rows).fill(0)].map((_, index) => (
                 <Line width={getWidth(index, rows, width)} style={style} key={index}></Line>
             ))}
         </div>

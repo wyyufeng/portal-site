@@ -16,6 +16,7 @@ const useQueryOne = (
   path?: string
 ): QueryOneEffectResult => {
   const dataProvider = useDataProvider<ItemResponse>('queryOneById');
+  console.log(dataProvider)
   const [state, setState] = useState({
     loading: true,
     loaded: false,

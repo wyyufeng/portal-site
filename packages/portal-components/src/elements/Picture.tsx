@@ -104,9 +104,9 @@ export const Picture: FunctionComponent<Props> = ({
         >
             <img
                 className={css({
-                    height: 'auto',
+                    height: '100%',
                     maxWidth: '100%',
-                    objectFit: 'contain'
+                    objectFit: 'cover'
                 })}
                 alt={alt}
                 ref={imgRef}

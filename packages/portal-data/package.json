@@ -41,5 +41,5 @@
     "@types/crypto-js": "^3.1.43",
     "tsdx": "^0.13.2"
   },
-  "gitHead": "d571b4b90a770289ab2f88150fc75d2236e98381"
+  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
 }

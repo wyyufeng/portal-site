@@ -50,9 +50,9 @@ const Header: FunctionComponent<IHeaderProps> = ({ logo, title = '官网', extra
                         logo
                     )}
                     <h1
-                        css={{
-                            fontSize: 0
-                        }}
+                        className={css`
+                            font-size: 0;
+                        `}
                     >
                         {title}
                     </h1>

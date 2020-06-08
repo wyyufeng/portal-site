@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/types",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "",
   "main": "",
   "keywords": [],
@@ -8,8 +8,11 @@
     "registry": "https://registry.npmjs.org",
     "access": "public"
   },
+  "scripts": {
+    "build": "npm -v"
+  },
   "author": "",
   "license": "MIT",
   "types": "index",
-  "gitHead": "162d5147f6587cf5e8c637fa3c0837baf3c2700b"
+  "gitHead": "d571b4b90a770289ab2f88150fc75d2236e98381"
 }

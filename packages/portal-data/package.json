@@ -5,13 +5,13 @@
   "author": "wyyufeng <54129580+wyyufeng@users.noreply.github.com>",
   "homepage": "https://github.com/wyyufeng/portal-site#readme",
   "license": "MIT",
-  "main": "lib/index.js",
-  "module": "lib/index.modern.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/data.esm.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "*.md",
-    "lib",
+    "dist",
     "src"
   ],
   "publishConfig": {

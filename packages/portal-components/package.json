@@ -4,6 +4,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "module": "dist/components.esm.js",
   "files": [
     "dist",
     "src"
@@ -25,7 +26,6 @@
   },
   "husky": {},
   "author": "wyyufeng",
-  "module": "dist/components.esm.js",
   "devDependencies": {
     "@rollup/plugin-image": "^2.0.5",
     "@types/react-router-dom": "^5.1.5",

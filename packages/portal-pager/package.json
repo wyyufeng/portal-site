@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "wyyufeng/pager",
   "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "module": "dist/pager.esm.js",
   "source": "src/index.tsx",
   "types": "dist/index",
   "engines": {

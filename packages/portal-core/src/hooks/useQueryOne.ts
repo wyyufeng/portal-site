@@ -1,55 +1,26 @@
-import { useEffect, useState } from 'react';
+
+import { useQuery } from './useQuery';
 import { ListItem } from '@portal-site/types';
-import useDataProvider from './useDataProvider';
-import { ItemResponse } from '../dataProvider/DataProviderContext';
+export type QueryOneParams = {
+  resource: string
+  params: {
+    path?: string,
+    [key: string]: any
+  },
+  formatResult?: (res: any) => any,
+  onSuccess?: (data: any, params: any) => void,
+  onError?: (error: any, params: any) => void
 
-
-export interface QueryOneEffectResult {
-  loading: boolean;
-  loaded: boolean;
+}
+export type QueryOneResult = {
   data: ListItem | { [prop: string]: any };
-  error?: any;
+  error: any;
+  loading: boolean;
+}
+export const useQueryOne = function (params: QueryOneParams) {
+  const { data, loading, error } = useQuery<ListItem>({ api: "queryOneById", options: params });
+  return {
+    data, loading, error
+  }
 }
 
-const useQueryOne = (
-  resource: string,
-  path?: string
-): QueryOneEffectResult => {
-  const dataProvider = useDataProvider<ItemResponse>('queryOneById');
-  console.log(dataProvider)
-  const [state, setState] = useState({
-    loading: true,
-    loaded: false,
-    data: {},
-    error: null
-  });
-  useEffect(() => {
-    setState({
-      data: {},
-      loaded: false,
-      loading: true,
-      error: null
-    });
-    dataProvider(resource, path)
-      .then((data) => {
-        setState({
-          ...data,
-          loaded: true,
-          loading: false,
-          error: null
-        });
-      })
-      .catch((err) => {
-        setState({
-          data: {},
-          loaded: false,
-          loading: false,
-          error: err
-        });
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resource]);
-  return state;
-};
-
-export default useQueryOne;

@@ -1,14 +1,14 @@
 {
   "name": "@portal-site/pager",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "description": "Made with create-react-library",
   "author": "wyyufeng",
   "license": "MIT",
   "repository": "wyyufeng/pager",
   "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "module": "dist/pager.esm.js",
   "source": "src/index.tsx",
-  "types": "dist/index",
+  "types": "dist/index.d.ts",
   "engines": {
     "node": ">=10"
   },
@@ -30,7 +30,7 @@
     "@types/react": "^16.9.27",
     "sass": "^1.26.5",
     "tsdx": "^0.13.2",
-    "tslib": "",
+    "tslib": "^2.0.0",
     "typescript": ""
   },
   "files": [
@@ -40,5 +40,5 @@
   "dependencies": {
     "classnames": ""
   },
-  "gitHead": "e0c5ee35c5fbafd6ccc795481f014be792017795"
+  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
 }

@@ -24,3 +24,4 @@ const useQueryOne = function (params: QueryOneParams) {
   }
 }
 export default useQueryOne
+

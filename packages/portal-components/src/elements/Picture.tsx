@@ -76,21 +76,27 @@ export const Picture: FunctionComponent<Props> = ({
             current.onerror = onError;
         }
         // 将图片src 设置为 "" ,可以取消正在加载的图片
-        // 可能会导致内存泄漏
-        // return () => {
-        //     current.src = '';
-        // };
+        // 事件要取消
+        return () => {
+            current.src = '';
+            current.onload = null;
+            current.onerror = null;
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sourceSets]);
     return (
         <Wrapper
             style={style}
             className={cx(
-                css({
-                    borderRadius: '2px',
-                    display: 'block',
-                    position: 'relative'
-                }),
+                css`
+                    border-radius: 2px;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #f7f7f7;
+                    overflow: hidden;
+                `,
                 loading && skeleton_animation,
                 'portal-picture',
                 className
@@ -98,13 +104,9 @@ export const Picture: FunctionComponent<Props> = ({
         >
             <img
                 className={css({
-                    display: 'block',
                     height: 'auto',
-                    width: '100%',
                     maxWidth: '100%',
-                    objectFit: 'cover',
-
-                    borderRadius: 'inherit'
+                    objectFit: 'contain'
                 })}
                 alt={alt}
                 ref={imgRef}

@@ -23,3 +23,4 @@ export const useQueryOne = function (params: QueryOneParams) {
     data, loading, error
   }
 }
+

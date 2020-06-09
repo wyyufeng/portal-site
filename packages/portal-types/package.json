@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/types",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "description": "",
   "main": "",
   "keywords": [],
@@ -14,5 +14,5 @@
   "author": "",
   "license": "MIT",
   "types": "index",
-  "gitHead": "e0c5ee35c5fbafd6ccc795481f014be792017795"
+  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
 }

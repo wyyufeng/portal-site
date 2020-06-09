@@ -1,5 +1,5 @@
-import { Article as ArticleComp, Like } from '../packages/portal-components/src';
-import { useArticleController } from '../packages/portal-core';
+import { Article as ArticleComp, Like, Skeleton } from '../packages/portal-components/src';
+import { useArticleController } from '../packages/portal-core/src';
 import App from './App';
 import React from 'react';
 
@@ -24,6 +24,6 @@ function CustomArticle() {
 }
 export const b = () => (
     <App>
-        <CustomArticle></CustomArticle>
+        <Skeleton loading renderSkeleton={() => <Skeleton.Card></Skeleton.Card>}></Skeleton>
     </App>
 );

@@ -1,9 +1,10 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.1",
   "name": "@portal-site/core",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "module": "dist/core.esm.js",
   "files": [
     "dist",
     "src"
@@ -23,38 +24,24 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "author": "wyyufeng",
-  "module": "dist/core.esm.js",
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@mpfe/mpa": "^1.0.9",
-    "@portal-site/types": "",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "babel-loader": "^8.1.0",
-    "history": "^4.10.1",
-    "husky": "^4.2.5",
-    "react": "^16.13.1",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "react-redux": "^7.1.3",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.0.4",
-    "redux-saga": "^1.1.3",
-    "ts-loader": "^7.0.4",
+    "@types/react-redux": "^7.1.8",
+    "@types/react-router-dom": "^5.1.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.2"
   },
   "dependencies": {
+    "@mpfe/mpa": "^1.0.9",
+    "@portal-site/types": "",
     "@types/react-redux": "^7.1.8",
-    "@types/react-router-dom": "^5.1.5"
+    "@types/react-router-dom": "^5.1.5",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.3"
   },
-  "gitHead": "e0c5ee35c5fbafd6ccc795481f014be792017795"
+  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
 }

@@ -1,76 +1,34 @@
-import { useEffect, useState } from 'react';
-import useDataProvider from './useDataProvider';
+import { useQuery } from './useQuery';
 import { ListItem } from '@portal-site/types';
-import { ListResponse, DataProviderMethod } from '../dataProvider/DataProviderContext';
+import { ListResponse } from '../dataProvider/DataProviderContext';
 
-
-export interface QueryListEffectResult {
-  records: Array<ListItem>;
+export type QueryListParams = {
+  resource: string
+  pagination: {
+    page: number,
+    size: number
+  },
+  params?: any
+  formatResult?: (res: any) => any,
+  onSuccess?: (data: any, params: any) => void,
+  onError?: (error: any, params: any) => void
+}
+export type QueryListResult = {
+  records: undefined | Array<ListItem>;
   total?: number;
   error: any;
   loading: boolean;
-  loaded: boolean;
-  pages: number;
-  page: number;
+  pages: undefined | number;
+  page: undefined | number;
 }
 
-const useQueryList = (
-  resource: string,
-  page: number,
-  size: number,
-  onSuccess?: (arg: any) => any,
-  onFailure?: (arg: any) => any
-): QueryListEffectResult => {
-  const dataProvider: DataProviderMethod<ListResponse> = useDataProvider('queryList');
-  const [state, setState] = useState<{
-    records: any[];
-    error: any;
-    loading: boolean;
-    loaded: boolean;
-    total: number;
-    pages: number;
-    page: number;
-  }>({
-    records: [],
-    total: 0,
-    error: null,
-    loading: true,
-    loaded: false,
-    pages: 0,
-    page: 1
-  });
-  useEffect(() => {
-    setState((prevState) => {
-      return {
-        ...prevState,
-        loading: true
-      };
-    });
-    dataProvider({ resource, page, size })
-      .then((data) => {
-        onSuccess && onSuccess(data);
-        setState({
-          ...data,
-          loaded: true,
-          error: null,
-          loading: false
-        });
-      })
-      .catch((error) => {
-        onFailure && onFailure(error);
-        setState({
-          error,
-          loading: false,
-          loaded: false,
-          records: [],
-          total: 0,
-          pages: 0,
-          page: 0
-        });
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resource, page]);
-  return state;
-};
-
-export default useQueryList;
+export const useQueryList = ({ resource, pagination, onError, onSuccess, formatResult, params }: QueryListParams): QueryListResult => {
+  const { data, error, loading } = useQuery<ListResponse>({
+    api: 'queryList', options: {
+      resource, size: pagination.size, page: pagination.page, params
+    }, formatResult, onSuccess, onError
+  })
+  return {
+    records: data?.records, error, loading, pages: data?.pages, total: data?.total, page: data?.page
+  }
+}

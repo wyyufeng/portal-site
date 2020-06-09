@@ -1,4 +1,4 @@
-import { useQuery } from './useQuery';
+import useQuery from './useQuery';
 import { ListItem } from '@portal-site/types';
 import { ListResponse } from '../dataProvider/DataProviderContext';
 
@@ -22,7 +22,7 @@ export type QueryListResult = {
   page: undefined | number;
 }
 
-export const useQueryList = ({ resource, pagination, onError, onSuccess, formatResult, params }: QueryListParams): QueryListResult => {
+const useQueryList = ({ resource, pagination, onError, onSuccess, formatResult, params }: QueryListParams): QueryListResult => {
   const { data, error, loading } = useQuery<ListResponse>({
     api: 'queryList', options: {
       resource, size: pagination.size, page: pagination.page, params
@@ -32,3 +32,4 @@ export const useQueryList = ({ resource, pagination, onError, onSuccess, formatR
     records: data?.records, error, loading, pages: data?.pages, total: data?.total, page: data?.page
   }
 }
+export default useQueryList

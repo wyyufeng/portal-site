@@ -9,7 +9,7 @@ export type QueryParams = {
   onError?: (error: any, params: any) => void
 }
 
-export const useQuery = function <T>({ api, options, formatResult = (res) => res, onSuccess, onError }: QueryParams): {
+const useQuery = function <T>({ api, options, formatResult = (res) => res, onSuccess, onError }: QueryParams): {
   data: any,
   loading: boolean,
   error: any
@@ -42,3 +42,4 @@ export const useQuery = function <T>({ api, options, formatResult = (res) => res
     loading, data, error
   }
 }
+export default useQuery

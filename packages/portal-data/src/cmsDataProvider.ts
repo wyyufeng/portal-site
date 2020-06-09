@@ -1,9 +1,11 @@
 import mapDataToRoute from './mapDataToRoute';
 import { listMapper, listOneMapper } from './mapper';
-import { CmsDataProvider, IHTTPClient } from '@portal-site/types';
+import { CmsDataProvider } from '@portal-site/types';
+import { AxiosInstance } from 'axios';
+
 import { RootRouteMap } from './route/index';
 export * from './httpClient';
-export default (httpClient: IHTTPClient, gateway: string = 'sw-cms'): CmsDataProvider => {
+export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataProvider => {
   return {
     queryRoutes(resource: string | undefined): Promise<any> {
       const endPoint = `/${gateway}/api/queryAllChannel/${resource}`;
@@ -22,7 +24,7 @@ export default (httpClient: IHTTPClient, gateway: string = 'sw-cms'): CmsDataPro
           .catch((err: Error) => reject(err));
       });
     },
-    queryList({ resource, page, size }: { resource: string; page: number; size: number }) {
+    queryList({ resource, page, size, ...params }: { resource: string; page: number; size: number }) {
       const endPoint = `/${gateway}/api/queryArchivesList`;
       return new Promise((resolve, reject) => {
         httpClient
@@ -32,7 +34,7 @@ export default (httpClient: IHTTPClient, gateway: string = 'sw-cms'): CmsDataPro
             },
             param: {
               pageSize: size,
-              pageNum: page
+              pageNum: page, ...params
             }
           })
           .then((res: any) => {
@@ -49,10 +51,12 @@ export default (httpClient: IHTTPClient, gateway: string = 'sw-cms'): CmsDataPro
           });
       });
     },
-    queryOneById(resource: string, path = 'queryArchivesById') {
+    queryOneById({ resource, path = 'queryArchivesById', ...params }: { resource: string, path: string }) {
       return new Promise((resolve, reject) => {
         return httpClient
-          .get(`/${gateway}/api/${path}/${resource}`)
+          .get(`/${gateway}/api/${path}/${resource}`, {
+            params
+          })
           .then((res: any) => {
             resolve({
               data: listOneMapper(res.data.data)

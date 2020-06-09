@@ -1,5 +1,5 @@
 
-import { useQuery } from './useQuery';
+import useQuery from './useQuery';
 import { ListItem } from '@portal-site/types';
 export type QueryOneParams = {
   resource: string
@@ -17,10 +17,11 @@ export type QueryOneResult = {
   error: any;
   loading: boolean;
 }
-export const useQueryOne = function (params: QueryOneParams) {
+const useQueryOne = function (params: QueryOneParams) {
   const { data, loading, error } = useQuery<ListItem>({ api: "queryOneById", options: params });
   return {
     data, loading, error
   }
 }
+export default useQueryOne
 

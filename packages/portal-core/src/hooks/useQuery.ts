@@ -10,7 +10,7 @@ export type QueryParams = {
 }
 
 const useQuery = function <T>({ api, options, formatResult, onSuccess, onError }: QueryParams): {
-  data: any,
+  response: any,
   loading: boolean,
   error: any
 } {
@@ -39,7 +39,7 @@ const useQuery = function <T>({ api, options, formatResult, onSuccess, onError }
     // }
   }, [dataProvider, onError, onSuccess, options, formatResult])
   return {
-    loading, data, error
+    loading, response: data, error
   }
 }
 export default useQuery

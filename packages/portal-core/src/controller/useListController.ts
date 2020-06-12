@@ -2,7 +2,7 @@ import { useQueryList } from "../hooks"
 import { useHistory, useLocation } from "react-router"
 import { useState } from "react";
 import { noop } from "../util";
-import { QueryListEffectResult } from "../hooks/useQueryList";
+import { QueryListResult } from "../hooks/useQueryList";
 
 
 export interface ListControllerProps {
@@ -23,7 +23,7 @@ export interface ListControllerProps {
    */
   currentPage?: number;
 }
-export interface ListControllerResult extends QueryListEffectResult {
+export interface ListControllerResult extends QueryListResult {
 }
 export const useListController = ({ resource, size = 3, onListChange = noop, currentPage = 1 }: ListControllerProps) => {
   const location = useLocation();
@@ -31,7 +31,11 @@ export const useListController = ({ resource, size = 3, onListChange = noop, cur
   const params = new URLSearchParams(location.search);
   const pageParam = params.get('page') || currentPage;
   const [page, setPage] = useState(+pageParam);
-  const data = useQueryList(resource, page, size);
+  const data = useQueryList({
+    pagination: {
+      page, size
+    }, resource,
+  });
   const onPageChange = (page: number) => {
     setPage(page);
     onListChange();

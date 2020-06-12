@@ -48,7 +48,7 @@ const useQueryList = ({
         loading,
         pages: data?.pages ? data.pages : 0,
         total: data?.total,
-        page: data?.page
+        page: data?.page ? data.pages : pagination.page
     };
 };
 export default useQueryList;

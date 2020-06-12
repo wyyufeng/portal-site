@@ -1,9 +1,10 @@
 
 import useQuery from './useQuery';
 import { ListItem } from '@portal-site/types';
+import { useMemo } from 'react';
 export type QueryOneParams = {
   resource: string
-  params: {
+  params?: {
     path?: string,
     [key: string]: any
   },
@@ -17,10 +18,15 @@ export type QueryOneResult = {
   error: any;
   loading: boolean;
 }
-const useQueryOne = function (params: QueryOneParams) {
-  const { data, loading, error } = useQuery<ListItem>({ api: "queryOneById", options: params });
+const useQueryOne = function (params: QueryOneParams): QueryOneResult {
+  const memoOptions = useMemo(() => {
+    return {
+      resource: params.resource, params: params.params, formatResult: params.formatResult, onSuccess: params.onSuccess, onError: params.onError
+    }
+  }, [params.resource, params.params, params.formatResult, params.onSuccess, params.onError])
+  const { response, loading, error } = useQuery<ListItem>({ api: "queryOneById", options: memoOptions });
   return {
-    data, loading, error
+    data: response?.data ?? {}, loading, error
   }
 }
 export default useQueryOne

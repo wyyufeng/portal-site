@@ -28,4 +28,5 @@ export interface IRootRouteMap {
     children: IRoute[];
     flat(): IRoute[];
     findByPath(path: string): IRoute | undefined;
+    flatToObject(): { [key: string]: IRoute };
 }

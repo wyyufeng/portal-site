@@ -30,7 +30,8 @@ function toPath(route: IRoute): string {
 }
 
 const _flatResultCache: IRoute[] = [];
-const _flatToObjectResult: object = {};
+const _flatToObjectResult: { [key: string]: IRoute } = {};
+
 function _flatRoutes(root: any) {
     const children = root.children;
     if (children.length > 0) {
@@ -63,7 +64,7 @@ export class RootRouteMap implements IRootRouteMap {
         _flatRoutes(this);
         return _flatResultCache;
     }
-    flatToObject(): object {
+    flatToObject(): { [key: string]: IRoute } {
         if (Object.keys(_flatToObjectResult).length > 0) return _flatToObjectResult;
         _flatToObject(this);
         return _flatToObjectResult;

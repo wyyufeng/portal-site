@@ -34,8 +34,8 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@portal-site/pager": "^0.4.3",
-    "@portal-site/types": "^0.4.3",
+    "@portal-site/pager": "",
+    "@portal-site/types": "",
     "emotion": "^10.0.27",
     "normalize.css": "^8.0.1",
     "object-fit-images": "^3.2.4",

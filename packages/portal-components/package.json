@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.5.1",
+  "version": "0.5.3",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -34,8 +34,8 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@portal-site/pager": "^0.4.3",
-    "@portal-site/types": "^0.4.3",
+    "@portal-site/pager": "",
+    "@portal-site/types": "",
     "emotion": "^10.0.27",
     "normalize.css": "^8.0.1",
     "object-fit-images": "^3.2.4",
@@ -43,5 +43,5 @@
     "react-router-dom": "^5.2.0",
     "sass": "^1.26.7"
   },
-  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
+  "gitHead": "10315c58659ddabc52fe50bf914cc627143bfa16"
 }

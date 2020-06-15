@@ -1,10 +1,14 @@
 import { Article as ArticleComp, Like, Skeleton } from '../packages/portal-components/src';
-import { useArticleController } from '../packages/portal-core/src';
+import { useQueryOne, useQueryList } from '../packages/portal-core/src';
 import App from './App';
 import React from 'react';
-
+const obj = { resource: '1' };
+// {}!={}
 function Article() {
-    const { data } = useArticleController({ resource: '1' });
+    const { data, loading } = useQueryOne(obj);
+    const { records } = useQueryList({ resource: '1', pagination: { page: 1, size: 2 } });
+    console.log(data, records);
+    // console.log(data.content);
     return <ArticleComp {...data}></ArticleComp>;
 }
 
@@ -17,8 +21,9 @@ export const a = () => (
         <Article></Article>
     </App>
 );
+
 function CustomArticle() {
-    const { data } = useArticleController({ resource: '1' });
+    const { data } = useQueryOne(obj);
     console.log(data);
     return <ArticleComp footer={123} {...data}></ArticleComp>;
 }

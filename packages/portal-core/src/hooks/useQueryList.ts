@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import useQuery from './useQuery';
 import { ListItem } from '@portal-site/types';
 import { ListResponse } from '../dataProvider/DataProviderContext';
@@ -22,33 +23,17 @@ export type QueryListResult = {
     page: undefined | number;
 };
 
-const useQueryList = ({
-    resource,
-    pagination,
-    onError,
-    onSuccess,
-    formatResult,
-    params
-}: QueryListParams): QueryListResult => {
-    const { data, error, loading } = useQuery<ListResponse>({
-        api: 'queryList',
-        options: {
-            resource,
-            size: pagination.size,
-            page: pagination.page,
-            params
-        },
-        formatResult,
-        onSuccess,
-        onError
-    });
+const useQueryList = ({ resource, pagination, onError, onSuccess, formatResult, params }: QueryListParams): QueryListResult => {
+  const memoOptions = useMemo(() => {
     return {
-        records: data?.records,
-        error,
-        loading,
-        pages: data?.pages ? data.pages : 0,
-        total: data?.total,
-        page: data?.page ? data.pages : pagination.page
-    };
-};
-export default useQueryList;
+      resource, size: pagination.size, page: pagination.page, params
+    }
+  }, [resource, pagination.size, pagination.page, params])
+  const { response, error, loading } = useQuery<ListResponse>({
+    api: 'queryList', options: memoOptions, formatResult, onSuccess, onError
+  })
+  return {
+    records: response?.records ?? [], error, loading, pages: response?.pages ?? 0, total: response?.total, page: response?.page ?? pagination.page
+  }
+}
+export default useQueryList

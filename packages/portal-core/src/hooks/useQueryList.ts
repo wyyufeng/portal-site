@@ -23,17 +23,36 @@ export type QueryListResult = {
     page: undefined | number;
 };
 
-const useQueryList = ({ resource, pagination, onError, onSuccess, formatResult, params }: QueryListParams): QueryListResult => {
-  const memoOptions = useMemo(() => {
+const useQueryList = ({
+    resource,
+    pagination,
+    onError,
+    onSuccess,
+    formatResult,
+    params
+}: QueryListParams): QueryListResult => {
+    const memoOptions = useMemo(() => {
+        return {
+            resource,
+            size: pagination.size,
+            page: pagination.page,
+            params
+        };
+    }, [resource, pagination.size, pagination.page, params]);
+    const { response, error, loading } = useQuery<ListResponse>({
+        api: 'queryList',
+        options: memoOptions,
+        formatResult,
+        onSuccess,
+        onError
+    });
     return {
-      resource, size: pagination.size, page: pagination.page, params
-    }
-  }, [resource, pagination.size, pagination.page, params])
-  const { response, error, loading } = useQuery<ListResponse>({
-    api: 'queryList', options: memoOptions, formatResult, onSuccess, onError
-  })
-  return {
-    records: response?.records ?? [], error, loading, pages: response?.pages ?? 0, total: response?.total, page: response?.page ?? pagination.page
-  }
-}
-export default useQueryList
+        records: response?.records ?? [],
+        error,
+        loading,
+        pages: response?.pages ?? 0,
+        total: response?.total,
+        page: response?.page ?? 0
+    };
+};
+export default useQueryList;

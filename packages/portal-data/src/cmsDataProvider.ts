@@ -60,7 +60,6 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
           .then((res: any) => {
             resolve({
               data: listOneMapper(res.data.data)
-              // $$rawData: res.data.data
             });
           })
           .catch((err: any) => {

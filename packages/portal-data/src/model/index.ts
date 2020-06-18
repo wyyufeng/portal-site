@@ -1,2 +1,3 @@
 import routesMap from "./routesMap";
-export { routesMap };
+import helmet from './helmet'
+export { routesMap, helmet };

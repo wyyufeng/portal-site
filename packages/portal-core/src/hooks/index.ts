@@ -3,4 +3,5 @@ import useQueryList from "./useQueryList";
 import useRoutesMap from "./useRoutesMap";
 import useQueryOne from "./useQueryOne";
 import useQuery from './useQuery';
-export { useDataProvider, useQueryList, useRoutesMap, useQueryOne, useQuery };
+import useHelmet from './useHelmet';
+export { useDataProvider, useQueryList, useRoutesMap, useQueryOne, useQuery, useHelmet };

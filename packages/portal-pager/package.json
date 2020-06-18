@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/pager",
-  "version": "0.5.3",
+  "version": "0.5.6",
   "description": "Made with create-react-library",
   "author": "wyyufeng",
   "license": "MIT",
@@ -40,5 +40,5 @@
   "dependencies": {
     "classnames": ""
   },
-  "gitHead": "10315c58659ddabc52fe50bf914cc627143bfa16"
+  "gitHead": "ae0f16295ec5ac6c5a91a765ffc4aaad2c1b3c2b"
 }

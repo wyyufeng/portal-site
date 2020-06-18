@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/data",
-  "version": "0.5.3",
+  "version": "0.5.6",
   "description": "portal-site 数据处理模块",
   "author": "wyyufeng <54129580+wyyufeng@users.noreply.github.com>",
   "homepage": "https://github.com/wyyufeng/portal-site#readme",
@@ -41,5 +41,5 @@
     "@types/crypto-js": "^3.1.43",
     "tsdx": "^0.13.2"
   },
-  "gitHead": "10315c58659ddabc52fe50bf914cc627143bfa16"
+  "gitHead": "ae0f16295ec5ac6c5a91a765ffc4aaad2c1b3c2b"
 }

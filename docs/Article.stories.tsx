@@ -1,14 +1,12 @@
-import { Article as ArticleComp, Like, Skeleton } from '../packages/portal-components/src';
-import { useQueryOne, useQueryList } from '../packages/portal-core/src';
+import { Article as ArticleComp, Skeleton } from '../packages/portal-components/src';
+import { useQueryOne, useHelmet, coreStore } from '../packages/portal-core/src';
 import App from './App';
 import React from 'react';
 const obj = { resource: '1' };
 // {}!={}
 function Article() {
-    const { data, loading } = useQueryOne(obj);
-    const { records } = useQueryList({ resource: '1', pagination: { page: 1, size: 2 } });
-    console.log(data, records);
-    // console.log(data.content);
+    const { data } = useQueryOne(obj);
+    useHelmet({ title: 'My WebSite', description: '', keywords: '' });
     return <ArticleComp {...data}></ArticleComp>;
 }
 

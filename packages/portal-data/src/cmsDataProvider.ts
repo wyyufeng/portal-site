@@ -24,7 +24,7 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
           .catch((err: Error) => reject(err));
       });
     },
-    queryList({ resource, page, size, ...params }: { resource: string; page: number; size: number }) {
+    queryList({ resource, page, size, params }: { resource: string; page: number; size: number, params: { [key: string]: any } }) {
       const endPoint = `/${gateway}/api/queryArchivesList`;
       return new Promise((resolve, reject) => {
         httpClient
@@ -51,16 +51,14 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
           });
       });
     },
-    queryOneById({ resource, path = 'queryArchivesById', ...params }: { resource: string, path: string }) {
+    queryOneById({ resource, params }: { resource: string, params: { path: string, [key: string]: any } }) {
       return new Promise((resolve, reject) => {
+        const { path, ...rest } = params;
         return httpClient
-          .get(`/${gateway}/api/${path}/${resource}`, {
-            params
-          })
+          .get(`/${gateway}/api/${path ?? 'queryArchivesById'}/${resource}`, rest)
           .then((res: any) => {
             resolve({
               data: listOneMapper(res.data.data)
-              // $$rawData: res.data.data
             });
           })
           .catch((err: any) => {

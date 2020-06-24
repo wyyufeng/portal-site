@@ -6,6 +6,7 @@ export const listMapper = (source: any[]): ListItem[] => {
             return {
                 $raw_data: item,
                 id: item.archivesId, // 文章id
+                groupId: item.groupId, // 附件id
                 channelNo: item.channelNo, // 栏目编号
                 channelName: item.channelName, // 栏目名称
                 title: item.title, // 标题
@@ -29,6 +30,7 @@ export function listOneMapper(source: any): ListItem {
     return {
         $raw_data: source,
         id: source.archivesId, // 文章id
+        groupId: source.groupId, // 附件id
         channelNo: source.channelNo, // 栏目编号
         channelName: source.channelName, // 栏目名称
         title: source.title, // 标题

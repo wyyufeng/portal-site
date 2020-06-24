@@ -14,5 +14,8 @@
   "author": "",
   "license": "MIT",
   "types": "index",
-  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
+  "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350",
+  "dependencies": {
+    "eslint-config-react-app": "^5.2.1"
+  }
 }

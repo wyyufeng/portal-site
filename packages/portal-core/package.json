@@ -17,9 +17,10 @@
     "access": "public"
   },
   "scripts": {
+    "prebuild": "npm run lint",
     "start": "tsdx watch",
     "build": "tsdx build",
-    "lint": "eslint -c .eslintrc.js src/**/*.ts"
+    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
   },
   "peerDependencies": {
     "react": ">=16"

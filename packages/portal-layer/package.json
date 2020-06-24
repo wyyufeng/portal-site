@@ -16,7 +16,8 @@
     "style": "sass src/style.scss dist/style.css",
     "start": "tsdx watch",
     "build": "tsdx build && npm run style",
-    "lint": "tsdx lint"
+    "prebuild": "npm run lint",
+    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
@@ -39,6 +40,7 @@
   ],
   "dependencies": {
     "@types/react-modal": "^3.10.5",
+    "eslint-config-react-app": "^5.2.1",
     "react-modal": "^3.11.2"
   }
 }

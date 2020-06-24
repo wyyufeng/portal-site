@@ -16,7 +16,8 @@
     "style": "sass src/style.scss dist/style.css",
     "start": "tsdx watch",
     "build": "tsdx build && npm run style",
-    "lint": "tsdx lint"
+    "prebuild": "npm run lint",
+    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
@@ -38,7 +39,8 @@
     "src"
   ],
   "dependencies": {
-    "classnames": ""
+    "classnames": "",
+    "eslint-config-react-app": "^5.2.1"
   },
   "gitHead": "764b0aa57619f2e059e7a5ebc1f75b863ba46350"
 }

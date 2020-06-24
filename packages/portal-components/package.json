@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/components.esm.js",
+  "sideEffects": false,
   "files": [
     "dist",
     "src"

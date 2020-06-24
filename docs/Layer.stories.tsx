@@ -1,4 +1,4 @@
-import { Layer } from '../packages/portal-layer/src';
+import { Layer } from '../packages/portal-layer/src/index';
 import React, { useState } from 'react';
 
 export default {

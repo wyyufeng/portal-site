@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { PortalSite, useQueryOne, useDataProvider } from '../packages/portal-core/src';
+import { PortalSite } from '../packages/portal-core/src';
 import { createBrowserHistory } from 'history';
-import { createHttpClient, routesMap, cmsDataProvider } from '../packages/portal-data/src';
+import { createHttpClient, routesMap, cmsDataProvider, helmet } from '../packages/portal-data/src';
 const http = createHttpClient(
     'https://www.fastmock.site/mock/3f757e04fc524a3b552de633cd63de6c/',
     'ce72b99f3d484ef4ba927d656e89205b',
@@ -11,7 +11,7 @@ console.log(cmsDataProvider(http, 'testcms'));
 const App: FunctionComponent = ({ children }) => {
     return (
         <PortalSite
-            models={[routesMap]}
+            models={[routesMap, helmet]}
             dataProvider={cmsDataProvider(http, 'testcms')}
             history={createBrowserHistory()}
             root={'cn'}

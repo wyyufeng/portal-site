@@ -1,12 +1,12 @@
 {
-  "name": "@portal-site/pager",
+  "name": "@portal-site/layer",
   "version": "0.6.0",
   "description": "Made with create-react-library",
   "author": "wyyufeng",
   "license": "MIT",
-  "repository": "wyyufeng/pager",
+  "repository": "wyyufeng/layer",
   "main": "dist/index.js",
-  "module": "dist/pager.esm.js",
+  "module": "dist/layer.esm.js",
   "source": "src/index.tsx",
   "types": "dist/index.d.ts",
   "engines": {
@@ -39,8 +39,8 @@
     "src"
   ],
   "dependencies": {
-    "classnames": "",
-    "eslint-config-react-app": "^5.2.1"
-  },
-  "gitHead": "ae0f16295ec5ac6c5a91a765ffc4aaad2c1b3c2b"
+    "@types/react-modal": "^3.10.5",
+    "eslint-config-react-app": "^5.2.1",
+    "react-modal": "^3.11.2"
+  }
 }

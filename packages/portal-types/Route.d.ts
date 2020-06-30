@@ -8,6 +8,7 @@ export interface IRoute {
     id: string;
     path: string;
     isHome: boolean;
+    isVisible: boolean;
 }
 
 export interface IRouteMap {
@@ -19,6 +20,7 @@ export interface IRouteMap {
     url: string | undefined;
     id: string;
     isHome: boolean;
+    isVisible: boolean;
     path: string;
 }
 

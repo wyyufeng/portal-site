@@ -10,6 +10,7 @@ export default function mapDataToRoute(data: any, parent: any): IRoute {
   route.route = data.channelNo;
   route.parent = parent;
   route.description = data.description;
+  route.isVisible = data.isVisible;
   route.isHome = data.channelNo === 'Home';
   return route;
 }

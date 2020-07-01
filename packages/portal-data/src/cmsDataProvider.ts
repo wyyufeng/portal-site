@@ -5,6 +5,7 @@ import { AxiosInstance } from 'axios';
 
 import { RootRouteMap } from './route/index';
 export * from './httpClient';
+
 export default (httpClient: AxiosInstance, gateway?: string): CmsDataProvider => {
   const slash = !!gateway ? "/" : "";
   return {
@@ -26,6 +27,7 @@ export default (httpClient: AxiosInstance, gateway?: string): CmsDataProvider =>
           .catch((err: Error) => reject(err));
       });
     },
+    // @ts-ignore
     queryList({ resource, page, size, params }: { resource: string; page: number; size: number, params: { [key: string]: any } }) {
       const endPoint = `${slash}${gateway}/api/queryArchivesList`;
       return new Promise((resolve, reject) => {
@@ -53,6 +55,7 @@ export default (httpClient: AxiosInstance, gateway?: string): CmsDataProvider =>
           });
       });
     },
+    // @ts-ignore
     queryOneById({ resource, params }: { resource: string, params: { path: string, [key: string]: any } }) {
       return new Promise((resolve, reject) => {
         const { path, ...rest } = params;

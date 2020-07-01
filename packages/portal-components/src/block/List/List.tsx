@@ -6,86 +6,72 @@ import '@portal-site/pager/dist/style.css';
 import { ListItem } from '@portal-site/types';
 import { FunctionComponent } from 'react';
 import { Item } from './Item';
-export interface ListProps {
-    /**
-     * 列表项渲染函数
-     */
-    renderItem: (item: ListItem, index: number) => React.ReactNode;
-    /**
-     * 分页组件props，参考 Pager
-     */
-    pagination?: false | PagerProps;
-    /**
-     * 列表数据
-     */
-    dataSource: any[];
-    /**
-     * 当前页
-     */
-    page: number;
-    /**
-     * 总页数
-     */
-    pages: number;
-    /**
-     * 页面改变时的回调函数
-     */
-    onPageChange: (page: number) => any;
+import { StyleFix } from '../../types';
+export interface ListProps extends StyleFix {
+  /**
+   * 列表项渲染函数
+   */
+  renderItem?: (item: ListItem, index: number) => React.ReactNode;
+  /**
+   * 分页组件props，参考 Pager
+   */
+  pagination?: PagerProps;
+  /**
+   * 列表数据
+   */
+  dataSource: Array<{ title: string; [key: string]: any }>;
 }
 
 export const List: FunctionComponent<ListProps> & {
-    Item: any;
-} = ({ renderItem, pagination = false, dataSource, page, pages, onPageChange }) => {
-    const items = dataSource.map((item: any, index: number) => {
-        return renderItem(item, index);
-    });
+  Item: any;
+} = ({
+  renderItem = (item) => <Item>{item.title}</Item>,
+  pagination,
+  dataSource,
+  style,
+  className
+}) => {
+  const items = dataSource.map((item: any, index: number) => {
+    return renderItem(item, index);
+  });
 
-    const childrenList: Array<React.ReactNode> = [];
-    React.Children.forEach(items, (child: any, index) => {
-        childrenList.push(
-            React.cloneElement(child, {
-                key: index
-            })
-        );
-    });
-    return (
-        <div className="portal-list">
-            <ul
-                className={cx(
-                    css({
-                        listStyle: 'none',
-                        margin: 0,
-                        padding: 0
-                    }),
-                    'portal-list-items'
-                )}
-            >
-                {childrenList}
-            </ul>
-            {pagination && (
-                <div
-                    className={cx(
-                        css({
-                            textAlign: 'center',
-                            marginTop: 70
-                        }),
-                        'portal-list-pagination'
-                    )}
-                >
-                    <Pager
-                        hrefCreator={(page) => `?page=${page}`}
-                        forcePage={page}
-                        pageCount={pages}
-                        onPageChange={onPageChange}
-                    />
-                </div>
-            )}
-        </div>
+  const childrenList: Array<React.ReactNode> = [];
+  React.Children.forEach(items, (child: any, index) => {
+    childrenList.push(
+      React.cloneElement(child, {
+        key: index
+      })
     );
-};
-
-List.defaultProps = {
-    renderItem: (item) => <Item>{item.title}</Item>
+  });
+  return (
+    <div className={cx('portal-list', className)} style={style}>
+      <ul
+        className={cx(
+          css({
+            listStyle: 'none',
+            margin: 0,
+            padding: 0
+          }),
+          'portal-list-items'
+        )}
+      >
+        {childrenList}
+      </ul>
+      {pagination && (
+        <div
+          className={cx(
+            css({
+              textAlign: 'center',
+              marginTop: 70
+            }),
+            'portal-list-pagination'
+          )}
+        >
+          <Pager {...pagination} />
+        </div>
+      )}
+    </div>
+  );
 };
 
 List.Item = Item;

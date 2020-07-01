@@ -1,5 +1,5 @@
 {
-  "version": "0.6.0",
+  "version": "0.6.1",
   "name": "@portal-site/core",
   "license": "MIT",
   "main": "dist/index.js",
@@ -17,6 +17,7 @@
     "access": "public"
   },
   "scripts": {
+    "prepublish": "npm run build",
     "prebuild": "npm run lint",
     "start": "tsdx watch",
     "build": "tsdx build",

@@ -4,12 +4,13 @@ import { css, cx } from 'emotion';
 
 import { FunctionComponent, useRef, useEffect, useContext, useMemo, useState } from 'react';
 import objectFitImages from 'object-fit-images';
+// @ts-ignore
 import fallback_svg from '../assets/no-img.svg';
 import { PortalUIContext } from '../config-context';
 import { skeleton_animation } from '../styles';
 import { StyleFix } from '../types';
 import { emptyObj } from '../helper';
-export interface Props extends StyleFix {
+export interface PictureProps extends StyleFix {
   /**
    * 图片资源地址,如果传递数组，将显示第一个加载成功的图片，或者显示fallback
    */
@@ -31,7 +32,7 @@ export interface Props extends StyleFix {
    */
   alt?: string;
 }
-export const Picture: FunctionComponent<Props> = ({
+export const Picture: FunctionComponent<PictureProps> = ({
   source,
   fallback = fallback_svg,
   base = '',
@@ -116,7 +117,7 @@ export const Picture: FunctionComponent<Props> = ({
 };
 Picture.defaultProps = {
   base: '',
-  alt: '图片',
+  alt: '',
   wrapper: 'figure',
   className: ''
 };

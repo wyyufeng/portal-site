@@ -28,7 +28,7 @@
   "scripts": {
     "publish": "npx lerna publish from-git -y",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public -o doc-pages"
   },
   "eslintConfig": {
     "extends": "react-app"

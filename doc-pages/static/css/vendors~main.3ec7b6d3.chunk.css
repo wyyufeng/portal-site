@@ -1,0 +1,63 @@
+.mp-pager {
+  font-size: 14px;
+  display: inline-block;
+  margin: 6px;
+}
+.mp-pager .mp-pages {
+  list-style: none;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 0;
+  margin: 0;
+}
+.mp-pager .mp-pages a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.mp-pager .mp-pages .page-btn {
+  margin: 0 6px;
+}
+.mp-pager .mp-pages .page-btn.disable {
+  cursor: not-allowed;
+  color: #ddd;
+  pointer-events: none;
+}
+.mp-pager .mp-pages .page-item {
+  text-align: center;
+  min-width: 30px;
+  margin: 0 3px;
+}
+.mp-pager .mp-pages .page-item.active {
+  background-color: #337ab7;
+  color: #fff;
+}
+.mp-pager .page-jump {
+  display: inline-block;
+  margin: 0 5px;
+}
+.mp-pager .page-jump input {
+  width: 24px;
+  border: none;
+  outline: none;
+  border: 1px solid #5e5d5d;
+  margin: 0 5px;
+  text-align: center;
+}
+.mp-pager .page-jump button {
+  background-color: #337ab7;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=vendors~main.3ec7b6d3.chunk.css.map*/

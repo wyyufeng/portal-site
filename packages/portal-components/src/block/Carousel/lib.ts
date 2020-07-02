@@ -27,7 +27,6 @@ class CarouselLib {
   }
 
   init(): CarouselLib {
-    console.log(this.slides)
     this.slides.forEach((node) => {
       node.style.cssText = 'opacity:0;transform:scale(1,1);z-index:-1';
     });

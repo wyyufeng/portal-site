@@ -42,5 +42,6 @@
     "@types/react-modal": "^3.10.5",
     "eslint-config-react-app": "^5.2.1",
     "react-modal": "^3.11.2"
-  }
+  },
+  "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"
 }

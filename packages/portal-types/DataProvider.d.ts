@@ -3,6 +3,7 @@ export interface ListItem {
   id: string;
   channelNo: string;
   channelName: string;
+  groupId: string;
   title: string;
   subTitle: string;
   publishDate: string;
@@ -19,7 +20,7 @@ export interface ListItem {
   $raw_data: any;
 }
 export interface IHTTPClient {
-  get: (any) => Promise<any>;
+  get: (arg0: any) => Promise<any>;
   post: (endPoint: string, data: any) => Promise<any>;
 }
 

@@ -6,6 +6,7 @@
     "@babel/core": "^7.9.6",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/cli": "^5.3.19",
+    "@svgr/webpack": "^5.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

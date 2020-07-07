@@ -19,18 +19,18 @@ import { createHttpClient, routesMap, cmsDataProvider } from '@portal-site/data'
 import { createBrowserHistory } from 'history';
 import { PortalSite } from '@portal-site/core';
 
-// 1. 创建 dataProvider
+// 创建 dataProvider
  const http = createHttpClient(
     api,
     appid,
     appkey
 );
 const dataProvider = cmsDataProvider(http)
-// 2. 创建上下文
+
 
  <PortalSite
       models={[routesMap]}
-      dataProvider={cmsDataProvider(http, 'sw-cms-zb')}
+      dataProvider={cmsDataProvider(http, 'test-gateway')}
       history={createBrowserHistory()}
       root="cn"
     >
@@ -38,10 +38,19 @@ const dataProvider = cmsDataProvider(http)
  </PortalSite>
 ```
 
-### 🎮 前提
+`PortalSite`组件在内部已经初始化了`Router`、`react-redux`的`Provider`,无需再自己初始化这些组件
 
- - 知道`react hooks`的使用方法
- - 知道`react context`的使用方法
- - 知道`mpa(redux)`的使用方法
+### 🎯 props
+---
+- models  `PortalSite`内部使用了 [@mpfe/mpa](https://github.com/wyyufeng/mpa)来简化 `redux`的使用，这个`models`即为 `mpa`的`model`.目前框架提供了`routesMap`这个`model`提供路由信息
+- dataProvider `dataProvider`用于数据处理，它接受任意http client作为参数  返回一个描述了数据接口的对象，其中每个数据接口需要返回一个`Promise`。`@portal-site/data`提供了基础的`cmsDataProvider`,如果需要修改或者扩展，因为`dataProvider`本身就是一个对象，可以按照修改或增加对象属性的方式对其进行扩展。
+- history `react-router`的`Router`组件需要的history，一般建议使用browserHistory
+- root 路由信息的根
 
+### 🌈 components
+---
+`@portal-site/components`包提供了常用的组件，这些组件一般都有基础的样式设定，并且由于使用 `emotion`，可以很轻易的覆盖默认样式
 
+`PortalUIProvider`用于组件内各项公共配置。目前支持
+- assetsPrefix ：资源前缀
+- pictureFallback：默认图片地址

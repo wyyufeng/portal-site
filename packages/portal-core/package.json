@@ -1,5 +1,5 @@
 {
-  "version": "0.6.0",
+  "version": "0.6.1",
   "name": "@portal-site/core",
   "license": "MIT",
   "main": "dist/index.js",
@@ -17,6 +17,7 @@
     "access": "public"
   },
   "scripts": {
+    "prepublish": "npm run build",
     "prebuild": "npm run lint",
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -54,5 +55,5 @@
     "redux": "^4.0.4",
     "redux-saga": "^1.1.3"
   },
-  "gitHead": "ae0f16295ec5ac6c5a91a765ffc4aaad2c1b3c2b"
+  "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/data",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "portal-site 数据处理模块",
   "author": "wyyufeng <54129580+wyyufeng@users.noreply.github.com>",
   "homepage": "https://github.com/wyyufeng/portal-site#readme",
@@ -32,7 +32,7 @@
     "url": "https://github.com/wyyufeng/portal-site/issues"
   },
   "dependencies": {
-    "@portal-site/types": "",
+    "@portal-site/types": "^0.6.1",
     "axios": "^0.19.2",
     "crypto-js": "^3.1.9-1",
     "eslint-config-react-app": "^5.2.1",
@@ -43,5 +43,5 @@
     "@types/crypto-js": "^3.1.43",
     "tsdx": "^0.13.2"
   },
-  "gitHead": "ae0f16295ec5ac6c5a91a765ffc4aaad2c1b3c2b"
+  "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"
 }

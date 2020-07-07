@@ -5,10 +5,13 @@ import { AxiosInstance } from 'axios';
 
 import { RootRouteMap } from './route/index';
 export * from './httpClient';
-export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataProvider => {
+
+export default (httpClient: AxiosInstance, gateway?: string): CmsDataProvider => {
+  const slash = !!gateway ? "/" : "";
   return {
     queryRoutes(resource: string | undefined): Promise<any> {
-      const endPoint = `/${gateway}/api/queryAllChannel/${resource}`;
+
+      const endPoint = `${slash}${gateway}/api/queryAllChannel/${resource}`;
 
       return new Promise((resolve, reject) => {
         httpClient
@@ -24,8 +27,9 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
           .catch((err: Error) => reject(err));
       });
     },
+    // @ts-ignore
     queryList({ resource, page, size, params }: { resource: string; page: number; size: number, params: { [key: string]: any } }) {
-      const endPoint = `/${gateway}/api/queryArchivesList`;
+      const endPoint = `${slash}${gateway}/api/queryArchivesList`;
       return new Promise((resolve, reject) => {
         httpClient
           .post(endPoint, {
@@ -51,11 +55,12 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
           });
       });
     },
+    // @ts-ignore
     queryOneById({ resource, params }: { resource: string, params: { path: string, [key: string]: any } }) {
       return new Promise((resolve, reject) => {
         const { path, ...rest } = params;
         return httpClient
-          .get(`/${gateway}/api/${path ?? 'queryArchivesById'}/${resource}`, rest)
+          .get(`${slash}${gateway}/api/${path ?? 'queryArchivesById'}/${resource}`, rest)
           .then((res: any) => {
             resolve({
               data: listOneMapper(res.data.data)
@@ -69,7 +74,7 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
     likeIt(resource: string) {
       return new Promise((resolve, reject) => {
         return httpClient
-          .get(`/${gateway}/api/doStarByArcId/${resource}`)
+          .get(`${slash}${gateway}/api/doStarByArcId/${resource}`)
           .then((res: any) => {
             resolve({
               code: res.data.code
@@ -83,7 +88,7 @@ export default (httpClient: AxiosInstance, gateway: string = 'sw-cms'): CmsDataP
     unLikeIt(resource: string) {
       return new Promise((resolve, reject) => {
         return httpClient
-          .get(`/${gateway}/api/cancelStarByActId/${resource}`)
+          .get(`${slash}${gateway}/api/cancelStarByActId/${resource}`)
           .then((res: any) => {
             resolve({
               code: res.data.code

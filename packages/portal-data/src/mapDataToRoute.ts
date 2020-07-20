@@ -11,6 +11,7 @@ export default function mapDataToRoute(data: any, parent: any): IRoute {
   route.parent = parent;
   route.description = data.description;
   route.isVisible = data.isVisible;
+  route.imgSrc = data.bannerPhotoPath;
   route.isHome = data.channelNo === 'Home';
   return route;
 }

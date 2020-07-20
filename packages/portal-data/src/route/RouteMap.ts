@@ -8,6 +8,7 @@ export class RouteMap implements IRouteMap {
   public url: string | undefined;
   public id: string;
   public isVisible: boolean;
+  public imgSrc: string | undefined;
   public isHome: boolean;
   get path(): string {
     return toPath(this);
@@ -20,6 +21,7 @@ export class RouteMap implements IRouteMap {
     this.isHome = false;
     this.isVisible = true;
     this.id = '';
+    this.imgSrc = '';
     this.description = '';
   }
 }

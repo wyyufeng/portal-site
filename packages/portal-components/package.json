@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,7 +21,8 @@
     "prebuild": "npm run lint",
     "start": "tsdx watch",
     "build": "tsdx build",
-    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
+    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}",
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "react": "",

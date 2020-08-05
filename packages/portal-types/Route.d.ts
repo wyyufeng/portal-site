@@ -4,7 +4,7 @@ export interface IRoute {
   name: string;
   route: string;
   description?: string;
-  url?: string;
+  url: string;
   id: string;
   path: string;
   isHome: boolean;
@@ -18,7 +18,7 @@ export interface IRouteMap {
   name: string;
   route: string;
   description: string | undefined;
-  url: string | undefined;
+  url: string;
   id: string;
   isHome: boolean;
   isVisible: boolean;

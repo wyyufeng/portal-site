@@ -22,7 +22,7 @@ export interface PictureProps extends StyleFix {
   /**
    * 图片资源的基础地址
    */
-  base?: string;
+  base?: string | undefined;
   /**
    * `Picture`默认使用 `div`包裹,可以通过`wrapper` 修改
    */
@@ -35,7 +35,7 @@ export interface PictureProps extends StyleFix {
 export const Picture: FunctionComponent<PictureProps> = ({
   source,
   fallback = fallback_svg,
-  base = '',
+  base = undefined,
   alt,
   className,
   style = emptyObj,
@@ -44,7 +44,7 @@ export const Picture: FunctionComponent<PictureProps> = ({
   const imgRef = useRef<HTMLImageElement>(null);
   const config = useContext(PortalUIContext);
   const [loading, setLoading] = useState(true);
-  const _base = base || config.assetsPrefix;
+  const _base = base ?? config.assetsPrefix;
   const _fallback = fallback || config.pictureFallback;
 
   const sourceSets = useMemo(() => {
@@ -116,7 +116,7 @@ export const Picture: FunctionComponent<PictureProps> = ({
   );
 };
 Picture.defaultProps = {
-  base: '',
+  base: undefined,
   alt: '',
   wrapper: 'figure',
   className: ''

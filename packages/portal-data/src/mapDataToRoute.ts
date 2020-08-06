@@ -9,6 +9,7 @@ export default function mapDataToRoute(data: any, parent: any): IRoute {
   route.name = data.channelName;
   route.route = data.channelNo;
   route.parent = parent;
+  route.url = data.linkUrl || '/';
   route.description = data.description;
   route.isVisible = data.isVisible;
   route.imgSrc = data.bannerPhotoPath;

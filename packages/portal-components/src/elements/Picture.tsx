@@ -32,6 +32,12 @@ export interface PictureProps extends StyleFix {
    */
   alt?: string;
 }
+const testReg = /^http[s]{0,1}:/;
+// 检测当前路径是否为完整图片路径
+function isCompletePath(src: string): boolean {
+  return testReg.test(src);
+}
+
 export const Picture: FunctionComponent<PictureProps> = ({
   source,
   fallback = fallback_svg,
@@ -43,14 +49,16 @@ export const Picture: FunctionComponent<PictureProps> = ({
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const config = useContext(PortalUIContext);
+
   const [loading, setLoading] = useState(true);
   const _base = base ?? config.assetsPrefix;
   const _fallback = fallback || config.pictureFallback;
 
   const sourceSets = useMemo(() => {
-    const result = Array.isArray(source)
-      ? source.filter(Boolean).map((src) => encodeURI(_base + src))
-      : [source].filter(Boolean).map((src) => encodeURI(_base + src));
+    const sourceArr = Array.isArray(source) ? source : [source];
+    const result = sourceArr
+      .filter(Boolean)
+      .map((src) => (isCompletePath(src) ? src : _base + src));
     // 考虑到占位图一般是本地的
     result.push(_fallback);
     return result;

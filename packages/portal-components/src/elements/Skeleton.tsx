@@ -55,7 +55,6 @@ export default class Skeleton extends React.Component<SkeletonProps> {
       return (
         <div
           className={cx(
-            'portal-skeleton',
             css`
               display: inline-block;
               margin: 1.5rem 0;
@@ -66,6 +65,7 @@ export default class Skeleton extends React.Component<SkeletonProps> {
                 }
               }
             `,
+            'portal-skeleton',
             className,
             {
               'portal-skeleton-animation': animation

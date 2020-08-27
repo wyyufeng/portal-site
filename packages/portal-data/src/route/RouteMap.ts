@@ -36,6 +36,7 @@ function toPath(route: IRoute): string {
 
 const _flatResultCache: IRoute[] = [];
 const _flatToObjectResult: { [key: string]: IRoute } = {};
+const _flatToChannelIdObjectResult: { [key: string]: IRoute } = {};
 
 function _flatRoutes(root: any) {
   const children = root.children;
@@ -53,7 +54,14 @@ function _flatToObject(root: any) {
   }
   !root.isRoot && (_flatToObjectResult[root.route] = root);
 }
-
+function _flatToChannelIdObject(root: any) {
+  const children = root.children;
+  if (children.length > 0) {
+    !root.isRoot && (_flatToChannelIdObjectResult[root.id] = root);
+    children.map((i: any) => _flatToChannelIdObject(i));
+  }
+  !root.isRoot && (_flatToChannelIdObjectResult[root.id] = root);
+}
 export class RootRouteMap implements IRootRouteMap {
   isRoot: true;
   parent: null;
@@ -73,6 +81,11 @@ export class RootRouteMap implements IRootRouteMap {
     if (Object.keys(_flatToObjectResult).length > 0) return _flatToObjectResult;
     _flatToObject(this);
     return _flatToObjectResult;
+  }
+  flatToChannelIdObject(): { [key: string]: IRoute } {
+    if (Object.keys(_flatToChannelIdObjectResult).length > 0) return _flatToChannelIdObjectResult;
+    _flatToChannelIdObject(this);
+    return _flatToChannelIdObjectResult;
   }
   findByPath(path: string): IRoute | undefined {
     return this.flat().find((route) => route.path === path);

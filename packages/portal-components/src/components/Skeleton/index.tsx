@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { css } from 'emotion';
-import { skeleton_animation } from '../styles';
+import { skeleton_animation } from '../../styles';
 import { cx } from 'emotion';
-import { StyleFix } from '../types';
-import { emptyObj } from '../helper';
+import { StyleFix } from '../../types';
+import { emptyObj } from '../../helper';
 
 export interface SkeletonProps extends StyleFix {
   /**
@@ -55,7 +55,6 @@ export default class Skeleton extends React.Component<SkeletonProps> {
       return (
         <div
           className={cx(
-            'portal-skeleton',
             css`
               display: inline-block;
               margin: 1.5rem 0;
@@ -66,6 +65,7 @@ export default class Skeleton extends React.Component<SkeletonProps> {
                 }
               }
             `,
+            'portal-skeleton',
             className,
             {
               'portal-skeleton-animation': animation

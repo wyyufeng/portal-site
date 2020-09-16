@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/layer",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "Made with create-react-library",
   "author": "wyyufeng",
   "license": "MIT",
@@ -12,13 +12,6 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "style": "sass src/style.scss dist/style.css",
-    "start": "tsdx watch",
-    "build": "tsdx build && npm run style",
-    "prebuild": "npm run lint",
-    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
@@ -28,11 +21,11 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/react": "^16.9.27",
+    "@types/react": "^16.9.0",
     "sass": "^1.26.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": ""
+    "typescript": "*"
   },
   "files": [
     "dist",
@@ -41,7 +34,8 @@
   "dependencies": {
     "@types/react-modal": "^3.10.5",
     "eslint-config-react-app": "^5.2.1",
-    "react-modal": "^3.11.2"
+    "react-modal": "^3.11.2",
+    "warning": "^4.0.3"
   },
   "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"
 }

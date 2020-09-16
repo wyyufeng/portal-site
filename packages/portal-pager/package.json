@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/react": "^16.9.27",
+    "@types/react": "^16.9.0",
     "sass": "^1.26.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
@@ -40,7 +40,8 @@
   ],
   "dependencies": {
     "classnames": "",
-    "eslint-config-react-app": "^5.2.1"
+    "eslint-config-react-app": "^5.2.1",
+    "warning": "^4.0.3"
   },
   "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"
 }

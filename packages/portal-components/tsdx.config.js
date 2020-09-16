@@ -1,8 +1,8 @@
-const image = require('@rollup/plugin-image');
+const url = require('@rollup/plugin-url');
+const svgr = require('@svgr/rollup');
 module.exports = {
-  // This function will run for each entry/format/env combination
   rollup(config, options) {
-    config.plugins.unshift(image());
-    return config; // always return a config.
-  },
+    config.plugins.unshift(url(), svgr.default());
+    return config;
+  }
 };

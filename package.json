@@ -23,7 +23,7 @@
     "react-scripts": "3.4.1",
     "storybook-addon-deps": "^2.0.1",
     "ts-loader": "^7.0.4",
-    "typescript": "~3.7.2"
+    "typescript": ""
   },
   "scripts": {
     "publish": "npx lerna publish from-git -y",

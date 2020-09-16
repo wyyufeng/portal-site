@@ -1,12 +1,12 @@
 import React from 'react';
 
 export interface PortalUIContextProps {
-    assetsPrefix: string;
-    pictureFallback?: string;
+  assetsPrefix: string;
+  pictureFallback?: string;
 }
 export const PortalUIContext = React.createContext<PortalUIContextProps>({
-    assetsPrefix: '',
-    pictureFallback: ''
+  assetsPrefix: '',
+  pictureFallback: ''
 });
 
 export const PortalUIConsumer = PortalUIContext.Consumer;

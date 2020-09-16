@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactModal from 'react-modal';
+import ReactModal, { Props as ReactModalProps } from 'react-modal';
 import { FunctionComponent } from 'react';
 
 const PREFIX_KEY = 'portal-';
@@ -18,7 +18,7 @@ function prefix(fixcls: string | Array<string>): string {
   }
   return PREFIX_KEY + fixcls;
 }
-export interface Props {
+export interface Props extends ReactModalProps {
   className?: string;
   isOpen: boolean;
   handleClose?: React.MouseEventHandler | React.KeyboardEventHandler;
@@ -31,8 +31,10 @@ export interface Props {
   appElement?: HTMLElement;
   [key: string]: any;
 }
+
+const CONTENT_CLASS_NAMES_BASE = prefix('layer-content');
 const CONTENT_CLASS_NAMES = {
-  base: prefix('layer-content'),
+  base: CONTENT_CLASS_NAMES_BASE,
   afterOpen: prefix('layer-content-open'),
   beforeClose: prefix('layer-content-close')
 };
@@ -58,7 +60,7 @@ export const Layer: FunctionComponent<Props> = ({
   ...rest
 }) => {
   const portalClassName = prefix('layer');
-  CONTENT_CLASS_NAMES.base = `${CONTENT_CLASS_NAMES.base} ${transition}`;
+  CONTENT_CLASS_NAMES.base = `${CONTENT_CLASS_NAMES_BASE} ${transition}`;
   verticalCenter
     ? (MASK_CLASS_NAMES.base = `${MASK_CLASS_NAMES_BASE} verticalCenter`)
     : (MASK_CLASS_NAMES.base = MASK_CLASS_NAMES_BASE);

@@ -1,0 +1,60 @@
+{
+  "version": "0.6.1",
+  "name": "@portal-site/core",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/core.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "prebuild": "npm run lint",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "author": "wyyufeng",
+  "devDependencies": {
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "",
+    "@types/react-router-dom": "",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.0",
+    "typescript": ""
+  },
+  "dependencies": {
+    "@mpfe/mpa": "^1.0.9",
+    "@portal-site/types": "",
+    "@types/react-redux": "^7.1.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.x",
+    "eslint": "6.x",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.3",
+    "warning": "^4.0.3"
+  },
+  "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"
+}

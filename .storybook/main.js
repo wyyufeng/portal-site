@@ -9,10 +9,10 @@ module.exports = {
       options: assetRule.options || assetRule.query
     };
 
-    config.module.rules.unshift({
-      test: /\.svg$/,
-      use: ['@svgr/webpack', assetLoader]
-    });
+    // config.module.rules.unshift({
+    //   test: /\.svg$/,
+    //   use: ['@svgr/webpack', assetLoader]
+    // });
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [
@@ -27,7 +27,17 @@ module.exports = {
         }
       ]
     });
-
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true
+          }
+        }
+      ]
+    });
     config.resolve.extensions.push('.ts', '.tsx');
 
     return config;

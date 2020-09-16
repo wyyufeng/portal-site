@@ -3,15 +3,16 @@ import { css, cx } from 'emotion';
 import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IRootRouteMap } from '@portal-site/types';
+
 export interface Props {
   /**
    * 排除某些路由，这些路由将不会出现在导航中
    */
   exclude?: Array<string>;
   routes: IRootRouteMap;
+  isActive?: Function;
 }
-
-export const Nav: FunctionComponent<Props> = ({ exclude = [], routes }) => {
+export const Nav: FunctionComponent<Props> = ({ exclude = [], routes, isActive }) => {
   return (
     <nav
       className={cx(
@@ -69,7 +70,22 @@ export const Nav: FunctionComponent<Props> = ({ exclude = [], routes }) => {
                 )}
                 key={route.name}
               >
-                <NavLink to={route.url !== '/' ? route.url : route.path}>{route.name}</NavLink>
+                <NavLink
+                  to={route.url !== '/' ? route.url : route.path}
+                  isActive={(match, location) => {
+                    if (!isActive) {
+                      if (!match) {
+                        return false;
+                      } else {
+                        return true;
+                      }
+                    } else {
+                      return isActive(match, location, route.route);
+                    }
+                  }}
+                >
+                  {route.name}
+                </NavLink>
                 <nav
                   className={cx(
                     css`

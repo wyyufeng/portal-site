@@ -243,11 +243,11 @@ export const Title: React.FunctionComponent<TitleProps> = ({
 
 export interface LineProps extends StyleFix {
   /**
-   * 宽度
+   * 高度
    */
   height?: string;
   /**
-   * 高度
+   * 宽度
    */
   width?: string;
 }

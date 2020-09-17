@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "emotion": "^10.0.27",
-    "@portal-site/pager": "0.6.0",
-    "@portal-site/types": "0.6.2",
+    "@portal-site/pager": "",
+    "@portal-site/types": "",
     "eslint-config-react-app": "^5.2.1",
     "normalize.css": "^8.0.1",
     "object-fit-images": "^3.2.4",

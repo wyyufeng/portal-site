@@ -15,6 +15,7 @@ export interface AvatarProps extends StyleFix {
 }
 
 export const Avatar: FunctionComponent<AvatarProps> = ({ size = 60, color = '#fff' }) => {
+  console.log(AvatarSvg);
   return (
     <div
       className={css`

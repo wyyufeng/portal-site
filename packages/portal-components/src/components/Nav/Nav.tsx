@@ -19,6 +19,10 @@ export interface NavProps {
    */
   renderNavLink?: (route: IRoute) => JSX.Element;
   /**
+   * 自定义渲染二级导航，如果未指定该函数 则使用renderNavLink
+   */
+  renderChildrenNavLink?: (route: IRoute) => JSX.Element;
+  /**
    * @deprecated
    */
   isActive?: any;
@@ -27,15 +31,25 @@ export const Nav: FunctionComponent<NavProps> = ({
   exclude = [],
   routes,
   renderNavLink,
+  renderChildrenNavLink,
   isActive
 }) => {
   console.log(routes);
   warning(!isActive, 'isActive 已被弃用，请使用renderNavLink来自定义渲染!');
   let _renderNavLinks: any = null;
+  let _renderChildrenNavLinks: any = null;
   if (isFunction(renderNavLink)) {
     _renderNavLinks = renderNavLink;
   } else {
     _renderNavLinks = (route: IRoute) => <NavLink to={route.path}>{route.name}</NavLink>;
+  }
+  if (isFunction(renderChildrenNavLink)) {
+    _renderChildrenNavLinks = renderChildrenNavLink;
+    // 如果指定了一级导航渲染函数 则二级导航相同
+  } else if (isFunction(renderNavLink)) {
+    _renderChildrenNavLinks = renderNavLink;
+  } else {
+    _renderChildrenNavLinks = (child: IRoute) => <NavLink to={child.path}>{child.name}</NavLink>;
   }
   return (
     <nav
@@ -111,11 +125,7 @@ export const Nav: FunctionComponent<NavProps> = ({
                     {route.children
                       .filter((item) => !exclude.includes(item.route))
                       .map((child) => {
-                        return (
-                          <li key={child.name}>
-                            <NavLink to={child.path}>{child.name}</NavLink>
-                          </li>
-                        );
+                        return <li key={child.name}>{_renderChildrenNavLinks(child)}</li>;
                       })}
                   </ul>
                 </nav>

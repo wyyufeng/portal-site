@@ -10,6 +10,10 @@
     "dist",
     "src"
   ],
+  "scripts": {
+    "build:js": "tsdx build",
+    "watch": "tsdx watch"
+  },
   "engines": {
     "node": ">=10"
   },

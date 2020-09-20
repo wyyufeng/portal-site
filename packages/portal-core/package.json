@@ -1,5 +1,5 @@
 {
-  "version": "0.6.1",
+  "version": "0.7.0",
   "name": "@portal-site/core",
   "license": "MIT",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@mpfe/mpa": "^1.0.9",
-    "@portal-site/types": "*",
+    "@portal-site/types": "^0.7.0",
     "@types/react-redux": "^7.1.8",
     "@types/react-router-dom": "^5.1.5",
     "@typescript-eslint/eslint-plugin": "2.x",

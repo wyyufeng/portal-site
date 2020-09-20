@@ -2,11 +2,11 @@ import { Meta, Story, Canvas,ArgsTable ,Source} from '@storybook/addon-docs/bloc
 
 import { Button,ButtonGroup } from '../packages/portal-components/src';
 
-<Meta title="Button" component={Button} />
+<Meta title="Components/Button" component={Button} />
 
 # Button
 
-常用按钮组件
+即时操作组件
 
 #### 默认
 <Canvas>
@@ -48,5 +48,43 @@ import { Button,ButtonGroup } from '../packages/portal-components/src';
   </Story>
 </Canvas>
 
+### 圆角按钮
+
+<Canvas>
+  <Story name="Rounded">
+    <ButtonGroup>
+    <Button type="primary" rounded>圆角</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
 ## API
 <ArgsTable of={Button} />
+
+
+# ButtonGroup
+
+按钮容器
+
+### 居中
+<Canvas>
+  <Story name="AlignMiddle ButtonGroup">
+    <ButtonGroup alignMiddle>
+    <Button type="primary" rounded>圆角</Button>
+    <Button type="primary" rounded>圆角</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+### 靠右
+<Canvas>
+  <Story name="AlignRight ButtonGroup">
+    <ButtonGroup alignRight>
+    <Button type="primary" rounded>圆角</Button>
+    <Button type="primary" rounded>圆角</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+## API
+<ArgsTable of={ButtonGroup} />

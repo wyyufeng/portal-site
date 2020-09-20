@@ -30,5 +30,14 @@ module.exports = {
     config.resolve.extensions.push('.ts', '.tsx');
 
     return config;
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false
+      }
+    }
   }
 };

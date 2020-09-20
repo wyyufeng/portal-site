@@ -11,7 +11,7 @@
     "src"
   ],
   "scripts": {
-    "build:js": "tsdx build",
+    "build": "tsdx build",
     "watch": "tsdx watch"
   },
   "engines": {

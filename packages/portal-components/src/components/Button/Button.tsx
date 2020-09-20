@@ -1,8 +1,9 @@
 import { css, cx } from 'emotion';
 import React, { FunctionComponent, useEffect } from 'react';
+import { StyleFix } from 'types';
 import Spin from '../Spin';
 
-export interface ButtonProps {
+export interface ButtonProps extends StyleFix {
   /**
    * 是否显示loading
    */
@@ -27,6 +28,10 @@ export interface ButtonProps {
    * button type
    */
   type?: 'default' | 'primary';
+  /**
+   * 圆角按钮
+   */
+  rounded?: boolean;
 }
 
 export const Button: FunctionComponent<ButtonProps> = function({
@@ -36,7 +41,10 @@ export const Button: FunctionComponent<ButtonProps> = function({
   size = 'default',
   disabled = false,
   bindEnterKeyboard,
-  type = 'default'
+  type = 'default',
+  rounded,
+  className,
+  style
 }) {
   useEffect(() => {
     const handleEnter = (event: KeyboardEvent) => {
@@ -53,23 +61,27 @@ export const Button: FunctionComponent<ButtonProps> = function({
   }, [onClick, bindEnterKeyboard]);
   return (
     <button
+      style={style}
       className={cx(
         css`
           height: 32px;
+          min-width: 80px;
           line-height: 24px;
           display: inline-block;
+          color: #646464;
           outline: 0;
-          border: none;
+          border: 1px solid transparent;
+
           text-align: center;
           cursor: pointer;
           padding: 4px 15px;
           border-radius: 4px;
-          min-width: 60px;
           transition: all 0.3s;
           box-sizing: border-box;
-          background-color: #fff;
-          color: #646464;
-          transition: width 0.3s ease-in;
+          user-select: none;
+          box-shadow: none;
+          transition: all 0.3s ease-in;
+
           .portal-spin {
             vertical-align: text-top;
             margin-right: 6px;
@@ -84,33 +96,48 @@ export const Button: FunctionComponent<ButtonProps> = function({
             pointer-events: none;
             opacity: 0.55;
           }
-          &.md {
+          &.btn-md {
             width: 108px;
           }
-          &.lg {
+          &.btn-lg {
             width: 168px;
           }
-          &.full {
+          &.btn-full {
             width: 100%;
           }
           &.btn-primary {
+            border-color: transparent;
             background-color: #4285f4;
             color: #fff;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            &:hover {
+              opacity: 0.8;
+            }
           }
           &.btn-default {
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+            background-color: #fff;
+            border-color: #dbdbdb;
+            border-width: 1px;
+            box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.05);
+            &:hover {
+              border-color: #cccccc;
+            }
+          }
+          &.btn-rounded {
+            border-radius: 290486px;
           }
         `,
         {
           'btn-disabled': disabled,
           'btn-loading': loading,
-          md: size === 'md',
-          lg: size === 'lg',
-          full: size === 'full',
+          'btn-md': size === 'md',
+          'btn-lg': size === 'lg',
+          'btn-full': size === 'full',
           'btn-primary': type === 'primary',
-          'btn-default': type === 'default'
-        }
+          'btn-default': type === 'default',
+          'btn-rounded': rounded
+        },
+        className
       )}
       onClick={disabled || loading ? undefined : onClick}
     >
@@ -126,14 +153,46 @@ export const Button: FunctionComponent<ButtonProps> = function({
   );
 };
 
-export const ButtonGroup: FunctionComponent = ({ children }) => (
+export interface ButtonGroupProps {
+  /**
+   * 居中对齐
+   */
+  alignMiddle?: boolean;
+  /**
+   * 靠右
+   */
+  alignRight?: boolean;
+}
+
+export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
+  children,
+  alignMiddle,
+  alignRight
+}) => (
   <div
-    className={css`
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    `}
+    className={cx(
+      css`
+        align-items: center;
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        &.align-middle {
+          justify-content: center;
+        }
+        &.align-right {
+          justify-content: flex-end;
+        }
+
+        button:not(:last-child):not(.btn-full) {
+          margin-right: 0.5rem;
+        }
+      `,
+      {
+        'align-middle': alignMiddle,
+        'align-right': alignRight
+      }
+    )}
   >
     {children}
   </div>

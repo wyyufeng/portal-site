@@ -1,7 +1,7 @@
 import { css, cx } from 'emotion';
 import * as React from 'react';
 import { FunctionComponent, useEffect, useRef } from 'react';
-import Picture from '../../elements/Picture';
+import { Picture } from '../../elements/Picture';
 import CarouselLib from './lib';
 import { StyleFix } from '../../types';
 let ins: any = null;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { List, Picture } from '../packages/portal-components/src';
 
 export default {
-  title: 'List',
+  title: 'Components/List',
   parameters: { component: List }
 };
 const dataSource = [

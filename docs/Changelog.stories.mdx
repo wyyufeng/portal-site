@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+
+<Meta title="Changelog" />
+
+> 🎺有bug前往 (https://github.com/wyyufeng/portal-site/issues/new)
+
+> 🥁有功能提交前往(https://github.com/wyyufeng/portal-site/pulls)
+
+## 0.7.0
+
+### Features
+  - 修改目录结构
+  - 移除`Article`、`Header`没有实际用途的组件(💣breake change)
+  - 新增 [Avatar](/?path=/docs/components-avatar--basic) 组件
+  - 新增 [Button](/?path=/docs/components-button--basic) 组件
+  - 新增 [Empty](/?path=/docs/components-empty--basic) 组件
+  - 新增 [Picture](/?path=/docs/components-picture--basic) `ref`支持，现在通过`ref`可以获取到 `img`元素
+  - 修改 [Carousel](/?path=/docs/components-carousel--custom-render) 自定义渲染函数，现在可通过自定义函数渲染每个幻灯元素
+  - 修改[Nav](/?path=/docs/components-nav--base)组件,移除 `isActive`(💣breake change)。现在可以通过自定义函数实现不同的逻辑
+  - 修改[Spin](/?path=/docs/components-spin--basic)组件的loading样式
+  - 修改 [Layer](/?path=/docs/layer-layer--basic) 组件,使用emotion替换sass,新增`Confirm`组件皮肤，新增`dialog`工厂方法
+
+### Bug Fixes
+  - 修复 portal-data 中的类型定义问题

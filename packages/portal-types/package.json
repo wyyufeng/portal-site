@@ -1,20 +1,24 @@
 {
-	"name": "@portal-site/types",
-	"version": "0.6.2",
-	"description": "",
-	"main": "",
-	"keywords": [],
-	"publishConfig": {
-		"registry": "https://registry.npmjs.org",
-		"access": "public"
-	},
-	"author": "",
-	"license": "MIT",
-	"types": "index",
-	"gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597",
-	"dependencies": {
-		"cz-emoji": "^1.2.2",
-		"eslint-config-react-app": "^5.2.1",
-		"warning": "^4.0.3"
-	}
+  "name": "@portal-site/types",
+  "version": "0.6.2",
+  "description": "",
+  "main": "",
+  "keywords": [],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdx build",
+    "watch": "tsdx watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "types": "index",
+  "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597",
+  "dependencies": {
+    "cz-emoji": "^1.2.2",
+    "eslint-config-react-app": "^5.2.1",
+    "warning": "^4.0.3"
+  }
 }

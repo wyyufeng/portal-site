@@ -2,11 +2,14 @@ import * as React from 'react';
 
 import { Layer, dialog } from '../packages/portal-layer/src/index';
 export default {
-  title: 'Layer',
-  parameters: { component: Layer }
+  title: 'Layer/Layer',
+  parameters: {
+    component: Layer,
+    description: 'some component _markdown_'
+  }
 };
 
-export const Base = () => {
+export const Basic = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <div>
@@ -31,6 +34,7 @@ export const Dialog = () => {
           ),
           title: '确认删除吗',
           cancelButton: false,
+          transition: 'scale',
           onOK: () => {
             return new Promise((resolve) => {
               setTimeout(() => {

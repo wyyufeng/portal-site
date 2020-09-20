@@ -4,7 +4,6 @@ import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IRootRouteMap, IRoute } from '@portal-site/types';
 import { isFunction } from '../../helper';
-import warning from 'warning';
 export interface NavProps {
   /**
    * 排除某些路由，这些路由将不会出现在导航中
@@ -22,26 +21,21 @@ export interface NavProps {
    * 自定义渲染二级导航，如果未指定该函数 则使用renderNavLink
    */
   renderChildrenNavLink?: (route: IRoute) => JSX.Element;
-  /**
-   * @deprecated
-   */
-  isActive?: any;
 }
 export const Nav: FunctionComponent<NavProps> = ({
   exclude = [],
   routes,
   renderNavLink,
-  renderChildrenNavLink,
-  isActive
+  renderChildrenNavLink
 }) => {
-  console.log(routes);
-  warning(!isActive, 'isActive 已被弃用，请使用renderNavLink来自定义渲染!');
   let _renderNavLinks: any = null;
   let _renderChildrenNavLinks: any = null;
   if (isFunction(renderNavLink)) {
     _renderNavLinks = renderNavLink;
   } else {
-    _renderNavLinks = (route: IRoute) => <NavLink to={route.path}>{route.name}</NavLink>;
+    _renderNavLinks = (route: IRoute) => (
+      <NavLink to={route.url !== '/' && route.url ? route.url : route.path}>{route.name}</NavLink>
+    );
   }
   if (isFunction(renderChildrenNavLink)) {
     _renderChildrenNavLinks = renderChildrenNavLink;
@@ -49,7 +43,9 @@ export const Nav: FunctionComponent<NavProps> = ({
   } else if (isFunction(renderNavLink)) {
     _renderChildrenNavLinks = renderNavLink;
   } else {
-    _renderChildrenNavLinks = (child: IRoute) => <NavLink to={child.path}>{child.name}</NavLink>;
+    _renderChildrenNavLinks = (child: IRoute) => (
+      <NavLink to={child.url !== '/' && child.url ? child.url : child.path}>{child.name}</NavLink>
+    );
   }
   return (
     <nav

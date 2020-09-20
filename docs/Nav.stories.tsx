@@ -7,7 +7,7 @@ import {
   // @ts-ignore
 } from '../packages/portal-components/node_modules/react-router-dom';
 export default {
-  title: 'Nav',
+  title: 'Components/Nav',
   parameters: { component: Nav }
 };
 

@@ -28,7 +28,9 @@ class CarouselLib {
 
   init(): CarouselLib {
     this.slides.forEach((node) => {
-      node.style.cssText = 'opacity:0;transform:scale(1,1);z-index:-1';
+      node.style.opacity = '0';
+      node.style.transform = "scale(1,1)";
+      node.style.zIndex = '-1';
     });
 
     this.navItems.forEach((node, index) => {

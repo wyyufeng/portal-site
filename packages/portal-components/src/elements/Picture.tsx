@@ -32,12 +32,16 @@ function isCompletePath(src: string): boolean {
   return testReg.test(src);
 }
 
-export const Picture = React.forwardRef<HTMLElement, PictureProps>(
+/**
+ * Picture组件等同于 img 元素，但提供了默认图、地址过滤、polyfill等功能
+ */
+export const Picture = React.forwardRef<HTMLImageElement, PictureProps>(
   (
     { source, fallback = fallback_svg, base = undefined, alt, className, style = emptyObj },
     ref
   ) => {
-    const imgRef = useRef<HTMLImageElement>(null);
+    const defaultRef = useRef<HTMLImageElement>(null);
+    const resolvedRef = ref || defaultRef;
     const config = useContext(PortalUIContext);
 
     const [loading, setLoading] = useState(true);
@@ -55,7 +59,8 @@ export const Picture = React.forwardRef<HTMLElement, PictureProps>(
     }, [source, _base, _fallback]);
 
     useEffect(() => {
-      const current = imgRef.current as HTMLImageElement;
+      const current = (resolvedRef as React.RefObject<HTMLImageElement>)
+        .current as HTMLImageElement;
       current.src = sourceSets.shift() as string;
       function onError() {
         const src = sourceSets.length && sourceSets.shift();
@@ -85,7 +90,6 @@ export const Picture = React.forwardRef<HTMLElement, PictureProps>(
     }, [sourceSets]);
     return (
       <figure
-        ref={ref}
         style={style}
         className={cx(
           css`
@@ -106,10 +110,13 @@ export const Picture = React.forwardRef<HTMLElement, PictureProps>(
           className={css({
             height: '100%',
             maxWidth: '100%',
-            objectFit: imgRef.current?.src === fallback_svg ? 'contain' : 'cover'
+            objectFit:
+              (resolvedRef as React.RefObject<HTMLImageElement>).current?.src === fallback_svg
+                ? 'contain'
+                : 'cover'
           })}
           alt={alt}
-          ref={imgRef}
+          ref={resolvedRef}
         ></img>
       </figure>
     );
@@ -120,4 +127,3 @@ Picture.defaultProps = {
   alt: '',
   className: ''
 };
-export default Picture;

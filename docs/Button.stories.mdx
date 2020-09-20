@@ -1,0 +1,90 @@
+import { Meta, Story, Canvas,ArgsTable ,Source} from '@storybook/addon-docs/blocks';
+
+import { Button,ButtonGroup } from '../packages/portal-components/src';
+
+<Meta title="Components/Button" component={Button} />
+
+# Button
+
+即时操作组件
+
+#### 默认
+<Canvas>
+  <Story name="Basic">
+    <Button>Basic</Button>
+  </Story>
+</Canvas>
+
+### 不同类型按钮
+<Canvas>
+  <Story name="Type">
+    <ButtonGroup>
+    <Button>Default</Button>
+    <Button type="primary">Primary</Button>
+  </ButtonGroup>
+  </Story>
+</Canvas>
+
+### 不同大小按钮
+<Canvas>
+  <Story name="Size">
+    <ButtonGroup>
+    <Button type="primary">default</Button>
+    <Button type="primary" size="md">md</Button>
+    <Button type="primary" size="lg">lg</Button>
+    <Button type="primary" size="full">full</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+### 不同状态按钮
+
+<Canvas>
+  <Story name="Status">
+    <ButtonGroup>
+    <Button disabled>disabled</Button>
+    <Button type="primary" loading>loading</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+### 圆角按钮
+
+<Canvas>
+  <Story name="Rounded">
+    <ButtonGroup>
+    <Button type="primary" rounded>圆角</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+## API
+<ArgsTable of={Button} />
+
+
+# ButtonGroup
+
+按钮容器
+
+### 居中
+<Canvas>
+  <Story name="AlignMiddle ButtonGroup">
+    <ButtonGroup alignMiddle>
+    <Button type="primary" rounded>圆角</Button>
+    <Button type="primary" rounded>圆角</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+### 靠右
+<Canvas>
+  <Story name="AlignRight ButtonGroup">
+    <ButtonGroup alignRight>
+    <Button type="primary" rounded>圆角</Button>
+    <Button type="primary" rounded>圆角</Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+## API
+<ArgsTable of={ButtonGroup} />

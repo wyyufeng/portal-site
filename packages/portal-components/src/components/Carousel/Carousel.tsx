@@ -1,12 +1,13 @@
 import { css, cx } from 'emotion';
 import * as React from 'react';
 import { FunctionComponent, useEffect, useRef } from 'react';
-import Picture from '../../elements/Picture';
+import { Picture } from '../../elements/Picture';
 import CarouselLib from './lib';
 import { StyleFix } from '../../types';
 let ins: any = null;
 let timer: any = null;
 
+type DataShape = string | { imgSrc: string; [key: string]: any };
 export interface CarouselProps extends StyleFix {
   /**
    * 启动延时
@@ -17,14 +18,32 @@ export interface CarouselProps extends StyleFix {
    */
   duration?: number;
   /**
-   * 资源名
+   * 数据源
    */
-  dataSource?: Array<string>;
+  dataSource?: DataShape[];
   /**
-   * 渲染函数
+   * 自定义渲染函数
    */
-  renderSlide?: (item: string, index: number) => React.ReactNode;
+  renderSlide?: (item: DataShape, index: number) => React.ReactNode;
 }
+
+const Slide: FunctionComponent = ({ children }) => (
+  <div
+    className={cx(
+      css`
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      `,
+      'portal-carousel-slide'
+    )}
+  >
+    {children}
+  </div>
+);
 
 export const Carousel: FunctionComponent<CarouselProps> = ({
   delay = 200,
@@ -36,23 +55,10 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
 }) => {
   const wrapperRef = useRef(null);
   const navRef = useRef(null);
-  const render = (imgSrc: string) => (
-    <Picture
-      key={imgSrc}
-      className={cx(
-        css`
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          z-index: 0;
-        `,
-        'portal-carousel-slide'
-      )}
-      source={imgSrc}
-    ></Picture>
-  );
+  const render = (item: DataShape) => {
+    const imgSrc = typeof item === 'string' ? item : item.imgSrc;
+    return <Picture key={imgSrc} source={imgSrc}></Picture>;
+  };
   const _renderSlide = renderSlide || render;
   useEffect(() => {
     timer = setTimeout(() => {
@@ -67,7 +73,9 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
       clearTimeout(timer);
     };
   }, [delay, duration, dataSource.length]);
-  const items = dataSource.map(_renderSlide);
+  const items = dataSource.map((item, index) => (
+    <Slide key={index}>{_renderSlide(item, index)}</Slide>
+  ));
   return (
     <div
       style={style}
@@ -116,7 +124,7 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
             'portal-carousel-nav'
           )}
         >
-          {dataSource.map((imgSrc) => (
+          {dataSource.map((_, index) => (
             <i
               className={cx(
                 css`
@@ -133,7 +141,7 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
                 `,
                 'portal-carousel-nav-item'
               )}
-              key={imgSrc}
+              key={index}
             ></i>
           ))}
         </div>

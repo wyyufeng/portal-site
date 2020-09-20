@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+
+import { Carousel } from '../packages/portal-components/src';
+
+<Meta title="Components/Carousel" component={Carousel} />
+
+# Avarar
+
+幻灯片
+
+## Basic
+
+<Canvas>
+  <Story name="Basic">
+    <Carousel
+      dataSource={[
+        "https://images.unsplash.com/photo-1587587004741-ea9a81b70bf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1593223772770-1841a123740a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1593055132632-6aeec3f1dc00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      ]}
+    />
+  </Story>
+</Canvas>
+
+## Custom Render
+
+在默认的渲染无法满足需求时，可通过自定义渲染函数，改变渲染内容或者添加其他交互
+
+<Canvas>
+  <Story name="Custom Render">
+    <Carousel
+      renderSlide={(item, index) => (
+        <div
+          style={{
+            backgroundImage: `url("${item}")`,
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0,
+            zIndex: 0,
+          }}
+        >
+          <h1
+            style={{
+              color: "#fff",
+            }}
+          >
+            {`这是第${index + 1}个`}
+          </h1>
+        </div>
+      )}
+      dataSource={[
+        "https://images.unsplash.com/photo-1587587004741-ea9a81b70bf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1593223772770-1841a123740a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1593055132632-6aeec3f1dc00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      ]}
+    />
+  </Story>
+</Canvas>
+
+
+## API
+<ArgsTable of={Carousel} />

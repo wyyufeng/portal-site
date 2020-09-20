@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas,ArgsTable ,Source} from '@storybook/addon-docs/blocks';
+
+import { Spin } from '../packages/portal-components/src';
+
+<Meta title="Components/Spin" component={Spin} />
+
+# Spin
+
+用于页面和区块的加载中状态。
+
+#### 默认
+<Canvas>
+  <Story name="Basic">
+    <Spin/>
+  </Story>
+</Canvas>
+
+#### 颜色和大小
+<Canvas>
+  <Story name="Color and Size">
+    <Spin indicator={Spin.SpinIndicatorC2} color="red" size={64}/>
+  </Story>
+</Canvas>
+
+#### 不同指示符
+
+<Canvas>
+  <Story name="Style1">
+    <Spin/>
+  </Story>
+  <Story name="Style2">
+     <Spin indicator={Spin.SpinIndicatorC2} />
+  </Story>
+  <Story name="Style3">
+    <Spin indicator={Spin.SpinIndicatorC3} />
+  </Story>
+</Canvas>
+
+#### 提示文字
+
+<Canvas>
+  <Story name="With Tip">
+    <Spin tip={"loading"} />
+  </Story>
+</Canvas>
+
+## API
+<ArgsTable of={Spin} />

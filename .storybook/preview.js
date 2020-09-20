@@ -4,8 +4,8 @@ import { DocsPage } from 'storybook-addon-deps/blocks';
 addParameters({
   options: {
     showRoots: true,
-    storySort: (a, b) => {
-      return a[1].kind.includes('Portal-Site|Start') ? -1 : 1;
+    storySort: {
+      order: ['Start', 'Changelog', 'Components']
     }
   },
   docs: { page: DocsPage },

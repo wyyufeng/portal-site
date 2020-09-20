@@ -12,9 +12,9 @@ export interface SpinProps extends StyleFix {
    */
   color?: string;
   /**
-   * 大小
+   * 大小(像素)
    */
-  size?: string;
+  size?: number;
   /**
    * 加载符号
    */
@@ -23,6 +23,10 @@ export interface SpinProps extends StyleFix {
    * 是否显示加载
    */
   spinning?: boolean;
+  /**
+   * 自定义描述
+   */
+  tip?: string;
 }
 
 interface SpinFunctionComponent<P = {}> extends FunctionComponent<P> {
@@ -36,8 +40,9 @@ export const Spin: SpinFunctionComponent<SpinProps> = ({
   style,
   indicator: Indicator = SpinIndicatorC1,
   spinning = true,
-  color,
-  size
+  color = '#1890ff',
+  size = 24,
+  tip
 }) => {
   return (
     <div
@@ -48,7 +53,6 @@ export const Spin: SpinFunctionComponent<SpinProps> = ({
           display: inline-block;
           margin: 0;
           padding: 0;
-          font-size: ${size};
           font-variant: tabular-nums;
           line-height: 1.5715;
           font-feature-settings: 'tnum';
@@ -61,7 +65,32 @@ export const Spin: SpinFunctionComponent<SpinProps> = ({
         className
       )}
     >
-      {spinning && <Indicator />}
+      <span
+        className={css`
+          width: 1em;
+          height: 1em;
+          color: inherit;
+          display: inline-block;
+          position: relative;
+          font-size: ${size}px;
+          svg {
+            display: inline-block;
+            vertical-align: top;
+          }
+        `}
+      >
+        {spinning && <Indicator />}
+      </span>
+      <span
+        className={css`
+          display: block;
+          font-size: 14px;
+          text-align: center;
+          text-shadow: 0 1px 2px #fff;
+        `}
+      >
+        {tip}
+      </span>
     </div>
   );
 };

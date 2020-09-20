@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/pager",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Made with create-react-library",
   "author": "wyyufeng",
   "license": "MIT",
@@ -13,11 +13,9 @@
     "node": ">=10"
   },
   "scripts": {
-    "style": "sass src/style.scss dist/style.css",
-    "start": "tsdx watch",
-    "build": "tsdx build && npm run style",
-    "prebuild": "npm run lint",
-    "lint": "eslint -c .eslintrc.js src/**/*.{ts,tsx}"
+    "build": "npm run build:css & npm run build:js",
+    "build:js": "tsdx build",
+    "build:css": "sass src/style.scss dist/style.css"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
@@ -32,14 +30,14 @@
     "sass": "^1.26.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": ""
+    "typescript": "*"
   },
   "files": [
     "dist",
     "src"
   ],
   "dependencies": {
-    "classnames": "",
+    "classnames": "*",
     "eslint-config-react-app": "^5.2.1",
     "warning": "^4.0.3"
   },

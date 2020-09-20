@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas,ArgsTable ,Source} from '@storybook/addon-docs/blocks';
+
+
+import { Avatar } from '../packages/portal-components/src';
+
+<Meta title="Components/Avatar" component={Avatar} />
+
+
+# Avarar
+
+用来代表用户，或用于默认头像
+
+
+
+## 演示
+
+#### Basic
+
+<Canvas>
+  <Story name="Basic">
+    <Avatar/>
+  </Story>
+</Canvas>
+
+#### 自定义大小
+
+<Canvas>
+  <Story name="Size">
+    <Avatar size={64}/>
+  </Story>
+</Canvas>
+
+#### 自定义颜色
+
+<Canvas>
+  <Story name="Color">
+    <Avatar size={64} color="#87d068"/>
+  </Story>
+</Canvas>
+
+## API
+<ArgsTable of={Avatar} />

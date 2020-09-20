@@ -33,8 +33,12 @@ export const Empty: FunctionComponent<EmpryProps> = ({
     >
       <div
         className={css`
-          height: 40px;
+          height: 80px;
           margin-bottom: 8px;
+          font-size: 80px;
+          svg {
+            margin: auto;
+          }
         `}
       >
         <EmptyIcon></EmptyIcon>

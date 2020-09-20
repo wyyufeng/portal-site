@@ -1,0 +1,84 @@
+import { Meta, Story, Canvas,ArgsTable ,Source} from '@storybook/addon-docs/blocks';
+
+import { Skeleton } from '../packages/portal-components/src';
+
+<Meta title="Components/Skeleton" component={Skeleton} />
+
+# Skeletion
+
+在需要等待加载内容的位置提供一个占位图形组合。Skeleton提供了一些基础元素，可以自由组合创造出各类样式
+
+#### 默认
+
+<Canvas>
+  <Story name="Basic">
+    <Skeleton/>
+  </Story>
+</Canvas>
+
+#### 基础元素-Line
+
+<Canvas>
+  <Story name="Line">
+    <Skeleton.Line/>
+  </Story>
+</Canvas>
+
+##### API
+
+<ArgsTable of={Skeleton.Line} />
+
+#### 基础元素-Avatar
+
+<Canvas>
+  <Story name="Avatar">
+    <Skeleton.Avatar/>
+  </Story>
+</Canvas>
+
+##### API
+
+<ArgsTable of={Skeleton.Avatar} />
+
+#### 预设-文字段落
+
+<Canvas>
+  <Story name="Paragraph">
+    <Skeleton.Paragraph/>
+  </Story>
+</Canvas>
+
+##### API
+
+<ArgsTable of={Skeleton.Paragraph} />
+
+#### 预设-文字标题
+
+<Canvas>
+  <Story name="Title">
+    <Skeleton.Title/>
+  </Story>
+</Canvas>
+
+##### API
+
+<ArgsTable of={Skeleton.Title} />
+
+#### 预设-列表
+
+<Canvas>
+  <Story name="List">
+    <Skeleton.List/>
+  </Story>
+</Canvas>
+
+#### 预设-卡片
+
+<Canvas>
+  <Story name="Card">
+    <Skeleton.Card/>
+  </Story>
+</Canvas>
+
+## API
+<ArgsTable of={Skeleton} />

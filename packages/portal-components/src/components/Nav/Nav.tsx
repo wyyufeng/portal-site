@@ -4,7 +4,6 @@ import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IRootRouteMap, IRoute } from '@portal-site/types';
 import { isFunction } from '../../helper';
-import warning from 'warning';
 export interface NavProps {
   /**
    * 排除某些路由，这些路由将不会出现在导航中
@@ -19,23 +18,34 @@ export interface NavProps {
    */
   renderNavLink?: (route: IRoute) => JSX.Element;
   /**
-   * @deprecated
+   * 自定义渲染二级导航，如果未指定该函数 则使用renderNavLink
    */
-  isActive?: any;
+  renderChildrenNavLink?: (route: IRoute) => JSX.Element;
 }
 export const Nav: FunctionComponent<NavProps> = ({
   exclude = [],
   routes,
   renderNavLink,
-  isActive
+  renderChildrenNavLink
 }) => {
-  console.log(routes);
-  warning(!isActive, 'isActive 已被弃用，请使用renderNavLink来自定义渲染!');
   let _renderNavLinks: any = null;
+  let _renderChildrenNavLinks: any = null;
   if (isFunction(renderNavLink)) {
     _renderNavLinks = renderNavLink;
   } else {
-    _renderNavLinks = (route: IRoute) => <NavLink to={route.path}>{route.name}</NavLink>;
+    _renderNavLinks = (route: IRoute) => (
+      <NavLink to={route.url !== '/' && route.url ? route.url : route.path}>{route.name}</NavLink>
+    );
+  }
+  if (isFunction(renderChildrenNavLink)) {
+    _renderChildrenNavLinks = renderChildrenNavLink;
+    // 如果指定了一级导航渲染函数 则二级导航相同
+  } else if (isFunction(renderNavLink)) {
+    _renderChildrenNavLinks = renderNavLink;
+  } else {
+    _renderChildrenNavLinks = (child: IRoute) => (
+      <NavLink to={child.url !== '/' && child.url ? child.url : child.path}>{child.name}</NavLink>
+    );
   }
   return (
     <nav
@@ -111,11 +121,7 @@ export const Nav: FunctionComponent<NavProps> = ({
                     {route.children
                       .filter((item) => !exclude.includes(item.route))
                       .map((child) => {
-                        return (
-                          <li key={child.name}>
-                            <NavLink to={child.path}>{child.name}</NavLink>
-                          </li>
-                        );
+                        return <li key={child.name}>{_renderChildrenNavLinks(child)}</li>;
                       })}
                   </ul>
                 </nav>

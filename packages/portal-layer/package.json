@@ -12,6 +12,10 @@
   "engines": {
     "node": ">=10"
   },
+  "scripts": {
+    "build": "tsdx build",
+    "watch": "tsdx watch"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"

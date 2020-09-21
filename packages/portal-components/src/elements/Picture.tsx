@@ -7,7 +7,6 @@ import fallback_svg from '../assets/no-img.svg';
 import { PortalUIContext } from '../config-context';
 import { skeleton_animation } from '../styles';
 import { StyleFix } from '../types';
-import { emptyObj } from '../helper';
 export interface PictureProps extends StyleFix {
   /**
    * 图片资源地址,如果传递数组，将显示第一个加载成功的图片，或者显示fallback
@@ -25,6 +24,10 @@ export interface PictureProps extends StyleFix {
    * 图像的文本描述
    */
   alt?: string;
+  /**
+   * 其他
+   */
+  [key: string]: any;
 }
 const testReg = /^http[s]{0,1}:/;
 // 检测当前路径是否为完整图片路径
@@ -36,10 +39,7 @@ function isCompletePath(src: string): boolean {
  * Picture组件等同于 img 元素，但提供了默认图、地址过滤、polyfill等功能
  */
 export const Picture = React.forwardRef<HTMLImageElement, PictureProps>(
-  (
-    { source, fallback = fallback_svg, base = undefined, alt, className, style = emptyObj },
-    ref
-  ) => {
+  ({ source, fallback = fallback_svg, base = undefined, alt, className, style, ...rest }, ref) => {
     const defaultRef = useRef<HTMLImageElement>(null);
     const resolvedRef = ref || defaultRef;
     const config = useContext(PortalUIContext);
@@ -105,6 +105,7 @@ export const Picture = React.forwardRef<HTMLImageElement, PictureProps>(
           'portal-picture',
           className
         )}
+        {...rest}
       >
         <img
           className={css({

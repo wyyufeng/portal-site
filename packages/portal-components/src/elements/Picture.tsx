@@ -31,7 +31,7 @@ export interface PictureProps extends StyleFix {
 }
 const testReg = /^http[s]{0,1}:/;
 // 检测当前路径是否为完整图片路径
-function isCompletePath(src: string): boolean {
+export function isUrl(src: string): boolean {
   return testReg.test(src);
 }
 
@@ -50,9 +50,7 @@ export const Picture = React.forwardRef<HTMLImageElement, PictureProps>(
 
     const sourceSets = useMemo(() => {
       const sourceArr = Array.isArray(source) ? source : [source];
-      const result = sourceArr
-        .filter(Boolean)
-        .map((src) => (isCompletePath(src) ? src : _base + src));
+      const result = sourceArr.filter(Boolean).map((src) => (isUrl(src) ? src : _base + src));
       // 考虑到占位图一般是本地的
       result.push(_fallback);
       return result;

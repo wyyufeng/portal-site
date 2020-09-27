@@ -4,6 +4,7 @@ import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IRootRouteMap, IRoute } from '@portal-site/types';
 import { isFunction } from '../../helper';
+import { isUrl } from 'elements/Picture';
 export interface NavProps {
   /**
    * 排除某些路由，这些路由将不会出现在导航中
@@ -22,6 +23,7 @@ export interface NavProps {
    */
   renderChildrenNavLink?: (route: IRoute) => JSX.Element;
 }
+
 export const Nav: FunctionComponent<NavProps> = ({
   exclude = [],
   routes,
@@ -33,9 +35,17 @@ export const Nav: FunctionComponent<NavProps> = ({
   if (isFunction(renderNavLink)) {
     _renderNavLinks = renderNavLink;
   } else {
-    _renderNavLinks = (route: IRoute) => (
-      <NavLink to={route.url !== '/' && route.url ? route.url : route.path}>{route.name}</NavLink>
-    );
+    _renderNavLinks = (route: IRoute) => {
+      if (route.url && isUrl(route.url))
+        return (
+          <a href={route.url} target="_blank" rel="noopener noreferrer">
+            {route.name}
+          </a>
+        );
+      return (
+        <NavLink to={route.url !== '/' && route.url ? route.url : route.path}>{route.name}</NavLink>
+      );
+    };
   }
   if (isFunction(renderChildrenNavLink)) {
     _renderChildrenNavLinks = renderChildrenNavLink;

@@ -2,6 +2,8 @@ import { css } from "emotion";
 
 export const portalClassName = 'portal-layer'
 
+
+
 export const CONTENT_CLASS_NAMES_BASE = css`
   display: flex;
   justify-content: center;

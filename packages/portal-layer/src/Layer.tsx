@@ -10,6 +10,8 @@ import {
 } from './style';
 import { getScrollbarWidth } from './scrollWidth';
 
+import { Global, css } from '@emotion/core';
+
 export interface LayerProps extends ReactModalProps {
   className?: string;
   isOpen: boolean;
@@ -28,20 +30,23 @@ export const Layer: FunctionComponent<LayerProps> = ({
   handleClose,
   className = '',
   verticalCenter,
+  onAfterClose,
+  shouldCloseOnEsc = true,
+  shouldCloseOnOverlayClick = true,
   ...rest
 }) => {
+  const fixOnAfterClose = () => {
+    document.body.style.width = '';
+    onAfterClose && onAfterClose();
+  };
+
   React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
     if (isOpen) {
       const w = getScrollbarWidth() || 0;
       if (w > 1) {
-        document.body.style.paddingRight = w + 'px';
+        document.body.style.width = `calc(100% - ${w}px)`;
       } else {
-        document.body.style.paddingRight = 0 + 'px';
+        document.body.style.width = '';
       }
     }
   }, [isOpen]);
@@ -52,13 +57,14 @@ export const Layer: FunctionComponent<LayerProps> = ({
     : (MASK_CLASS_NAMES.base = MASK_CLASS_NAMES_BASE);
   return (
     <ReactModal
+      onAfterClose={fixOnAfterClose}
       appElement={body}
       onRequestClose={handleClose}
       bodyOpenClassName="portal-layer-body-open"
       htmlOpenClassName="portal-layer-html-open"
       style={style}
-      shouldCloseOnEsc={true}
-      shouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={shouldCloseOnEsc}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
       closeTimeoutMS={350}
       portalClassName={className ? `${portalClassName} ${className}` : portalClassName}
       overlayClassName={MASK_CLASS_NAMES}
@@ -66,6 +72,14 @@ export const Layer: FunctionComponent<LayerProps> = ({
       className={CONTENT_CLASS_NAMES}
       {...rest}
     >
+      <Global
+        styles={css`
+          .portal-layer-body-open,
+          .portal-layer-html-open {
+            overflow: hidden;
+          }
+        `}
+      ></Global>
       {children}
     </ReactModal>
   );

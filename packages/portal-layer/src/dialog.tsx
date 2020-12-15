@@ -1,27 +1,18 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Confirm, _destroyFns } from './Confirm';
+import { Confirm, ConfirmFuncProps, _destroyFns } from './Confirm';
 
-export interface DialogFuncProps {
-  title?: React.ReactNode;
-  okText?: React.ReactNode;
-  cancelText?: React.ReactNode;
-  onOK?: (...args: any[]) => any;
-  onCancel?: (...args: any[]) => any;
-  content?: React.ReactNode;
-  cancelButton?: boolean;
-  [k: string]: any;
-}
+const likePromise = (fn: any) =>
+  !!fn && typeof fn.then === 'function' && typeof fn.catch === 'function';
 
-const likePromise = (fn: any) => typeof fn.then === 'function' && typeof fn.catch === 'function';
-
-export function dialog(config: DialogFuncProps) {
+export function dialog(config: ConfirmFuncProps) {
   const container = document.createElement('div');
   document.body.appendChild(container);
 
   const handleOk = () => {
-    if (config.onOK) {
-      const result = config.onOK();
+    if (config.onOk) {
+      const result = config.onOk();
+
       if (likePromise(result)) {
         update({
           confirmLoading: true
@@ -75,12 +66,12 @@ export function dialog(config: DialogFuncProps) {
     currentConfig = {
       ...currentConfig,
       isOpen: false,
-      onAfterClose: destroy
+      afterClose: destroy
     };
     render(currentConfig);
   }
 
-  function update(newConfig: DialogFuncProps) {
+  function update(newConfig: ConfirmFuncProps) {
     currentConfig = {
       ...currentConfig,
       ...newConfig

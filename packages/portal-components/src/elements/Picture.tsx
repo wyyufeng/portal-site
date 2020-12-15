@@ -61,8 +61,9 @@ export const Picture = React.forwardRef<HTMLImageElement, PictureProps>(
         .current as HTMLImageElement;
       current.src = sourceSets.shift() as string;
       function onError() {
-        const src = sourceSets.length && sourceSets.shift();
+        const src = sourceSets.length > 0 ? sourceSets.shift() : '';
         src && (current.src = src);
+        current.dataset.imgSrc = src;
         if (!sourceSets.length && !fallback) {
           current.style.display = 'none';
         }
@@ -106,14 +107,17 @@ export const Picture = React.forwardRef<HTMLImageElement, PictureProps>(
         {...rest}
       >
         <img
-          className={css({
-            height: '100%',
-            maxWidth: '100%',
-            objectFit:
-              (resolvedRef as React.RefObject<HTMLImageElement>).current?.src === fallback_svg
-                ? 'contain'
-                : 'cover'
-          })}
+          className={cx(
+            css({
+              height: '100%',
+              maxWidth: '100%',
+              objectFit: 'contain'
+            }),
+            {
+              'is-fallback':
+                (resolvedRef as React.RefObject<HTMLImageElement>).current?.src === fallback_svg
+            }
+          )}
           alt={alt}
           ref={resolvedRef}
         ></img>

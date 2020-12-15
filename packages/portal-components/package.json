@@ -1,6 +1,6 @@
 {
   "name": "@portal-site/components",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -23,7 +23,8 @@
   },
   "peerDependencies": {
     "react": "",
-    "react-dom": ""
+    "react-dom": "",
+    "react-router-dom": "^5.2.0"
   },
   "husky": {},
   "author": "wyyufeng",
@@ -44,7 +45,6 @@
     "normalize.css": "^8.0.1",
     "object-fit-images": "^3.2.4",
     "react-feather": "^2.0.3",
-    "react-router-dom": "^5.2.0",
     "warning": "^4.0.3"
   },
   "gitHead": "0871ec4a745f769c360a6f66e8fed3401cd17597"

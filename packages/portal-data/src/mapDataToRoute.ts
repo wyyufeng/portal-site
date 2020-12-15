@@ -1,7 +1,7 @@
 import { IRoute } from '@portal-site/types';
 import { RouteMap } from './route';
 
-export default function mapDataToRoute(data: any, parent: any): IRoute {
+export function mapDataToRoute(data: any, parent: any): IRoute {
   const route = new RouteMap();
   const children = data.subChannel ? data.subChannel.map((i: any) => mapDataToRoute(i, route)) : [];
   route.id = data.channelId;
@@ -16,3 +16,4 @@ export default function mapDataToRoute(data: any, parent: any): IRoute {
   route.isHome = data.channelNo === 'Home';
   return route;
 }
+export default mapDataToRoute

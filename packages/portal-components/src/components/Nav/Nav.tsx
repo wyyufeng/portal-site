@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IRootRouteMap, IRoute } from '@portal-site/types';
 import { isFunction } from '../../helper';
-import { isUrl } from 'elements/Picture';
+import { isUrl } from '../../elements/Picture';
 export interface NavProps {
   /**
    * 排除某些路由，这些路由将不会出现在导航中
@@ -36,12 +36,14 @@ export const Nav: FunctionComponent<NavProps> = ({
     _renderNavLinks = renderNavLink;
   } else {
     _renderNavLinks = (route: IRoute) => {
-      if (route.url && isUrl(route.url))
+      if (route.url && isUrl(route.url)) {
         return (
           <a href={route.url} target="_blank" rel="noopener noreferrer">
             {route.name}
           </a>
         );
+      }
+
       return (
         <NavLink to={route.url !== '/' && route.url ? route.url : route.path}>{route.name}</NavLink>
       );
@@ -53,9 +55,18 @@ export const Nav: FunctionComponent<NavProps> = ({
   } else if (isFunction(renderNavLink)) {
     _renderChildrenNavLinks = renderNavLink;
   } else {
-    _renderChildrenNavLinks = (child: IRoute) => (
-      <NavLink to={child.url !== '/' && child.url ? child.url : child.path}>{child.name}</NavLink>
-    );
+    _renderChildrenNavLinks = (child: IRoute) => {
+      if (child.url && isUrl(child.url)) {
+        return (
+          <a href={child.url} target="_blank" rel="noopener noreferrer">
+            {child.name}
+          </a>
+        );
+      }
+      return (
+        <NavLink to={child.url !== '/' && child.url ? child.url : child.path}>{child.name}</NavLink>
+      );
+    };
   }
   return (
     <nav

@@ -1,6 +1,6 @@
 import { css, cx } from 'emotion';
 import React, { FunctionComponent, useEffect } from 'react';
-import { StyleFix } from 'types';
+import { StyleFix } from '../../types';
 import Spin from '../Spin';
 
 export interface ButtonProps extends StyleFix {
@@ -32,6 +32,10 @@ export interface ButtonProps extends StyleFix {
    * 圆角按钮
    */
   rounded?: boolean;
+  /**
+   * 原生button type属性
+   */
+  htmlType?: 'button' | 'reset' | 'submit';
 }
 
 export const Button: FunctionComponent<ButtonProps> = function({
@@ -42,6 +46,7 @@ export const Button: FunctionComponent<ButtonProps> = function({
   disabled = false,
   bindEnterKeyboard,
   type = 'default',
+  htmlType = 'button',
   rounded,
   className,
   style
@@ -62,6 +67,7 @@ export const Button: FunctionComponent<ButtonProps> = function({
   return (
     <button
       style={style}
+      type={htmlType}
       className={cx(
         css`
           height: 32px;
@@ -109,14 +115,14 @@ export const Button: FunctionComponent<ButtonProps> = function({
             border-color: transparent;
             background-color: #4285f4;
             color: #fff;
-            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.26);
             &:hover {
               opacity: 0.8;
             }
           }
           &.btn-default {
             background-color: #fff;
-            border-color: #dbdbdb;
+            border-color: rgba(219, 219, 219, 0.5);
             border-width: 1px;
             box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.05);
             &:hover {
@@ -153,7 +159,7 @@ export const Button: FunctionComponent<ButtonProps> = function({
   );
 };
 
-export interface ButtonGroupProps {
+export interface ButtonGroupProps extends StyleFix {
   /**
    * 居中对齐
    */
@@ -167,7 +173,9 @@ export interface ButtonGroupProps {
 export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
   children,
   alignMiddle,
-  alignRight
+  alignRight,
+  style,
+  className
 }) => (
   <div
     className={cx(
@@ -191,8 +199,10 @@ export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
       {
         'align-middle': alignMiddle,
         'align-right': alignRight
-      }
+      },
+      className
     )}
+    style={style}
   >
     {children}
   </div>
